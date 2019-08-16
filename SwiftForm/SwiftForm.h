@@ -2,7 +2,6 @@
 //  SwiftForm.h
 //  SwiftForm
 //
-//  Created by Romain on 15/06/2019.
 //  Copyright © 2019 itzseven. All rights reserved.
 //
 
