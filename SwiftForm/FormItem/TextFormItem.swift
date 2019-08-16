@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TextFormItemErrorProvider: FormItemErrorProvider {
+public protocol TextFormItemErrorProvider: FormItemErrorProvider {
   
   var emptyError: String? { get }
 }

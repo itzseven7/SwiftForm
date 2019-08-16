@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BoundedValueFormItemErrorProvider: FormItemErrorProvider {
+public protocol BoundedValueFormItemErrorProvider: FormItemErrorProvider {
   
   var lessThanLowerBoundError: String? { get }
   

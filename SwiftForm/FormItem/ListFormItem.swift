@@ -21,7 +21,7 @@ open class ListFormItem<T: Equatable>: BaseFormItem<T> {
     return errorProvider as? ListFormItemErrorProvider
   }
   
-  init(value: T? = nil, values: [T]) {
+  public init(value: T? = nil, values: [T]) {
     self.values = values
     super.init(value: value)
   }
@@ -54,7 +54,7 @@ open class MultiValueListFormItem<T: Equatable>: BaseFormItem<[T]> {
     return errorProvider as? MultiValueListFormItemErrorProvider
   }
   
-  init(value: [T]? = nil, values: [T]) {
+  public init(value: [T]? = nil, values: [T]) {
     self.values = values
     super.init(value: value)
   }

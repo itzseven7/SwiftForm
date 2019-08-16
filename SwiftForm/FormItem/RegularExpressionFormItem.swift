@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol RegularExpressionFormItemErrorProvider: TextFormItemErrorProvider {
+public protocol RegularExpressionFormItemErrorProvider: TextFormItemErrorProvider {
   
-  func unmatchedPatternsError(for patterns: [String]) -> String
+  func unmatchedPatternsError(for patterns: [String]) -> String?
 }
 
 open class RegularExpressionFormItem: TextFormItem {
@@ -20,7 +20,7 @@ open class RegularExpressionFormItem: TextFormItem {
     return errorProvider as? RegularExpressionFormItemErrorProvider
   }
   
-  init(value: String? = nil, patterns: [String]) {
+  public init(value: String? = nil, patterns: [String]) {
     self.patterns = patterns
     super.init(value: value)
   }

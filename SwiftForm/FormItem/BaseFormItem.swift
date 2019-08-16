@@ -21,7 +21,7 @@ open class BaseFormItem<ValueType: Equatable>: FormItem {
   internal var initialValue: ValueType?
   
   /// Validates the given value
-  /// A default validator is created during form item initialization. It assigns the new value to the form item, validates it and notifies all form items subscribers
+  /// A default validator is created during form item initialization. It assigns the new value to the form item, validates it and notifies all form item's subscribers
   public var validator: ((ValueType?) -> Void)?
   
   /// An error object which defines error messages

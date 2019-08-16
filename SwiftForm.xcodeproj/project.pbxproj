@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A159D9D230052F6006DC991 /* DateOfRegistrationFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A159D9C230052F6006DC991 /* DateOfRegistrationFormItem.swift */; };
 		7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */; };
 		7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793422C40C5700A8BAC1 /* ViewController.swift */; };
 		7A2A793822C40C5700A8BAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A793622C40C5700A8BAC1 /* Main.storyboard */; };
@@ -23,6 +24,11 @@
 		7A5B17E322B58B9200111A8A /* TextFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DD22B58B9100111A8A /* TextFormItem.swift */; };
 		7A5B17E422B58B9200111A8A /* RegularExpressionFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DE22B58B9100111A8A /* RegularExpressionFormItem.swift */; };
 		7A5B17E522B58B9200111A8A /* FormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DF22B58B9200111A8A /* FormItem.swift */; };
+		7A7F45F022FDE88500BE10BA /* FirstNameFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45EF22FDE88500BE10BA /* FirstNameFormItem.swift */; };
+		7A7F45F222FDE89000BE10BA /* LastNameFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45F122FDE89000BE10BA /* LastNameFormItem.swift */; };
+		7A7F45F422FDE8B100BE10BA /* DateOfBirthFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45F322FDE8B100BE10BA /* DateOfBirthFormItem.swift */; };
+		7A7F45F622FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45F522FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift */; };
+		7A7F45F822FDE8E900BE10BA /* EmailAddressFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45F722FDE8E900BE10BA /* EmailAddressFormItem.swift */; };
 		7A86D24522BE71E000C3F45A /* FormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24422BE71E000C3F45A /* FormTests.swift */; };
 		7A86D24722BE72E700C3F45A /* FormMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24622BE72E700C3F45A /* FormMocks.swift */; };
 		7A86D24922BE73E800C3F45A /* BaseFormItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24822BE73E800C3F45A /* BaseFormItemTests.swift */; };
@@ -52,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A159D9C230052F6006DC991 /* DateOfRegistrationFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfRegistrationFormItem.swift; sourceTree = "<group>"; };
 		7A2A793022C40C5700A8BAC1 /* SwiftFormTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFormTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A2A793422C40C5700A8BAC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +79,11 @@
 		7A5B17DD22B58B9100111A8A /* TextFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormItem.swift; sourceTree = "<group>"; };
 		7A5B17DE22B58B9100111A8A /* RegularExpressionFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressionFormItem.swift; sourceTree = "<group>"; };
 		7A5B17DF22B58B9200111A8A /* FormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormItem.swift; sourceTree = "<group>"; };
+		7A7F45EF22FDE88500BE10BA /* FirstNameFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNameFormItem.swift; sourceTree = "<group>"; };
+		7A7F45F122FDE89000BE10BA /* LastNameFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNameFormItem.swift; sourceTree = "<group>"; };
+		7A7F45F322FDE8B100BE10BA /* DateOfBirthFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthFormItem.swift; sourceTree = "<group>"; };
+		7A7F45F522FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOfBirthFormItem.swift; sourceTree = "<group>"; };
+		7A7F45F722FDE8E900BE10BA /* EmailAddressFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAddressFormItem.swift; sourceTree = "<group>"; };
 		7A86D24422BE71E000C3F45A /* FormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTests.swift; sourceTree = "<group>"; };
 		7A86D24622BE72E700C3F45A /* FormMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormMocks.swift; sourceTree = "<group>"; };
 		7A86D24822BE73E800C3F45A /* BaseFormItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFormItemTests.swift; sourceTree = "<group>"; };
@@ -113,13 +125,19 @@
 		7A2A793122C40C5700A8BAC1 /* SwiftFormTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				7A45420922DB3A8100CE8737 /* PasswordFormItem.swift */,
 				7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */,
 				7A2A793422C40C5700A8BAC1 /* ViewController.swift */,
 				7A2A793622C40C5700A8BAC1 /* Main.storyboard */,
 				7A2A793922C40C5800A8BAC1 /* Assets.xcassets */,
 				7A2A793B22C40C5800A8BAC1 /* LaunchScreen.storyboard */,
 				7A2A793E22C40C5800A8BAC1 /* Info.plist */,
+				7A7F45EF22FDE88500BE10BA /* FirstNameFormItem.swift */,
+				7A7F45F122FDE89000BE10BA /* LastNameFormItem.swift */,
+				7A7F45F322FDE8B100BE10BA /* DateOfBirthFormItem.swift */,
+				7A159D9C230052F6006DC991 /* DateOfRegistrationFormItem.swift */,
+				7A7F45F522FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift */,
+				7A7F45F722FDE8E900BE10BA /* EmailAddressFormItem.swift */,
+				7A45420922DB3A8100CE8737 /* PasswordFormItem.swift */,
 			);
 			path = SwiftFormTestApp;
 			sourceTree = "<group>";
@@ -335,8 +353,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A159D9D230052F6006DC991 /* DateOfRegistrationFormItem.swift in Sources */,
 				7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */,
+				7A7F45F422FDE8B100BE10BA /* DateOfBirthFormItem.swift in Sources */,
 				7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */,
+				7A7F45F022FDE88500BE10BA /* FirstNameFormItem.swift in Sources */,
+				7A7F45F222FDE89000BE10BA /* LastNameFormItem.swift in Sources */,
+				7A7F45F622FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift in Sources */,
+				7A7F45F822FDE8E900BE10BA /* EmailAddressFormItem.swift in Sources */,
 				7A45420A22DB3A8100CE8737 /* PasswordFormItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
