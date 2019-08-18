@@ -1,5 +1,5 @@
 //
-//  BaseFormItem.swift
+//  ValueValidator.swift
 //  SwiftForm
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -7,25 +7,26 @@
 
 import Foundation
 
-/// This class defines a form item with a generic value. You usually do not instantiate this class directly, but subclass it.
-open class BaseFormItem<ValueType: Equatable>: FormItem {
+public protocol ValueValidatorErrorProvider {
   
-  /// The current value of the form item
+  var noValueError: String? { get }
+}
+
+/// This class defines a validator with a generic value. You usually do not instantiate this class directly, but subclass it.
+open class ValueValidator<ValueType: Equatable>: Validator {
+  
+  /// The current value of the validator
   public var value: ValueType? {
     didSet {
       checkValidity()
     }
   }
   
-  /// The value set at form item initialization
+  /// The value set at validator initialization
   internal var initialValue: ValueType?
   
-  /// Validates the given value
-  /// A default validator is created during form item initialization. It assigns the new value to the form item, validates it and notifies all form item's subscribers
-  public var validator: ((ValueType?) -> Void)?
-  
   /// An error object which defines error messages
-  public var errorProvider: FormItemErrorProvider?
+  public var errorProvider: ValueValidatorErrorProvider?
   
   public var hasChanges: Bool {
     return value != initialValue
@@ -42,23 +43,22 @@ open class BaseFormItem<ValueType: Equatable>: FormItem {
   
   private var subscribersHandler: [((ValueType?) -> Void)] = []
   
-  /// Initializes a new form item
+  /// Initializes a new validator
   ///
   /// - Parameter value: the initial value
   public init(value: ValueType? = nil) {
     self.value = value
     self.initialValue = value
     
-    // Default validator
-    self.validator = { [weak self] value in
-      self?.value = value
-      self?.checkValidity()
-      self?.notify()
-    }
-    
     if value != nil {
       checkValidity()
     }
+  }
+  
+  public func validate(_ value: ValueType?) {
+    self.value = value
+    checkValidity()
+    notify()
   }
   
   public func checkValidity() {
@@ -81,7 +81,7 @@ open class BaseFormItem<ValueType: Equatable>: FormItem {
     subscribersHandler.forEach { $0(value) }
   }
   
-  /// Resets the form item
+  /// Resets the validator
   public func reset() {
     value = initialValue
     isValid = nil

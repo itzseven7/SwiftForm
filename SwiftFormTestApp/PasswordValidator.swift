@@ -1,5 +1,5 @@
 //
-//  PasswordFormItem.swift
+//  PasswordValidator.swift
 //  SwiftFormTestApp
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftForm
 
-final class PasswordFormItem: RegularExpressionFormItem {
+final class PasswordValidator: RegularExpressionValidator {
   
   static let minimumCharacters = 8
   static let maximumCharacters = 128
@@ -21,25 +21,25 @@ final class PasswordFormItem: RegularExpressionFormItem {
   
   init(password: String? = nil) {
     super.init(value: password,
-               patterns: [PasswordFormItem.numberOfCharactersRegex,
-                          PasswordFormItem.lowercaseLetterRegex,
-                          PasswordFormItem.uppercaseLetterRegex,
-                          PasswordFormItem.digitRegex,
-                          PasswordFormItem.specialCharactersRegex])
+               patterns: [PasswordValidator.numberOfCharactersRegex,
+                          PasswordValidator.lowercaseLetterRegex,
+                          PasswordValidator.uppercaseLetterRegex,
+                          PasswordValidator.digitRegex,
+                          PasswordValidator.specialCharactersRegex])
   }
 }
 
-extension PasswordFormItem: RegularExpressionFormItemErrorProvider {
+extension PasswordValidator: RegularExpressionValidatorErrorProvider {
   func unmatchedPatternsError(for patterns: [String]) -> String? {
-    guard !patterns.contains(PasswordFormItem.numberOfCharactersRegex) else {
+    guard !patterns.contains(PasswordValidator.numberOfCharactersRegex) else {
       return PatternError.numberOfCharacters.error
     }
     
-    guard !patterns.contains(PasswordFormItem.specialCharactersRegex) else {
+    guard !patterns.contains(PasswordValidator.specialCharactersRegex) else {
       return PatternError.specialCharacters.error
     }
     
-    var unmatchedPatternsMask = PasswordFormItemRegexOptionSet(rawValue: 0)
+    var unmatchedPatternsMask = PasswordValidatorRegexOptionSet(rawValue: 0)
     
     patterns.compactMap { optionSet(for: $0) }.forEach { unmatchedPatternsMask = unmatchedPatternsMask.union($0) }
     
@@ -54,31 +54,31 @@ extension PasswordFormItem: RegularExpressionFormItemErrorProvider {
     return "You must specify a password."
   }
   
-  private func optionSet(for regularExpression: String) -> PasswordFormItemRegexOptionSet? {
+  private func optionSet(for regularExpression: String) -> PasswordValidatorRegexOptionSet? {
     switch regularExpression {
-    case PasswordFormItem.numberOfCharactersRegex:
+    case PasswordValidator.numberOfCharactersRegex:
       return .numberOfCharacters
-    case PasswordFormItem.lowercaseLetterRegex:
+    case PasswordValidator.lowercaseLetterRegex:
       return .lowercaseLetter
-    case PasswordFormItem.uppercaseLetterRegex:
+    case PasswordValidator.uppercaseLetterRegex:
       return .uppercaseLetter
-    case PasswordFormItem.digitRegex:
+    case PasswordValidator.digitRegex:
       return .digit
-    case PasswordFormItem.specialCharactersRegex:
+    case PasswordValidator.specialCharactersRegex:
       return .specialCharacters
     default:
       return nil
     }
   }
   
-  private struct PasswordFormItemRegexOptionSet: OptionSet {
+  private struct PasswordValidatorRegexOptionSet: OptionSet {
     let rawValue: Int
     
-    static let numberOfCharacters = PasswordFormItemRegexOptionSet(rawValue: 0 << 0)
-    static let lowercaseLetter = PasswordFormItemRegexOptionSet(rawValue: 1 << 0)
-    static let uppercaseLetter = PasswordFormItemRegexOptionSet(rawValue: 1 << 1)
-    static let digit = PasswordFormItemRegexOptionSet(rawValue: 1 << 2)
-    static let specialCharacters = PasswordFormItemRegexOptionSet(rawValue: 1 << 3)
+    static let numberOfCharacters = PasswordValidatorRegexOptionSet(rawValue: 0 << 0)
+    static let lowercaseLetter = PasswordValidatorRegexOptionSet(rawValue: 1 << 0)
+    static let uppercaseLetter = PasswordValidatorRegexOptionSet(rawValue: 1 << 1)
+    static let digit = PasswordValidatorRegexOptionSet(rawValue: 1 << 2)
+    static let specialCharacters = PasswordValidatorRegexOptionSet(rawValue: 1 << 3)
   }
   
   enum PatternError: CaseIterable {

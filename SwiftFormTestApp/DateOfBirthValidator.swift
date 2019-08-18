@@ -1,5 +1,5 @@
 //
-//  DateOfBirthFormItem.swift
+//  DateOfBirthValidator.swift
 //  SwiftFormTestApp
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftForm
 
-final class DateOfBirthFormItem: BoundedValueFormItem<Date> {
+final class DateOfBirthValidator: BoundedValueValidator<Date> {
   private var minimumAge: Int = 18
   private var maximumAge: Int = 120
   
@@ -18,18 +18,18 @@ final class DateOfBirthFormItem: BoundedValueFormItem<Date> {
     let date = Date()
     let calendar = Calendar.current
     
-    lowerBound = calendar.date(byAdding: .year, value: -maximumAge, to: date)
-    upperBound = calendar.date(byAdding: .year, value: -minimumAge, to: date)
+    minimumValue = calendar.date(byAdding: .year, value: -maximumAge, to: date)
+    maximumValue = calendar.date(byAdding: .year, value: -minimumAge, to: date)
     errorProvider = self
   }
 }
 
-extension DateOfBirthFormItem: BoundedValueFormItemErrorProvider {
-  var lessThanLowerBoundError: String? {
+extension DateOfBirthValidator: BoundedValueValidatorErrorProvider {
+  var lessThanMinimumValueError: String? {
     return "You can't be too old."
   }
   
-  var greaterThanUpperBoundError: String? {
+  var greaterThanMaximumValueError: String? {
     return "You must be 18 years old."
   }
   

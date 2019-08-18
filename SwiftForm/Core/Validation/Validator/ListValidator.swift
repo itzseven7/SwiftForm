@@ -1,24 +1,24 @@
 //
-//  ListFormItem.swift
+//  ListValidator.swift
 //  CPA-ios
 //
-//  Copyright © 2019 itzseven7. All rights reserved.
+//  Copyright © 2019 itzseven. All rights reserved.
 //
 
 import Foundation
 
-protocol ListFormItemErrorProvider: FormItemErrorProvider {
+protocol ListValidatorErrorProvider: ValueValidatorErrorProvider {
   
   /// Error when the value is not in the list
   var valueNotInListError: String? { get }
 }
 
-open class ListFormItem<T: Equatable>: BaseFormItem<T> {
+open class ListValidator<T: Equatable>: ValueValidator<T> {
   
   public var values: [T]
   
-  private var listErrorProvider: ListFormItemErrorProvider? {
-    return errorProvider as? ListFormItemErrorProvider
+  private var listErrorProvider: ListValidatorErrorProvider? {
+    return errorProvider as? ListValidatorErrorProvider
   }
   
   public init(value: T? = nil, values: [T]) {
@@ -38,20 +38,20 @@ open class ListFormItem<T: Equatable>: BaseFormItem<T> {
   }
 }
 
-protocol MultiValueListFormItemErrorProvider: FormItemErrorProvider {
+protocol MultiValueListValidatorErrorProvider: ValueValidatorErrorProvider {
   
   var valuesNotInListError: String? { get }
   
   var valuesInExcludedSubsetError: String? { get }
 }
 
-open class MultiValueListFormItem<T: Equatable>: BaseFormItem<[T]> {
+open class MultiValueListValidator<T: Equatable>: ValueValidator<[T]> {
   public var values: [T]
   
   public var excludedSubsets: [[T]]?
   
-  private var listErrorProvider: MultiValueListFormItemErrorProvider? {
-    return errorProvider as? MultiValueListFormItemErrorProvider
+  private var listErrorProvider: MultiValueListValidatorErrorProvider? {
+    return errorProvider as? MultiValueListValidatorErrorProvider
   }
   
   public init(value: [T]? = nil, values: [T]) {

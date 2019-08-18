@@ -1,5 +1,5 @@
 //
-//  FormMocks.swift
+//  ValidatorMocks.swift
 //  SwiftFormTests
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,12 +8,12 @@
 import Foundation
 @testable import SwiftForm
 
-class DefaultForm: Form {
-  var items: [FormItem] = []
+class DefaultValidatorList: ValidatorList {
+  var items: [Validator] = []
 }
 
-class FormMock: Form {
-  var items: [FormItem] = []
+class ValidatorListMock: ValidatorList {
+  var items: [Validator] = []
   
   var shouldBeValid = false
   var isValid: Bool? { return shouldBeValid }
@@ -28,7 +28,7 @@ class FormMock: Form {
   }
 }
 
-class FormItemMock: FormItem {
+class ValidatorMock: Validator {
   var error: String?
   
   var shouldBeValid: Bool?

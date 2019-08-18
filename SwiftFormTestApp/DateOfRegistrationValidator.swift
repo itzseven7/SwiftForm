@@ -1,5 +1,5 @@
 //
-//  DateOfRegistrationFormItem.swift
+//  DateOfRegistrationValidator.swift
 //  SwiftFormTestApp
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,22 +8,22 @@
 import Foundation
 import SwiftForm
 
-final class DateOfRegistrationFormItem: BoundedValueFormItem<Date> {
+final class DateOfRegistrationValidator: BoundedValueValidator<Date> {
   init(value: Date?, dateOfBirth: Date?) {
     super.init(value: value)
     
-    lowerBound = dateOfBirth
-    upperBound = Date()
+    minimumValue = dateOfBirth
+    maximumValue = Date()
     errorProvider = self
   }
 }
 
-extension DateOfRegistrationFormItem: BoundedValueFormItemErrorProvider {
-  var lessThanLowerBoundError: String? {
+extension DateOfRegistrationValidator: BoundedValueValidatorErrorProvider {
+  var lessThanMinimumValueError: String? {
     return "Your registration date can't be prior to your date of birth."
   }
   
-  var greaterThanUpperBoundError: String? {
+  var greaterThanMaximumValueError: String? {
     return "Your registration date can't be in the future."
   }
   

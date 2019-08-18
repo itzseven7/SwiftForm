@@ -1,5 +1,5 @@
 //
-//  EmailAddressFormItem.swift
+//  EmailAddressValidator.swift
 //  SwiftFormTestApp
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftForm
 
-final class EmailAddressFormItem: RegularExpressionFormItem {
+final class EmailAddressValidator: RegularExpressionValidator {
   init(email: String? = nil) {
     super.init(value: email, patterns: ["^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"])
     
@@ -16,7 +16,7 @@ final class EmailAddressFormItem: RegularExpressionFormItem {
   }
 }
 
-extension EmailAddressFormItem: RegularExpressionFormItemErrorProvider {
+extension EmailAddressValidator: RegularExpressionValidatorErrorProvider {
   func unmatchedPatternsError(for patterns: [String]) -> String? {
     return "Your email address has an invalid format."
   }
