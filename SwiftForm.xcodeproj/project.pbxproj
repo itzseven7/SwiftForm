@@ -44,6 +44,7 @@
 		7AF2F3442309A6CF000B6DE0 /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */; };
 		7AF2F3452309A6CF000B6DE0 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3402309A6CF000B6DE0 /* Form.swift */; };
 		7AF2F3472309AC66000B6DE0 /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */; };
+		7AF2F3492309DE73000B6DE0 /* Containable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3482309DE73000B6DE0 /* Containable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
 		7AF2F3402309A6CF000B6DE0 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
+		7AF2F3482309DE73000B6DE0 /* Containable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Containable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		7A5B17C122B58A4300111A8A /* SwiftForm */ = {
 			isa = PBXGroup;
 			children = (
+				7AF2F3482309DE73000B6DE0 /* Containable.swift */,
 				7AF2F33D2309A6CF000B6DE0 /* FormItem.swift */,
 				7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */,
 				7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */,
@@ -413,6 +416,7 @@
 			files = (
 				7AF2F3472309AC66000B6DE0 /* FormTableViewController.swift in Sources */,
 				7AF2F337230997E0000B6DE0 /* Validable.swift in Sources */,
+				7AF2F3492309DE73000B6DE0 /* Containable.swift in Sources */,
 				7AF2F3422309A6CF000B6DE0 /* FormItem.swift in Sources */,
 				7AF2F3442309A6CF000B6DE0 /* FormSection.swift in Sources */,
 				7A5B17E122B58B9200111A8A /* BoundedValueValidator.swift in Sources */,

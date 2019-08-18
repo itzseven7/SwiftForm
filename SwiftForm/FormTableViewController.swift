@@ -102,9 +102,14 @@ class FormTableViewController: UIViewController, TableViewFormDelegate, UITableV
     tableView.endUpdates()
   }
   
+  // TODO: With the table view we should have the following behavior
+  // On any form item event that supposedly only updates the UI, we should NOT reload the table view but still update cells (beginUpdates/endUpdates)
+  // On any form item event that change the datasource, we should reload (didn't found a case where it happens though)
+  // cellForRow => called only once, dequeue the correct cell from the form item
+  // willDisplay => called only once, assign the form item to the cell (container)
+  //
   func formItemsDidUpdate(_ formItems: [FormItem]) {
     tableView.beginUpdates()
-    tableView.reloadRows(at: formItems.map { $0.indexPath }, with: .automatic)
     tableView.endUpdates()
   }
   

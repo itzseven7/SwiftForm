@@ -39,7 +39,7 @@ protocol FormDelegate: class {
   func formSectionsDidBecomeVisible(_ formSections: [FormSection])
   func formSectionsDidHide(_ formSections: [FormSection])
   
-  func formItemsDidUpdate(_ formItems: [FormItem])
+  func formItemsDidUpdate(_ formItems: [FormItem]) // maybe another method to tell the form that the update is purely UI (the source does not change)
   func formItemsDidBecomeVisible(_ formItems: [FormItem])
   func formItemsDidHide(_ formItems: [FormItem])
 }

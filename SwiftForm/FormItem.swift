@@ -15,7 +15,7 @@ protocol FormItem: class {
   
   var title: String? { get }
   
-  var titleAttributedString: NSAttributedString? { get }
+  var titleAttributedString: NSAttributedString? { get } // we should remove this and add a configureTitleLabel(_ label: UILabel) method
   
   var description: String? { get }
   
@@ -50,17 +50,25 @@ extension FormItem {
   }
 }
 
-class BaseFormItem<ValueType: Comparable, InputValueType>: FormItem {
+protocol FormItemObserver {
+  func onValidationEvent() // validation of the validator
+  func onActivationEvent() // isEnabled change
+  func onEditingEvent() // isEditing change
+  func onVisibilityEvent() // isHidden change
+}
+
+class FormItemInput<ValueType: Comparable, InputValueType>: FormItem {
   var validator: Validator {
     return base
   }
   
-  var base: ValueValidator<ValueType>!
+  public final var base: ValueValidator<ValueType>!
   
   var value: ValueType? {
     return base.value
   }
   
+  /// The input value reflects the current value of the input
   public var inputValue: InputValueType?
   
   public var indexPath: IndexPath = IndexPath(item: 0, section: 0)
@@ -94,6 +102,10 @@ class BaseFormItem<ValueType: Comparable, InputValueType>: FormItem {
     return ValueValidator(value: value)
   }
   
+  public func validate() {
+    base.validate(self.value(from: inputValue))
+  }
+  
   // Conversion methods
   
   func value(from inputValue: InputValueType?) -> ValueType? {
@@ -107,7 +119,7 @@ class BaseFormItem<ValueType: Comparable, InputValueType>: FormItem {
   }
 }
 
-class TextFormItemViewModel<ValueType: Comparable>: BaseFormItem<ValueType, String> {
+class TextFormItemInput<ValueType: Comparable>: FormItemInput<ValueType, String> {
   var text: String? {
     let inputValue = self.inputValue(from: base.value)
     return formatted(inputValue) ?? inputValue
@@ -126,6 +138,6 @@ class TextFormItemViewModel<ValueType: Comparable>: BaseFormItem<ValueType, Stri
   }
 }
 
-class TextFieldFormItemViewModel<ValueType: Comparable>: TextFormItemViewModel<ValueType> {
+class TextFieldFormItemInput<ValueType: Comparable>: TextFormItemInput<ValueType> {
   
 }
