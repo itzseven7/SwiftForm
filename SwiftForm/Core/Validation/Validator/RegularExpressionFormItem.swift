@@ -1,23 +1,23 @@
 //
-//  RegularExpressionFormItem.swift
+//  RegularExpressionValidator.swift
 //  CPA-ios
 //
-//  Copyright © 2019 itzseven7. All rights reserved.
+//  Copyright © 2019 itzseven. All rights reserved.
 //
 
 import Foundation
 
-public protocol RegularExpressionFormItemErrorProvider: TextFormItemErrorProvider {
+public protocol RegularExpressionValidatorErrorProvider: TextValidatorErrorProvider {
   
   func unmatchedPatternsError(for patterns: [String]) -> String?
 }
 
-open class RegularExpressionFormItem: TextFormItem {
+open class RegularExpressionValidator: TextValidator {
   
   var patterns: [String]
   
-  private var regularExpressionErrorProvider: RegularExpressionFormItemErrorProvider? {
-    return errorProvider as? RegularExpressionFormItemErrorProvider
+  private var regularExpressionErrorProvider: RegularExpressionValidatorErrorProvider? {
+    return errorProvider as? RegularExpressionValidatorErrorProvider
   }
   
   public init(value: String? = nil, patterns: [String]) {

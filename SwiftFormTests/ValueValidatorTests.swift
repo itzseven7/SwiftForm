@@ -1,5 +1,5 @@
 //
-//  BaseFormItemTests.swift
+//  ValueValidatorTests.swift
 //  SwiftFormTests
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,26 +8,26 @@
 import XCTest
 @testable import SwiftForm
 
-final class BaseFormItemTests: XCTestCase {
+final class ValueValidatorTests: XCTestCase {
   
-  var sut: BaseFormItem<Int>!
+  var sut: ValueValidator<Int>!
   
   override func setUp() {
-    sut = BaseFormItem<Int>()
+    sut = ValueValidator<Int>()
   }
   
-  func testFormItemInitializer() {
+  func testValidatorInitializer() {
     // Given
     let initialValue = 5
     
     // When
-    sut = BaseFormItem(value: initialValue)
+    sut = ValueValidator(value: initialValue)
     
     // Then
     XCTAssertEqual(sut.initialValue, initialValue, "Initial value should be the same that the one passed in initializer")
   }
   
-  func testFormItemIsMandatoryAndValid() {
+  func testValidatorIsMandatoryAndValid() {
     // Given
     sut.isMandatory = true
     
@@ -37,10 +37,10 @@ final class BaseFormItemTests: XCTestCase {
     
     // Then
     let expected = true
-    XCTAssertEqual(sut.isValid, expected, "Form item should be valid")
+    XCTAssertEqual(sut.isValid, expected, "Validator should be valid")
   }
   
-  func testFormItemIsMandatoryAndNotValid() {
+  func testValidatorIsMandatoryAndNotValid() {
     // Given
     sut.isMandatory = true
     
@@ -50,10 +50,10 @@ final class BaseFormItemTests: XCTestCase {
     
     // Then
     let expected = false
-    XCTAssertEqual(sut.isValid, expected, "Form item should not be valid")
+    XCTAssertEqual(sut.isValid, expected, "Validator should not be valid")
   }
   
-  func testFormItemIsNotMandatoryAndValid() {
+  func testValidatorIsNotMandatoryAndValid() {
     // Given
     sut.isMandatory = false
     
@@ -63,10 +63,10 @@ final class BaseFormItemTests: XCTestCase {
     
     // Then
     let expected = true
-    XCTAssertEqual(sut.isValid, expected, "Form item should be valid")
+    XCTAssertEqual(sut.isValid, expected, "Validator should be valid")
   }
   
-  func testFormItemChangesMandatoryStatus() {
+  func testValidatorChangesMandatoryStatus() {
     // Given
     sut.isMandatory = false
     sut.value = nil
@@ -77,19 +77,19 @@ final class BaseFormItemTests: XCTestCase {
     
     // Then
     let expected = false
-    XCTAssertEqual(sut.isValid ?? true, expected, "Form item should validates its value when mandatory status changes")
+    XCTAssertEqual(sut.isValid ?? true, expected, "Validator should validates its value when mandatory status changes")
   }
   
-  func testFormItemHasChanges() {
+  func testValidatorHasChanges() {
     // When
     sut.value = 5
     
     // Then
     let expected = true
-    XCTAssertEqual(sut.hasChanges, expected, "Form item should have changes")
+    XCTAssertEqual(sut.hasChanges, expected, "Validator should have changes")
   }
   
-  func testFormItemHasNoChanges() {
+  func testValidatorHasNoChanges() {
     // Given
     sut.value = 5
     
@@ -98,12 +98,12 @@ final class BaseFormItemTests: XCTestCase {
     
     // Then
     let expected = false
-    XCTAssertEqual(sut.hasChanges, expected, "Form item should not have changes")
+    XCTAssertEqual(sut.hasChanges, expected, "Validator should not have changes")
   }
   
-  func testFormItemErrorProvider() {
+  func testValidatorErrorProvider() {
     // Given
-    let errorProvider = FormItemErrorProviderMock()
+    let errorProvider = ValueValidatorErrorProviderMock()
     sut.isMandatory = true
     sut.errorProvider = errorProvider
     
@@ -112,11 +112,11 @@ final class BaseFormItemTests: XCTestCase {
     sut.checkValidity()
     
     // Then
-    XCTAssertNotNil(sut.error, "Form item error should not be nil")
-    XCTAssertEqual(sut.error, errorProvider.noValueError, "Form item should have a dedicated error")
+    XCTAssertNotNil(sut.error, "Validator error should not be nil")
+    XCTAssertEqual(sut.error, errorProvider.noValueError, "Validator should have a dedicated error")
   }
   
-  func testFormItemSubscription() {
+  func testValidatorSubscription() {
     // Given
     let expectation = self.expectation(description: "Subscription expectation")
     
@@ -130,7 +130,7 @@ final class BaseFormItemTests: XCTestCase {
     waitForExpectations(timeout: 1, handler: nil)
   }
   
-  func testFormItemDefaultValidator() {
+  func testValidatorDefaultValidationMethod() {
     // Given
     let expectation = self.expectation(description: "Subscription expectation")
     
@@ -139,19 +139,19 @@ final class BaseFormItemTests: XCTestCase {
     }
     
     // When
-    sut.validator?(5)
+    sut.validate(5)
     
     // Then
     let expected = true
-    XCTAssertEqual(sut.hasChanges, expected, "Form item should have changes")
-    XCTAssertEqual(sut.isValid ?? false, expected, "Form item should be valid")
+    XCTAssertEqual(sut.hasChanges, expected, "Validator should have changes")
+    XCTAssertEqual(sut.isValid ?? false, expected, "Validator should be valid")
     
     waitForExpectations(timeout: 1, handler: nil)
   }
   
-  func testFormItemReset() {
+  func testValidatorReset() {
     // Given
-    sut = BaseFormItem(value: 10)
+    sut = ValueValidator(value: 10)
     
     // When
     sut.value = nil
@@ -159,7 +159,7 @@ final class BaseFormItemTests: XCTestCase {
     sut.reset()
     
     // Then
-    XCTAssertNil(sut.isValid, "Form item should not have validation state after reset")
-    XCTAssertNil(sut.error, "Form item should not have error after reset")
+    XCTAssertNil(sut.isValid, "Validator should not have validation state after reset")
+    XCTAssertNil(sut.error, "Validator should not have error after reset")
   }
 }

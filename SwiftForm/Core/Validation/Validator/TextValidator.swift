@@ -1,21 +1,21 @@
 //
-//  TextFormItem.swift
+//  TextValidator.swift
 //  CPA-ios
 //
-//  Copyright © 2019 itzseven7. All rights reserved.
+//  Copyright © 2019 itzseven. All rights reserved.
 //
 
 import Foundation
 
-public protocol TextFormItemErrorProvider: FormItemErrorProvider {
+public protocol TextValidatorErrorProvider: ValueValidatorErrorProvider {
   
   var emptyError: String? { get }
 }
 
-open class TextFormItem: BaseFormItem<String> {
+open class TextValidator: ValueValidator<String> {
   
-  private var textErrorProvider: TextFormItemErrorProvider? {
-    return errorProvider as? TextFormItemErrorProvider
+  private var textErrorProvider: TextValidatorErrorProvider? {
+    return errorProvider as? TextValidatorErrorProvider
   }
   
   override public func checkValidity() {
