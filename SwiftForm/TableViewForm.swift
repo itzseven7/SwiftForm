@@ -1,5 +1,5 @@
 //
-//  FormTableViewModel.swift
+//  TableViewForm.swift
 //  SwiftForm
 //
 //  Created by Romain on 16/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FormTableViewModel: FormViewModel {
+protocol TableViewForm: Form {
   var tableHeaderView: UIView? { get }
   
   var tableFooterView: UIView? { get }
@@ -16,7 +16,16 @@ protocol FormTableViewModel: FormViewModel {
   func registerCells(for tableView: UITableView)
 }
 
-protocol FormItemTableViewModel: FormItemViewModel {
+protocol TableViewFormSection: FormSection {
+  var headerView: UIView? { get }
+  var footerView: UIView? { get }
+}
+
+protocol TableViewFormDelegate: FormDelegate {
+  func scrollToNextFormItem(at indexPath: IndexPath)
+}
+
+protocol FormItemTableViewModel: FormItem {
   var cellType: FormItemCellType { get }
 }
 
@@ -24,7 +33,7 @@ protocol FormItemCellType {
   func dequeueCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 }
 
-extension FormTableViewModel {
+extension TableViewForm {
   var tableHeaderView: UIView? {
     return UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
   }
@@ -36,12 +45,12 @@ extension FormTableViewModel {
 
 
 
-class BaseFormTableViewModel: BaseFormViewModel, FormTableViewModel {
+class BaseTableViewForm: BaseForm, TableViewForm {
   
   func registerCells(for tableView: UITableView) {}
 }
 
-class FormSectionTableViewModel: BaseFormSectionViewModel {
+class BaseTableViewFormSection: BaseFormSection, TableViewFormSection {
   
   var headerView: UIView?
   var footerView: UIView?

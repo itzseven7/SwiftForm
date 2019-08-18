@@ -1,5 +1,5 @@
 //
-//  FormItemViewModel.swift
+//  FormItem.swift
 //  SwiftForm
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol FormItemViewModel: class {
+protocol FormItem: class {
   
-  var item: FormItem { get }
+  var validator: Validator { get }
   
   var indexPath: IndexPath { get }
   
@@ -40,7 +40,7 @@ protocol FormItemViewModel: class {
   func endEditing()
 }
 
-extension FormItemViewModel {
+extension FormItem {
   func beginEditing() {
     beginEditingCallback?()
   }
@@ -50,48 +50,48 @@ extension FormItemViewModel {
   }
 }
 
-class BaseFormItemViewModel<ValueType: Comparable, InputValueType>: FormItemViewModel {
-  var item: FormItem {
+class BaseFormItem<ValueType: Comparable, InputValueType>: FormItem {
+  var validator: Validator {
     return base
   }
   
-  var base: BaseFormItem<ValueType>!
+  var base: ValueValidator<ValueType>!
   
   var value: ValueType? {
     return base.value
   }
   
-  var inputValue: InputValueType?
+  public var inputValue: InputValueType?
   
-  var indexPath: IndexPath = IndexPath(item: 0, section: 0)
+  public var indexPath: IndexPath = IndexPath(item: 0, section: 0)
   
-  var title: String?
+  public var title: String?
   
   var titleAttributedString: NSAttributedString?
   
-  var description: String?
+  public var description: String?
   
   var descriptionAttributedString: NSAttributedString?
   
   var errorAttributedString: NSAttributedString?
   
-  var isEnabled: Bool = true
+  public var isEnabled: Bool = true
   
-  var isHidden: Bool = false
+  public var isHidden: Bool = false
   
-  var isEditing: Bool = false
+  public var isEditing: Bool = false
   
-  var beginEditingCallback: (() -> Void)?
+  public var beginEditingCallback: (() -> Void)?
   
-  var endEditingCallback: (() -> Void)?
+  public var endEditingCallback: (() -> Void)?
   
   init(value: ValueType? = nil) {
-    base = self.base(value)
+    base = self.validator(value)
   }
   
-  // You should override this method to provide your own checker
-  public func base(_ value: ValueType?) -> BaseFormItem<ValueType> {
-    return BaseFormItem(value: value)
+  // You should override this method to provide your own validator
+  public func validator(_ value: ValueType?) -> ValueValidator<ValueType> {
+    return ValueValidator(value: value)
   }
   
   // Conversion methods
@@ -107,7 +107,7 @@ class BaseFormItemViewModel<ValueType: Comparable, InputValueType>: FormItemView
   }
 }
 
-class TextFormItemViewModel<ValueType: Comparable>: BaseFormItemViewModel<ValueType, String> {
+class TextFormItemViewModel<ValueType: Comparable>: BaseFormItem<ValueType, String> {
   var text: String? {
     let inputValue = self.inputValue(from: base.value)
     return formatted(inputValue) ?? inputValue

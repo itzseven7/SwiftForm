@@ -1,5 +1,5 @@
 //
-//  FormSectionViewModel.swift
+//  FormSection.swift
 //  SwiftForm
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol FormSectionViewModel {
-  var items: [FormItemViewModel] { get }
+protocol FormSection {
+  var items: [FormItem] { get }
   
   var isHidden: Bool { get set }
 }
 
-class BaseFormSectionViewModel: FormSectionViewModel {
-  private var _items: [FormItemViewModel] = []
+class BaseFormSection: FormSection {
+  private var _items: [FormItem] = []
   
-  var items: [FormItemViewModel] {
+  var items: [FormItem] {
     get {
       return _items.filter { !$0.isHidden }
     }

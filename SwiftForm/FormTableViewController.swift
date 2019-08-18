@@ -7,11 +7,11 @@
 
 import UIKit
 
-class FormTableViewController: UIViewController, FormTableViewModelDelegate, UITableViewDataSource, UITableViewDelegate {
+class FormTableViewController: UIViewController, TableViewFormDelegate, UITableViewDataSource, UITableViewDelegate {
   
   var tableView: UITableView!
   
-  var viewModel: FormTableViewModel?
+  var form: TableViewForm?
   
   /// Cache for cells height
   fileprivate var heightDictionary: [IndexPath: CGFloat] = [:]
@@ -24,17 +24,17 @@ class FormTableViewController: UIViewController, FormTableViewModelDelegate, UIT
     tableView.dataSource = self
     tableView.delegate = self
     
-    tableView.tableHeaderView = viewModel?.tableHeaderView
+    tableView.tableHeaderView = form?.tableHeaderView
     tableView.tableHeaderView?.layoutIfNeeded()
     
-    tableView.tableFooterView = viewModel?.tableFooterView
+    tableView.tableFooterView = form?.tableFooterView
     tableView.tableFooterView?.layoutIfNeeded()
     
     view.addSubview(tableView)
     
-    viewModel?.delegate = self
+    form?.delegate = self
     
-    viewModel?.registerCells(for: tableView)
+    form?.registerCells(for: tableView)
     
     tableView.rowHeight = UITableView.automaticDimension
     tableView.sectionHeaderHeight = UITableView.automaticDimension
@@ -43,15 +43,15 @@ class FormTableViewController: UIViewController, FormTableViewModelDelegate, UIT
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return viewModel?.sections.count ?? 0
+    return form?.sections.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel?.sections[section].items.count ?? 0
+    return form?.sections[section].items.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let formItem = viewModel?.formItem(at: indexPath) as? FormItemTableViewModel else {
+    guard let formItem = form?.formItem(at: indexPath) as? FormItemTableViewModel else {
       fatalError("Should have a valid form item here")
     }
     
@@ -60,22 +60,22 @@ class FormTableViewController: UIViewController, FormTableViewModelDelegate, UIT
   
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    guard let formSection = viewModel?.sections[section] as? FormSectionTableViewModel else { return nil }
+    guard let formSection = form?.sections[section] as? TableViewFormSection else { return nil }
     return formSection.headerView
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    guard let formSection = viewModel?.sections[section] as? FormSectionTableViewModel, formSection.headerView != nil else { return .leastNonzeroMagnitude }
+    guard let formSection = form?.sections[section] as? TableViewFormSection, formSection.headerView != nil else { return .leastNonzeroMagnitude }
     return UITableView.automaticDimension
   }
   
   func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    guard let formSection = viewModel?.sections[section] as? FormSectionTableViewModel else { return nil }
+    guard let formSection = form?.sections[section] as? TableViewFormSection else { return nil }
     return formSection.footerView
   }
   
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    guard let formSection = viewModel?.sections[section] as? FormSectionTableViewModel, formSection.footerView != nil else { return .leastNonzeroMagnitude }
+    guard let formSection = form?.sections[section] as? TableViewFormSection, formSection.footerView != nil else { return .leastNonzeroMagnitude }
     return UITableView.automaticDimension
   }
   
@@ -90,40 +90,37 @@ class FormTableViewController: UIViewController, FormTableViewModelDelegate, UIT
     return height ?? UITableView.automaticDimension
   }
   
-  func formItemViewModelsDidUpdate(_ formItemViewModels: [FormItemViewModel]) {
-    formItemViewModels.forEach {
-      if let cell = tableView.cellForRow(at: $0.indexPath) as? FormItemContainerProtocol {
-        cell.update(with: $0)
-      }
-    }
-    
-    UIView.performWithoutAnimation {
-      tableView.beginUpdates()
-      tableView.endUpdates()
-      tableView.reloadData()
-    }
-  }
-  
-  func formItemViewModelsDidBecomeVisible(_ formItemViewModels: [FormItemViewModel]) {
+  func formSectionsDidBecomeVisible(_ formSections: [FormSection]) {
     tableView.beginUpdates()
-    tableView.insertRows(at: formItemViewModels.map { $0.indexPath }, with: .automatic)
+    tableView.insertSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
     tableView.endUpdates()
   }
   
-  func formItemViewModelsDidHide(_ formItemViewModels: [FormItemViewModel]) {
+  func formSectionsDidHide(_ formSections: [FormSection]) {
     tableView.beginUpdates()
-    tableView.deleteRows(at: formItemViewModels.map { $0.indexPath }, with: .automatic)
+    tableView.deleteSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
     tableView.endUpdates()
   }
   
-  func scrollToNextFormItemViewModel(atIndexPath indexPath: IndexPath?) {
-    guard let indexPath = indexPath, tableView.containsIndexPath(indexPath) else {
-      DispatchQueue.main.async {
-        self.tableView.scrollToBottom(animated: true)
-      }
-      return
-    }
-    
+  func formItemsDidUpdate(_ formItems: [FormItem]) {
+    tableView.beginUpdates()
+    tableView.reloadRows(at: formItems.map { $0.indexPath }, with: .automatic)
+    tableView.endUpdates()
+  }
+  
+  func formItemsDidBecomeVisible(_ formItems: [FormItem]) {
+    tableView.beginUpdates()
+    tableView.insertRows(at: formItems.map { $0.indexPath }, with: .automatic)
+    tableView.endUpdates()
+  }
+  
+  func formItemsDidHide(_ formItems: [FormItem]) {
+    tableView.beginUpdates()
+    tableView.deleteRows(at: formItems.map { $0.indexPath }, with: .automatic)
+    tableView.endUpdates()
+  }
+  
+  func scrollToNextFormItem(at indexPath: IndexPath) {
     _ = tableView.visibleCells
     
     if let visibleRows = tableView.indexPathsForVisibleRows, visibleRows.contains(indexPath) {

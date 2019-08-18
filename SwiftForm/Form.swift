@@ -1,5 +1,5 @@
 //
-//  FormViewModel.swift
+//  Form.swift
 //  SwiftForm
 //
 //  Created by Romain on 16/08/2019.
@@ -8,30 +8,24 @@
 
 import Foundation
 
-private class InternalForm: Form {
-  var items: [FormItem]
+protocol Form {
+  var validator: ValidatorList { get }
   
-  init(items: [FormItem] = []) {
-    self.items = items
-  }
+  var sections: [FormSection] { get }
+  
+  var delegate: FormDelegate? { get set }
 }
 
-protocol FormViewModel {
-  var form: Form { get }
-  
-  var sections: [FormSectionViewModel] { get }
-}
-
-extension FormViewModel {
-  var allItems: [FormItemViewModel] {
+extension Form {
+  var allItems: [FormItem] {
     return sections.flatMap { $0.items }.filter { !$0.isHidden }
   }
   
-  var editingFormItem: FormItemViewModel? {
+  var editingFormItem: FormItem? {
     return sections.flatMap { $0.items }.filter { $0.isEditing }.first
   }
   
-  func formItem(at indexPath: IndexPath) -> FormItemViewModel? {
+  func formItem(at indexPath: IndexPath) -> FormItem? {
     guard indexPath.section < sections.count, indexPath.item < sections[indexPath.section].items.count else {
       return nil
     }
@@ -40,20 +34,39 @@ extension FormViewModel {
   }
 }
 
-public class BaseFormViewModel: FormViewModel {
-  var form: Form {
+protocol FormDelegate: class {
+  
+  func formSectionsDidBecomeVisible(_ formSections: [FormSection])
+  func formSectionsDidHide(_ formSections: [FormSection])
+  
+  func formItemsDidUpdate(_ formItems: [FormItem])
+  func formItemsDidBecomeVisible(_ formItems: [FormItem])
+  func formItemsDidHide(_ formItems: [FormItem])
+}
+
+private class FormValidatorList: ValidatorList {
+  var items: [Validator]
+  
+  init(items: [Validator] = []) {
+    self.items = items
+  }
+}
+
+public class BaseForm: Form {
+  var validator: ValidatorList {
     return base
   }
   
-  private var base = InternalForm()
+  private var base = FormValidatorList()
   
-  private var _sections: [FormSectionViewModel] = [] {
+  private var _sections: [FormSection] = [] {
     didSet {
-      self.base = InternalForm(items: sections.flatMap { $0.items }.map { $0.item }) // generate a logic form
+      // Generate a validator list based on form items
+      self.base = FormValidatorList(items: sections.flatMap { $0.items }.map { $0.validator })
     }
   }
   
-  var sections: [FormSectionViewModel] {
+  var sections: [FormSection] {
     get {
       return _sections.filter { !$0.isHidden }
     }
@@ -62,6 +75,8 @@ public class BaseFormViewModel: FormViewModel {
       _sections = newValue
     }
   }
+  
+  var delegate: FormDelegate?
   
   var focusMode: FocusMode = .mandatory
   
@@ -77,20 +92,20 @@ public class BaseFormViewModel: FormViewModel {
     formItem.beginEditingCallback?()
   }
   
-  internal func nextFormItem(after indexPath: IndexPath) -> FormItemViewModel? {
+  internal func nextFormItem(after indexPath: IndexPath) -> FormItem? {
     switch focusMode {
     case .none:
       return nil
     case .mandatory:
-      return nextFocusableFormItem(after: indexPath, predicate: { $0.item.isMandatory })
+      return nextFocusableFormItem(after: indexPath, predicate: { $0.validator.isMandatory })
     case .all:
       return nextFocusableFormItem(after: indexPath)
     case .error:
-      return nextFocusableFormItem(after: indexPath, predicate: { !($0.item.isValid ?? true) })
+      return nextFocusableFormItem(after: indexPath, predicate: { !($0.validator.isValid ?? true) })
     }
   }
   
-  private func nextFocusableFormItem(after indexPath: IndexPath, predicate: ((FormItemViewModel) -> Bool)? = nil) -> FormItemViewModel? {
+  private func nextFocusableFormItem(after indexPath: IndexPath, predicate: ((FormItem) -> Bool)? = nil) -> FormItem? {
     guard let newIndexPath = nextIndexPath(after: indexPath) else {
       return nil
     }
@@ -127,7 +142,7 @@ public class BaseFormViewModel: FormViewModel {
   }
 }
 
-extension BaseFormViewModel {
+extension BaseForm {
   
   /// Focus mode of the form when after the validation of an item
   ///
