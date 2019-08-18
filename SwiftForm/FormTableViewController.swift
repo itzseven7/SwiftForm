@@ -30,7 +30,7 @@ class FormTableViewController: UIViewController, FormTableViewModelDelegate, UIT
     tableView.tableFooterView = viewModel?.tableFooterView
     tableView.tableFooterView?.layoutIfNeeded()
     
-    view.ex.addSubview(tableView)
+    view.addSubview(tableView)
     
     viewModel?.delegate = self
     
@@ -47,21 +47,15 @@ class FormTableViewController: UIViewController, FormTableViewModelDelegate, UIT
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel?.sections[section].visibleItems.count ?? 0
+    return viewModel?.sections[section].items.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let formItemViewModel = viewModel?.visibleFormItemViewModel(at: indexPath) as? FormItemTableViewModelProtocol else {
+    guard let formItem = viewModel?.formItem(at: indexPath) as? FormItemTableViewModel else {
       fatalError("Should have a valid form item here")
     }
-    let cell = formItemViewModel.cellType.dequeueCell(for: tableView, at: indexPath)
-    if let cell = cell as? FormItemContainerProtocol {
-      cell.update(with: formItemViewModel)
-    }
     
-    cell.contentView.directionalLayoutMargins = formItemViewModel.directionalLayoutMargins
-    
-    return cell
+    return formItem.cellType.dequeueCell(for: tableView, at:indexPath)
   }
   
   

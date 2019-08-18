@@ -179,6 +179,8 @@
 				7A5B17C222B58A4300111A8A /* SwiftForm.h */,
 				7A5B17C322B58A4300111A8A /* Info.plist */,
 				7AB8978B230748FF006E2E19 /* FormViewModel.swift */,
+				7AA9025723095FF60071C3FB /* FormSectionViewModel.swift */,
+				7AA9025523095FE00071C3FB /* FormItemViewModel.swift */,
 				7AB89789230748F4006E2E19 /* FormTableViewModel.swift */,
 				7AEC208923089B6F0012FB40 /* FormTableViewController.swift */,
 			);

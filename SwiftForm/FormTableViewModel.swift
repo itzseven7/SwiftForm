@@ -41,8 +41,7 @@ class BaseFormTableViewModel: BaseFormViewModel, FormTableViewModel {
   func registerCells(for tableView: UITableView) {}
 }
 
-class FormSectionTableViewModel: FormSectionViewModel {
-  var items: [FormItemViewModel] = []
+class FormSectionTableViewModel: BaseFormSectionViewModel {
   
   var headerView: UIView?
   var footerView: UIView?
