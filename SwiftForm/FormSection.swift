@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol FormSection {
+public protocol FormSection {
   var items: [FormItem] { get }
   
   var isHidden: Bool { get set }
 }
 
-class BaseFormSection: FormSection {
+open class BaseFormSection: FormSection {
   private var _items: [FormItem] = []
   
-  var items: [FormItem] {
+  public var items: [FormItem] {
     get {
       return _items.filter { !$0.isHidden }
     }
@@ -26,5 +26,9 @@ class BaseFormSection: FormSection {
     }
   }
   
-  var isHidden: Bool = false
+  public var isHidden: Bool = false
+  
+  public init() {
+    
+  }
 }

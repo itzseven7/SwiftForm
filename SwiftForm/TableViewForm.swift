@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TableViewForm: Form {
+public protocol TableViewForm: Form {
   var tableHeaderView: UIView? { get }
   
   var tableFooterView: UIView? { get }
@@ -16,42 +16,42 @@ protocol TableViewForm: Form {
   func registerCells(for tableView: UITableView)
 }
 
-protocol TableViewFormSection: FormSection {
+public protocol TableViewFormSection: FormSection {
   var headerView: UIView? { get }
   var footerView: UIView? { get }
 }
 
-protocol TableViewFormDelegate: FormDelegate {
+public protocol TableViewFormDelegate: FormDelegate {
   func scrollToNextFormItem(at indexPath: IndexPath)
 }
 
-protocol FormItemTableViewModel: FormItem {
-  var cellType: FormItemCellType { get }
+public protocol TableViewFormItem: FormItem {
+  var cellType: TableViewFormItemCellType { get }
 }
 
-protocol FormItemCellType {
+public protocol TableViewFormItemCellType {
   func dequeueCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 }
 
 extension TableViewForm {
-  var tableHeaderView: UIView? {
+  public var tableHeaderView: UIView? {
     return UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
   }
   
-  var tableFooterView: UIView? {
+  public var tableFooterView: UIView? {
     return UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
   }
 }
 
-
-
-class BaseTableViewForm: BaseForm, TableViewForm {
+open class BaseTableViewForm: BaseForm, TableViewForm {
   
-  func registerCells(for tableView: UITableView) {}
+  open func registerCells(for tableView: UITableView) {
+    preconditionFailure("You must implement this method in subclass")
+  }
 }
 
-class BaseTableViewFormSection: BaseFormSection, TableViewFormSection {
+open class BaseTableViewFormSection: BaseFormSection, TableViewFormSection {
   
-  var headerView: UIView?
-  var footerView: UIView?
+  open var headerView: UIView?
+  open var footerView: UIView?
 }

@@ -7,16 +7,16 @@
 
 import UIKit
 
-class FormTableViewController: UIViewController, TableViewFormDelegate, UITableViewDataSource, UITableViewDelegate {
+open class FormTableViewController: UIViewController, TableViewFormDelegate, UITableViewDataSource, UITableViewDelegate {
   
-  var tableView: UITableView!
+  public var tableView: UITableView!
   
-  var form: TableViewForm?
+  open var form: TableViewForm?
   
   /// Cache for cells height
   fileprivate var heightDictionary: [IndexPath: CGFloat] = [:]
   
-  override func viewDidLoad() {
+  override open func viewDidLoad() {
     super.viewDidLoad()
     
     tableView = UITableView(frame: view.frame, style: .grouped)
@@ -42,16 +42,16 @@ class FormTableViewController: UIViewController, TableViewFormDelegate, UITableV
     tableView.isDirectionalLockEnabled = true
   }
   
-  func numberOfSections(in tableView: UITableView) -> Int {
+  public func numberOfSections(in tableView: UITableView) -> Int {
     return form?.sections.count ?? 0
   }
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return form?.sections[section].items.count ?? 0
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let formItem = form?.formItem(at: indexPath) as? FormItemTableViewModel else {
+  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let formItem = form?.formItem(at: indexPath) as? TableViewFormItem else {
       fatalError("Should have a valid form item here")
     }
     
@@ -59,44 +59,55 @@ class FormTableViewController: UIViewController, TableViewFormDelegate, UITableV
   }
   
   
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+  public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let formSection = form?.sections[section] as? TableViewFormSection else { return nil }
     return formSection.headerView
   }
   
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     guard let formSection = form?.sections[section] as? TableViewFormSection, formSection.headerView != nil else { return .leastNonzeroMagnitude }
     return UITableView.automaticDimension
   }
   
-  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+  public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     guard let formSection = form?.sections[section] as? TableViewFormSection else { return nil }
     return formSection.footerView
   }
   
-  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+  public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     guard let formSection = form?.sections[section] as? TableViewFormSection, formSection.footerView != nil else { return .leastNonzeroMagnitude }
     return UITableView.automaticDimension
   }
   
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+  public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     heightDictionary[indexPath] = cell.frame.size.height
     
-    // configure cell here
+    guard let formItem = form?.formItem(at: indexPath) as? TableViewFormItem else {
+      fatalError("Should have a valid form item here")
+    }
+    
+    guard let container = cell as? FormItemContainer else {
+      assertionFailure("Cell must be a form item container")
+      return
+    }
+    
+    container.formItem = formItem
+    container.configure()
+    formItem.didBindWithContainer()
   }
   
-  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+  public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     let height = heightDictionary[indexPath]
     return height ?? UITableView.automaticDimension
   }
   
-  func formSectionsDidBecomeVisible(_ formSections: [FormSection]) {
+  public func formSectionsDidBecomeVisible(_ formSections: [FormSection]) {
     tableView.beginUpdates()
     tableView.insertSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
     tableView.endUpdates()
   }
   
-  func formSectionsDidHide(_ formSections: [FormSection]) {
+  public func formSectionsDidHide(_ formSections: [FormSection]) {
     tableView.beginUpdates()
     tableView.deleteSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
     tableView.endUpdates()
@@ -108,24 +119,24 @@ class FormTableViewController: UIViewController, TableViewFormDelegate, UITableV
   // cellForRow => called only once, dequeue the correct cell from the form item
   // willDisplay => called only once, assign the form item to the cell (container)
   //
-  func formItemsDidUpdate(_ formItems: [FormItem]) {
+  public func formItemsDidUpdate(_ formItems: [FormItem]) {
     tableView.beginUpdates()
     tableView.endUpdates()
   }
   
-  func formItemsDidBecomeVisible(_ formItems: [FormItem]) {
+  public func formItemsDidBecomeVisible(_ formItems: [FormItem]) {
     tableView.beginUpdates()
     tableView.insertRows(at: formItems.map { $0.indexPath }, with: .automatic)
     tableView.endUpdates()
   }
   
-  func formItemsDidHide(_ formItems: [FormItem]) {
+  public func formItemsDidHide(_ formItems: [FormItem]) {
     tableView.beginUpdates()
     tableView.deleteRows(at: formItems.map { $0.indexPath }, with: .automatic)
     tableView.endUpdates()
   }
   
-  func scrollToNextFormItem(at indexPath: IndexPath) {
+  public func scrollToNextFormItem(at indexPath: IndexPath) {
     _ = tableView.visibleCells
     
     if let visibleRows = tableView.indexPathsForVisibleRows, visibleRows.contains(indexPath) {

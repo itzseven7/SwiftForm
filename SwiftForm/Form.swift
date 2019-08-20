@@ -8,33 +8,51 @@
 
 import Foundation
 
-protocol Form {
+public protocol Form {
   var validator: ValidatorList { get }
   
   var sections: [FormSection] { get }
   
   var delegate: FormDelegate? { get set }
+  
+  var isEnabled: Bool { get set } // allows to disable interaction (for example: during an API call)
+  
+  func beginEditing()
+  
+  func endEditing(_ forceValidation: Bool)
 }
 
 extension Form {
-  var allItems: [FormItem] {
+  public var allItems: [FormItem] {
     return sections.flatMap { $0.items }.filter { !$0.isHidden }
   }
   
-  var editingFormItem: FormItem? {
+  public var editingFormItem: FormItem? {
     return sections.flatMap { $0.items }.filter { $0.isEditing }.first
   }
   
-  func formItem(at indexPath: IndexPath) -> FormItem? {
+  public func formItem(at indexPath: IndexPath) -> FormItem? {
     guard indexPath.section < sections.count, indexPath.item < sections[indexPath.section].items.count else {
       return nil
     }
     
     return sections[indexPath.section].items[indexPath.item]
   }
+  
+  public func beginEditing() {
+    sections.first?.items.first?.beginEditing()
+  }
+  
+  public func endEditing(_ forceValidation: Bool) {
+    if forceValidation {
+      editingFormItem?.validate()
+    } else {
+      editingFormItem?.endEditing()
+    }
+  }
 }
 
-protocol FormDelegate: class {
+public protocol FormDelegate: class {
   
   func formSectionsDidBecomeVisible(_ formSections: [FormSection])
   func formSectionsDidHide(_ formSections: [FormSection])
@@ -52,8 +70,8 @@ private class FormValidatorList: ValidatorList {
   }
 }
 
-public class BaseForm: Form {
-  var validator: ValidatorList {
+open class BaseForm: Form {
+  public var validator: ValidatorList {
     return base
   }
   
@@ -63,10 +81,12 @@ public class BaseForm: Form {
     didSet {
       // Generate a validator list based on form items
       self.base = FormValidatorList(items: sections.flatMap { $0.items }.map { $0.validator })
+      // Observes all form items
+      sections.flatMap { $0.items }.forEach { $0.addObserver(self) }
     }
   }
   
-  var sections: [FormSection] {
+  public var sections: [FormSection] {
     get {
       return _sections.filter { !$0.isHidden }
     }
@@ -76,9 +96,17 @@ public class BaseForm: Form {
     }
   }
   
-  var delegate: FormDelegate?
+  public var isEnabled: Bool = true {
+    didSet {
+      sections.flatMap { $0.items }.forEach { $0.isEnabled = isEnabled }
+    }
+  }
+  
+  public var delegate: FormDelegate?
   
   var focusMode: FocusMode = .mandatory
+  
+  public init() {}
   
   internal func focusOnNextItem() {
     let editingFormItemIndexPath = editingFormItem?.indexPath
@@ -98,7 +126,7 @@ public class BaseForm: Form {
       return nil
     case .mandatory:
       return nextFocusableFormItem(after: indexPath, predicate: { $0.validator.isMandatory })
-    case .all:
+    case .any:
       return nextFocusableFormItem(after: indexPath)
     case .error:
       return nextFocusableFormItem(after: indexPath, predicate: { !($0.validator.isValid ?? true) })
@@ -142,15 +170,42 @@ public class BaseForm: Form {
   }
 }
 
+extension BaseForm: FormItemObserver {
+  public func onContainerBinding(formItem: FormItem) {
+    
+  }
+  
+  public func onValidationEvent(formItem: FormItem) {
+    delegate?.formItemsDidUpdate([formItem])
+    focusOnNextItem()
+  }
+  
+  public func onActivationEvent(formItem: FormItem) {
+    
+  }
+  
+  public func onEditingEvent(formItem: FormItem) {
+    
+  }
+  
+  public func onVisibilityEvent(formItem: FormItem) {
+    if formItem.isHidden {
+      delegate?.formItemsDidHide([formItem])
+    } else {
+      delegate?.formItemsDidBecomeVisible([formItem])
+    }
+  }
+}
+
 extension BaseForm {
   
   /// Focus mode of the form when after the validation of an item
   ///
   /// - none: no focus
   /// - mandatory: on next mandatory if exists
-  /// - all: on next item
+  /// - any: on next item if exists
   /// - error: on first error
   public enum FocusMode {
-    case none, mandatory, all, error
+    case none, mandatory, any, error
   }
 }
