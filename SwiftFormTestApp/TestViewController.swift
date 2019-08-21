@@ -17,21 +17,35 @@ enum CellType: TableViewFormItemCellType {
   }
 }
 
-class TestTextFieldFormItem: TextFieldFormItemInput<Int>, TableViewFormItem {
+class TestTextFieldFormItem: TextFieldFormItemInput<String>, TableViewFormItem {
   var cellType: TableViewFormItemCellType = CellType.textField
   
-  override func validator(_ value: Int?) -> ValueValidator<Int> {
-    return ValueValidator(value: value)
+  override func validator(_ value: String?) -> ValueValidator<String> {
+    return TestTextValidator(value: value)
   }
   
-  override func value(from inputValue: String?) -> Int? {
-    guard let inputValue = inputValue else { return nil }
-    return Int(inputValue)
+  override func value(from inputValue: String?) -> String? {
+    return inputValue
   }
   
-  override func inputValue(from value: Int?) -> String? {
-    guard let value = value else { return nil }
-    return "\(value)"
+  override func inputValue(from value: String?) -> String? {
+    return value
+  }
+  
+  class TestTextValidator: TextValidator, TextValidatorErrorProvider {
+    var emptyError: String? {
+      return "You cannot put an empty value."
+    }
+    
+    var noValueError: String? {
+      return "You must fulfill this field."
+    }
+    
+    override init(value: String?) {
+      super.init(value: value)
+      
+      errorProvider = self
+    }
   }
 }
 
@@ -48,7 +62,7 @@ class TestForm: BaseTableViewForm {
     
     var newSections: [TableViewFormSection] = []
     
-    for (section, items) in sectionsInfos {
+    for (section, items) in sectionsInfos.sorted(by: { $0.key < $1.key}) {
       let newSection = BaseTableViewFormSection()
       
       let sectionHeaderView: LeftTitleHeaderView = UIView.fromNib()
@@ -59,6 +73,7 @@ class TestForm: BaseTableViewForm {
       for item in items {
         let newItem = TestTextFieldFormItem()
         newItem.title = item
+        newItem.description = "Description multiline Description multiline Description multiline Description multiline Description multiline"
         
         newSection.items.append(newItem)
       }

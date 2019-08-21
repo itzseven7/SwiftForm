@@ -45,6 +45,24 @@ extension TableViewForm {
 
 open class BaseTableViewForm: BaseForm, TableViewForm {
   
+  private var tableViewFormDelegate: TableViewFormDelegate? {
+    return delegate as? TableViewFormDelegate
+  }
+  
+  override func focusOnNextItem() {
+    let editingFormItemIndexPath = editingFormItem?.indexPath
+    
+    editingFormItem?.endEditingCallback?()
+    
+    guard let currentIndexPath = editingFormItemIndexPath, let formItem = nextFormItem(after: currentIndexPath) else {
+      return
+    }
+    
+    tableViewFormDelegate?.scrollToNextFormItem(at: formItem.indexPath)
+    
+    formItem.beginEditingCallback?()
+  }
+  
   open func registerCells(for tableView: UITableView) {
     preconditionFailure("You must implement this method in subclass")
   }

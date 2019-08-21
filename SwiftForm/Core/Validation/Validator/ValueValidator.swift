@@ -16,11 +16,7 @@ public protocol ValueValidatorErrorProvider {
 open class ValueValidator<ValueType: Equatable>: Validator {
   
   /// The current value of the validator
-  public var value: ValueType? {
-    didSet {
-      checkValidity()
-    }
-  }
+  public var value: ValueType?
   
   /// The value set at validator initialization
   internal var initialValue: ValueType?

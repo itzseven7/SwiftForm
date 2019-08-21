@@ -83,6 +83,15 @@ open class BaseForm: Form {
       self.base = FormValidatorList(items: sections.flatMap { $0.items }.map { $0.validator })
       // Observes all form items
       sections.flatMap { $0.items }.forEach { $0.addObserver(self) }
+      
+      // Generates index paths
+      for i in 0..<sections.count {
+        let section = sections[i]
+        
+        for j in 0..<section.items.count {
+          section.items[j].indexPath = IndexPath(item: j, section: i)
+        }
+      }
     }
   }
   
@@ -171,6 +180,10 @@ open class BaseForm: Form {
 }
 
 extension BaseForm: FormItemObserver {
+  public var priority: Int {
+    return 1000
+  }
+  
   public func onContainerBinding(formItem: FormItem) {
     
   }

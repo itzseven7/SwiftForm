@@ -16,6 +16,10 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
   /// Cache for cells height
   fileprivate var heightDictionary: [IndexPath: CGFloat] = [:]
   
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   override open func viewDidLoad() {
     super.viewDidLoad()
     
@@ -36,10 +40,10 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     
     form?.registerCells(for: tableView)
     
-    tableView.rowHeight = UITableView.automaticDimension
-    tableView.sectionHeaderHeight = UITableView.automaticDimension
-    tableView.sectionFooterHeight = UITableView.automaticDimension
     tableView.isDirectionalLockEnabled = true
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
   }
   
   public func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,7 +61,6 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     
     return formItem.cellType.dequeueCell(for: tableView, at:indexPath)
   }
-  
   
   public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let formSection = form?.sections[section] as? TableViewFormSection else { return nil }
@@ -120,8 +123,10 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
   // willDisplay => called only once, assign the form item to the cell (container)
   //
   public func formItemsDidUpdate(_ formItems: [FormItem]) {
+    UIView.setAnimationsEnabled(false)
     tableView.beginUpdates()
     tableView.endUpdates()
+    UIView.setAnimationsEnabled(true)
   }
   
   public func formItemsDidBecomeVisible(_ formItems: [FormItem]) {
@@ -150,5 +155,19 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     } else {
       tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
+  }
+  
+  // Needs refactoring
+  
+  @objc func keyboardWillShow(notification: NSNotification) {
+    if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+      tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+    }
+  }
+  
+  @objc func keyboardDidHide(notification: NSNotification) {
+    UIView.animate(withDuration: 0.2, animations: {
+      self.tableView.contentInset = .zero
+    })
   }
 }
