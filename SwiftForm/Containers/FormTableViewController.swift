@@ -95,8 +95,7 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     }
     
     container.formItem = formItem
-    container.configure()
-    formItem.didBindWithContainer()
+    container.setUp()
   }
   
   public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

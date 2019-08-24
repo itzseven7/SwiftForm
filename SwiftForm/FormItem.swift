@@ -30,16 +30,12 @@ public protocol FormItem: class {
   /// You should use this method to begin editing instead of the callback
   func beginEditing()
   
-  /// You should use this method to begin editing instead of the callback
+  /// You should use this method to end editing instead of the callback
   func endEditing()
   
   func validate()
   
   func addObserver(_ observer: FormItemObserver)
-  
-  // Tmp methods (may be removed later)
-  
-  func didBindWithContainer()
 }
 
 extension FormItem {
@@ -62,18 +58,51 @@ extension FormItem where Self: Equatable {
   }
 }
 
+public enum FormItemState {
+  case disabled, normal, editing, error
+}
+
+extension FormItem {
+  public var state: FormItemState {
+    guard isEnabled else { return .disabled }
+    
+    if !(validator.isValid == nil || validator.isValid == true) {
+      return .error
+    } else {
+      if isEditing {
+        return .editing
+      } else {
+        return .normal
+      }
+    }
+  }
+}
+
 public protocol FormItemObserver {
-  // 1 => first notified, 1000 => last notified
+  /**
+   The observer's priority.
+   
+   This property tells the form item to choose a proper order to notify its observers. You can decide in which order a type of observer will be notified compared to other types.
+   
+   The higher the value is, the lesser prioritary the observer is
+   
+   By default, containers are notified first (priority equal to 1) followed by the form (priority of 2)
+   */
   var priority: Int { get }
   
-  func onContainerBinding(formItem: FormItem) // only called once, after the form item is assigned to the container
   func onValidationEvent(formItem: FormItem) // validation of the validator
   func onActivationEvent(formItem: FormItem) // isEnabled change
   func onEditingEvent(formItem: FormItem) // isEditing change
   func onVisibilityEvent(formItem: FormItem) // isHidden change
+  
+  /// Tells the observer that it needs to update itself because of an unknown change in the form item
+  ///
+  /// - Parameter formItem: the form item
+  func onRefreshEvent(formItem: FormItem) // called when a change needs to be reported on observers
 }
 
-open class FormItemInput<ValueType: Comparable, InputValueType>: FormItem, Equatable {
+/// This class defines a form item that handles a simple input
+open class InputFormItem<ValueType: Comparable, InputValueType>: FormItem, Equatable {
   public var validator: Validator {
     return base
   }
@@ -122,22 +151,22 @@ open class FormItemInput<ValueType: Comparable, InputValueType>: FormItem, Equat
     base.validate(self.value(from: inputValue))
   }
   
-  public func subscribe<T: Comparable, U>(to formItem: FormItemInput<T, U>,_ handler: @escaping ((T?) -> Void)) {
+  open func subscribe<T: Comparable, U>(to formItem: InputFormItem<T, U>,_ handler: @escaping ((T?) -> Void)) {
     formItem.base.subscribe { (value) in handler(value) }
   }
   
-  public func addObserver(_ observer: FormItemObserver) {
+  open func addObserver(_ observer: FormItemObserver) {
     observers.append(observer)
   }
   
-  public func notify(_ action: ((FormItemObserver) -> Void)) {
+  open func notify(_ action: ((FormItemObserver) -> Void)) {
     observers.sorted(by: { $0.priority < $1.priority }).forEach { action($0) }
   }
   
-  public func didBindWithContainer() {
+  open func refresh() {
     notify { [weak self] observer in
       guard let sSelf = self else { return }
-      observer.onContainerBinding(formItem: sSelf)
+      observer.onRefreshEvent(formItem: sSelf)
     }
   }
   
@@ -152,7 +181,7 @@ open class FormItemInput<ValueType: Comparable, InputValueType>: FormItem, Equat
   }
 }
 
-open class TextFormItemInput<ValueType: Comparable>: FormItemInput<ValueType, String> {
+open class TextFormItemInput<ValueType: Comparable>: InputFormItem<ValueType, String> {
   open var text: String? {
     let inputValue = self.inputValue(from: base.value)
     return formatted(inputValue) ?? inputValue

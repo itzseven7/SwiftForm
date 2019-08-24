@@ -11,40 +11,17 @@ import SwiftForm
 enum CellType: TableViewFormItemCellType {
   
   case textField
+  case datePickerInput
+  case pickerInput
   
   func dequeueCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-    return tableView.dequeueReusableCell(withIdentifier: String(describing: FormTextFieldTableViewCell.self), for: indexPath)
-  }
-}
-
-class TestTextFieldFormItem: TextFieldFormItemInput<String>, TableViewFormItem {
-  var cellType: TableViewFormItemCellType = CellType.textField
-  
-  override func validator(_ value: String?) -> ValueValidator<String> {
-    return TestTextValidator(value: value)
-  }
-  
-  override func value(from inputValue: String?) -> String? {
-    return inputValue
-  }
-  
-  override func inputValue(from value: String?) -> String? {
-    return value
-  }
-  
-  class TestTextValidator: TextValidator, TextValidatorErrorProvider {
-    var emptyError: String? {
-      return "You cannot put an empty value."
-    }
-    
-    var noValueError: String? {
-      return "You must fulfill this field."
-    }
-    
-    override init(value: String?) {
-      super.init(value: value)
-      
-      errorProvider = self
+    switch self {
+    case .textField:
+      return tableView.dequeueReusableCell(withIdentifier: String(describing: TextFieldTableViewCell.self), for: indexPath)
+    case .datePickerInput:
+      return tableView.dequeueReusableCell(withIdentifier: String(describing: DatePickerFieldTableViewCell.self), for: indexPath)
+    case .pickerInput:
+      return tableView.dequeueReusableCell(withIdentifier: String(describing: PickerViewFieldTableViewCell.self), for: indexPath)
     }
   }
 }
@@ -54,45 +31,47 @@ class TestForm: BaseTableViewForm {
   override init() {
     super.init()
     
-    let sectionsInfos: [String: [String]] = [
-      "First section" : ["First item", "Second item"],
-      "Second section" : ["Third item"],
-      "Third section" : ["Fourth item", "Fifth item", "Sixth item", "Seventh item", "Eight item", "Ninth item"]
-    ]
+    let generalSection = BaseTableViewFormSection()
     
-    var newSections: [TableViewFormSection] = []
+    let generalSectionHeaderView: LeftTitleHeaderView = UIView.fromNib()
+    generalSectionHeaderView.ibHeaderLabel.text = "General"
     
-    for (section, items) in sectionsInfos.sorted(by: { $0.key < $1.key}) {
-      let newSection = BaseTableViewFormSection()
-      
-      let sectionHeaderView: LeftTitleHeaderView = UIView.fromNib()
-      sectionHeaderView.ibHeaderLabel.text = section
-      
-      newSection.headerView = sectionHeaderView
-      
-      for item in items {
-        let newItem = TestTextFieldFormItem()
-        newItem.title = item
-        newItem.description = "Description multiline Description multiline Description multiline Description multiline Description multiline"
-        
-        newSection.items.append(newItem)
-      }
-      
-      newSections.append(newSection)
-    }
+    generalSection.headerView = generalSectionHeaderView
     
-    sections = newSections
+    generalSection.items = [FirstNameFormItem(value: "Romain"), LastNameFormItem(), DateOfBirthFormItem(), PlaceOfBirthFormItem()]
+    
+    let loginSection = BaseTableViewFormSection()
+    
+    let loginSectionHeaderView: LeftTitleHeaderView = UIView.fromNib()
+    loginSectionHeaderView.ibHeaderLabel.text = "Credentials"
+    
+    loginSection.headerView = loginSectionHeaderView
+    
+    loginSection.items = [EmailAddressFormItem(), PasswordFormItem()]
+    
+    sections = [generalSection, loginSection]
   }
   
   override func registerCells(for tableView: UITableView) {
-    tableView.register(UINib(nibName: String(describing: FormTextFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: FormTextFieldTableViewCell.self))
+    tableView.register(UINib(nibName: String(describing: TextFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TextFieldTableViewCell.self))
+    tableView.register(UINib(nibName: String(describing: DatePickerFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: DatePickerFieldTableViewCell.self))
+    tableView.register(UINib(nibName: String(describing: PickerViewFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: PickerViewFieldTableViewCell.self))
   }
 }
 
-class TestViewController: FormTableViewController  {
+final class TestViewController: FormTableViewController  {
   override func viewDidLoad() {
     form = TestForm()
     
     super.viewDidLoad()
+    
+    tableView.beginUpdates()
+    tableView.endUpdates()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    //form?.beginEditing()
   }
 }

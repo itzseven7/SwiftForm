@@ -19,8 +19,8 @@ final class PasswordValidator: RegularExpressionValidator {
   fileprivate static var digitRegex = ".*[0-9]+.*"
   fileprivate static var specialCharactersRegex = "^[a-zA-Z0-9!~\\\\ @#$%^&*()_+\\-=\\[\\]{};'‘’':\"\\|,.<>\\/?]*$"
   
-  init(password: String? = nil) {
-    super.init(value: password,
+  init(value: String? = nil) {
+    super.init(value: value,
                patterns: [PasswordValidator.numberOfCharactersRegex,
                           PasswordValidator.lowercaseLetterRegex,
                           PasswordValidator.uppercaseLetterRegex,
@@ -114,5 +114,36 @@ extension PasswordValidator: RegularExpressionValidatorErrorProvider {
         return "Your password contains invalid special characters."
       }
     }
+  }
+}
+
+final class PasswordFormItem: TextFieldInputFormItem<String> {
+  
+  override init(value: String? = nil) {
+    super.init(value: value)
+    
+    title = "Password"
+    description = "At least eight characters including one uppercase letter, one lowercase letter and one digit."
+    autocorrectionType = .no
+    isSecureTextEntry = true
+    returnKeyType = .next
+    maximumCharacters = 128
+  }
+  override func validator(_ value: String?) -> ValueValidator<String> {
+    return PasswordValidator(value: value)
+  }
+  
+  override func value(from inputValue: String?) -> String? {
+    return inputValue
+  }
+  
+  override func inputValue(from value: String?) -> String? {
+    return value
+  }
+}
+
+extension PasswordFormItem: TableViewFormItem {
+  var cellType: TableViewFormItemCellType {
+    return CellType.textField
   }
 }

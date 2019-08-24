@@ -1,5 +1,5 @@
 //
-//  TextFieldFormItemInput.swift
+//  TextFieldInputFormItem.swift
 //  SwiftForm
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -11,7 +11,11 @@ public protocol TextFieldFormItemObserver: FormItemObserver {
   func onTextChangedEvent(formItem: TextFieldFormItem)
 }
 
-public protocol TextFieldFormItem {
+public protocol TextFieldFormItem: FormItem {
+  
+  var text: String? { get }
+  
+  var placeholder: String? { get }
   
   var isSecureTextEntry: Bool { get }
   
@@ -23,8 +27,6 @@ public protocol TextFieldFormItem {
   
   var autocorrectionType: UITextAutocorrectionType { get }
   
-  var textAlignment: NSTextAlignment { get }
-  
   var clearButtonMode: UITextField.ViewMode { get }
   
   var leftView: UIView? { get }
@@ -35,6 +37,10 @@ public protocol TextFieldFormItem {
   
   var rightViewMode: UITextField.ViewMode { get }
   
+  var inputAccessoryView: UIView? { get }
+  
+  // UITextField original delegate must forward messages to the form item in order to work
+  
   func textFieldDidBeginEditing(_ textField: UITextField)
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
   func textFieldDidEndEditing(_ textField: UITextField)
@@ -43,32 +49,38 @@ public protocol TextFieldFormItem {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool
 }
 
-extension TextFieldFormItem {
-  public var isSecureTextEntry: Bool {
-    return false
-  }
+public protocol TextFieldFormItemAdapter {
+  var text: String? { get }
   
-  public var keyboardType: UIKeyboardType {
-    return .default
-  }
+  var placeholder: String? { get }
   
-  public var returnKeyType: UIReturnKeyType {
-    return .default
-  }
+  var leftViewMode: UITextField.ViewMode { get }
   
-  public var autocapitalizationType: UITextAutocapitalizationType {
-    return .sentences
-  }
+  var leftView: UIView? { get }
   
-  public var autocorrectionType: UITextAutocorrectionType {
-    return .default
-  }
+  var rightViewMode: UITextField.ViewMode { get }
   
-  public var textAlignment: NSTextAlignment {
-    return .left
-  }
+  var rightView: UIView? { get }
   
-  public var clearButtonMode: UITextField.ViewMode { return .never }
+  func textFieldDidBeginEditing(_ textField: UITextField)
+  func textFieldDidEndEditing(_ textField: UITextField)
+}
+
+open class TextFieldInputFormItem<ValueType: Comparable>: TextFormItemInput<ValueType>, TextFieldFormItem {
+  
+  public var placeholder: String?
+  
+  public var isSecureTextEntry: Bool = false
+  
+  public var keyboardType: UIKeyboardType = .default
+  
+  public var returnKeyType: UIReturnKeyType = .default
+  
+  public var autocapitalizationType: UITextAutocapitalizationType = .sentences
+  
+  public var autocorrectionType: UITextAutocorrectionType = .default
+  
+  public var clearButtonMode: UITextField.ViewMode = .never
   
   public var leftView: UIView? { return nil }
   
@@ -77,9 +89,8 @@ extension TextFieldFormItem {
   public var rightView: UIView? { return nil }
   
   public var rightViewMode: UITextField.ViewMode { return .never }
-}
-
-open class TextFieldFormItemInput<ValueType: Comparable>: TextFormItemInput<ValueType>, TextFieldFormItem {
+  
+  public var inputAccessoryView: UIView? { return nil }
   
   var validationMode: ValidationMode = .always
   
@@ -153,7 +164,7 @@ open class TextFieldFormItemInput<ValueType: Comparable>: TextFormItemInput<Valu
   }
 }
 
-extension TextFieldFormItemInput {
+extension TextFieldInputFormItem {
   public enum ValidationMode {
     case always // always validates the value when text field resigns first responder (textFieldDidEndEditing and textFieldShouldReturn)
     case onUserAction // only validates the value on textFieldShouldReturn

@@ -181,11 +181,7 @@ open class BaseForm: Form {
 
 extension BaseForm: FormItemObserver {
   public var priority: Int {
-    return 1000
-  }
-  
-  public func onContainerBinding(formItem: FormItem) {
-    
+    return 2
   }
   
   public func onValidationEvent(formItem: FormItem) {
@@ -193,13 +189,11 @@ extension BaseForm: FormItemObserver {
     focusOnNextItem()
   }
   
-  public func onActivationEvent(formItem: FormItem) {
-    
-  }
+  public func onActivationEvent(formItem: FormItem) {}
   
-  public func onEditingEvent(formItem: FormItem) {
-    
-  }
+  public func onEditingEvent(formItem: FormItem) {}
+  
+  public func onRefreshEvent(formItem: FormItem) {}
   
   public func onVisibilityEvent(formItem: FormItem) {
     if formItem.isHidden {

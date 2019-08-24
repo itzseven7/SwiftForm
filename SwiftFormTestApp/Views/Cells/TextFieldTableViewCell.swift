@@ -1,5 +1,5 @@
 //
-//  FormTextFieldTableViewCell.swift
+//  TextFieldTableViewCell.swift
 //  SwiftFormTestApp
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,7 +8,7 @@
 import UIKit
 import SwiftForm
 
-final class FormTextFieldTableViewCell: UITableViewCell, TextFieldFormItemContainer {
+final class TextFieldTableViewCell: UITableViewCell, TextFieldFormItemContainer {
   
   // MARK: - Outlets
   @IBOutlet private weak var ibStackView: UIStackView!
@@ -23,20 +23,11 @@ final class FormTextFieldTableViewCell: UITableViewCell, TextFieldFormItemContai
     super.awakeFromNib()
     
     ibTextField.delegate = self
-//    ibTextField.style = DefaultTextFieldStyle.input
-//    ibTextField.backgroundColor = ColorName.greyLight.color
-//    ibTextField.font = FontPreset.inputText.fontPurpose.font
-//    ibTextField.textColor = ColorName.mainDefault.color
     ibTextField.borderStyle = .line
     ibTextField.layer.borderWidth = 0.5
     ibTextField.layer.borderColor = UIColor.gray.cgColor
     ibTextField.layer.cornerRadius = 9
     ibTextField.layer.masksToBounds = true
-//    ibTextField.canPerformAction = false
-//    ibTextField.textRectInsets = UIRendering.textFieldPadding
-//    ibTextField.placeholderRectInsets = UIRendering.textFieldPadding
-//    ibTextField.editingRectInsets = UIRendering.textFieldPadding
-    
     ibTitleLabel.textColor = UIColor.blue
     ibDescriptionLabel.textColor = UIColor.lightGray
     ibErrorLabel.textColor = UIColor.red
@@ -47,11 +38,8 @@ final class FormTextFieldTableViewCell: UITableViewCell, TextFieldFormItemContai
   }
   
   private func configureView() {
-    ibTitleLabel.text = formItem?.title
     ibTitleLabel.isHidden = ibTitleLabel.text == nil
-    ibDescriptionLabel.text = formItem?.description
     ibDescriptionLabel.isHidden = ibDescriptionLabel.text == nil
-    ibErrorLabel.text = formItem?.error
     ibErrorLabel.isHidden = ibErrorLabel.text == nil
     
     let titleBottomSpacing = CGFloat(ibDescriptionLabel.isHidden ? 12 : 6)
@@ -63,8 +51,25 @@ final class FormTextFieldTableViewCell: UITableViewCell, TextFieldFormItemContai
     let inputBottomSpacing = CGFloat(ibErrorLabel.isHidden ? 0 : 6)
     ibStackView.setCustomSpacing(inputBottomSpacing, after: ibTextField)
     
+    configureStyles()
+    
     if formItem?.isEditing ?? false && !ibErrorLabel.isHidden {
       ibErrorLabel.shake()
+    }
+  }
+  
+  private func configureStyles() {
+    guard let item = formItem else { return }
+    
+    switch item.state {
+    case .disabled:
+      ibTitleLabel.textColor = UIColor.lightGray
+    case .normal:
+      ibTitleLabel.textColor = UIColor.blue
+    case .editing:
+      ibTitleLabel.textColor = UIColor.green
+    case .error:
+      ibTitleLabel.textColor = UIColor.red
     }
   }
   
@@ -77,7 +82,7 @@ final class FormTextFieldTableViewCell: UITableViewCell, TextFieldFormItemContai
 //  }
 }
 
-extension FormTextFieldTableViewCell {
+extension TextFieldTableViewCell {
   var input: UITextField {
     return ibTextField
   }
@@ -94,36 +99,25 @@ extension FormTextFieldTableViewCell {
     return ibErrorLabel
   }
   
-  var priority: Int {
-    return 1
-  }
-  
-  func onContainerBinding(formItem: FormItem) {
+  func finishSetUp() {
     configureView()
   }
   
   func onValidationEvent(formItem: FormItem) {
+    bind()
     configureView()
   }
   
   func onActivationEvent(formItem: FormItem) {
-    
+    ibTextField.isUserInteractionEnabled = formItem.isEnabled
   }
   
   func onEditingEvent(formItem: FormItem) {
-    if formItem.isEditing {
-      ibTitleLabel.textColor = UIColor.green
-    } else {
-      ibTitleLabel.textColor = UIColor.blue
-    }
-  }
-  
-  func onVisibilityEvent(formItem: FormItem) {
-    
+    configureStyles()
   }
 }
 
-extension FormTextFieldTableViewCell: UITextFieldDelegate {
+extension TextFieldTableViewCell: UITextFieldDelegate {
   func textFieldShouldClear(_ textField: UITextField) -> Bool {
     return textFieldFormItem?.textFieldShouldClear(textField) ?? true
   }
