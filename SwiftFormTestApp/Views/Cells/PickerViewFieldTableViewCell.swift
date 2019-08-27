@@ -91,7 +91,7 @@ extension PickerViewFieldTableViewCell: UIPickerViewDelegate {
   }
 }
 
-extension PickerViewFieldTableViewCell: TextFieldResponderFormItemContainer {
+extension PickerViewFieldTableViewCell: TextFieldFormItemResponderAdapter {
   var responder: UITextField {
     return ibTextField
   }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension DatePickerFormItemContainer where Self: TextFieldResponderFormItemContainer {
+extension DatePickerFormItemContainer where Self: TextFieldFormItemResponderAdapter {
   
   public var datePickerFormItemWithTextField: TextFieldFormItemAdapter? {
     return formItem as? TextFieldFormItemAdapter

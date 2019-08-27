@@ -7,10 +7,6 @@
 
 import UIKit
 
-public protocol TextFieldFormItemObserver: FormItemObserver {
-  func onTextChangedEvent(formItem: TextFieldFormItem)
-}
-
 public protocol TextFieldFormItem: FormItem {
   
   var text: String? { get }
@@ -94,17 +90,9 @@ open class TextFieldInputFormItem<ValueType: Comparable>: TextFormItemInput<Valu
   
   var validationMode: ValidationMode = .always
   
-  open override func validate() {
-    let text = (inputValue == nil) || (inputValue?.isEmpty ?? true) ? nil : inputValue
-    base.validate(self.value(from: text))
-  }
-  
   open func textFieldDidBeginEditing(_ textField: UITextField) {
     isEditing = true
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onEditingEvent(formItem: sSelf)
-    }
+    notifyEditingChange()
   }
   
   open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -113,10 +101,7 @@ open class TextFieldInputFormItem<ValueType: Comparable>: TextFormItemInput<Valu
   
   open func textFieldDidEndEditing(_ textField: UITextField) {
     isEditing = false
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onEditingEvent(formItem: sSelf)
-    }
+    notifyEditingChange()
   }
   
   open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -131,11 +116,7 @@ open class TextFieldInputFormItem<ValueType: Comparable>: TextFormItemInput<Valu
     
     inputValue = currentInputText
     
-    // TODO: Not pretty
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      (observer as? TextFieldFormItemObserver)?.onTextChangedEvent(formItem: sSelf)
-    }
+    notifyTextChange()
     
     // If form item has a specific format to apply to text
     if let formattedText = formatted(currentInputText) {

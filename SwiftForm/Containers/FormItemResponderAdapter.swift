@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol FormItemResponderContainer: FormItemInputContainer {
+public protocol FormItemResponderAdapter {
   associatedtype ResponderType: UIResponder
   associatedtype ResponderInputViewType: UIView
   
@@ -15,6 +15,6 @@ public protocol FormItemResponderContainer: FormItemInputContainer {
   var responderInputView: ResponderInputViewType { get }
 }
 
-public protocol TextFieldResponderFormItemContainer: FormItemResponderContainer {
+public protocol TextFieldFormItemResponderAdapter: FormItemResponderAdapter {
   var responder: UITextField { get }
 }

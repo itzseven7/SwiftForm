@@ -72,11 +72,10 @@ final class DatePickerFieldTableViewCell: UITableViewCell, DatePickerFormItemCon
   @objc
   private func dateChanged(_ sender: UIDatePicker) {
     datePickerFormItem?.datePickerValueChanged(datePicker)
-    //datePickerInputFormItem?.datePicker(sender, didChangeDateFromTextField: ibTextField)
   }
 }
 
-extension DatePickerFieldTableViewCell: TextFieldResponderFormItemContainer {
+extension DatePickerFieldTableViewCell: TextFieldFormItemResponderAdapter {
   var responder: UITextField {
     return ibTextField
   }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextViewTableViewCell" rowHeight="231" id="Dt8-l7-euX" customClass="TextViewTableViewCell" customModule="SwiftFormTestApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="231"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dt8-l7-euX" id="FKQ-lM-i57">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="230.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eAf-vx-bvK">
+                        <rect key="frame" x="20" y="11" width="368" height="209"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evC-Cq-0rv">
+                                <rect key="frame" x="0.0" y="0.0" width="368" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-NY-EZf">
+                                <rect key="frame" x="0.0" y="26.5" width="368" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="htt-Nf-7r2">
+                                <rect key="frame" x="0.0" y="92.5" width="368" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="90" id="OA4-XF-V8a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN6-4u-RL2">
+                                <rect key="frame" x="0.0" y="188.5" width="368" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eAf-vx-bvK" firstAttribute="trailing" secondItem="FKQ-lM-i57" secondAttribute="trailingMargin" id="3Y1-O0-Qjq"/>
+                    <constraint firstItem="eAf-vx-bvK" firstAttribute="top" secondItem="FKQ-lM-i57" secondAttribute="topMargin" id="F3a-h7-1Vm"/>
+                    <constraint firstItem="eAf-vx-bvK" firstAttribute="leading" secondItem="FKQ-lM-i57" secondAttribute="leadingMargin" id="T0Q-kc-JhV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eAf-vx-bvK" secondAttribute="bottom" id="gxM-YZ-i6F"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ibDescriptionLabel" destination="7Pk-NY-EZf" id="Va6-MK-Hlg"/>
+                <outlet property="ibErrorLabel" destination="gN6-4u-RL2" id="HKo-9G-Cao"/>
+                <outlet property="ibStackView" destination="eAf-vx-bvK" id="4dg-ho-xV9"/>
+                <outlet property="ibTextView" destination="htt-Nf-7r2" id="Db7-dm-X2c"/>
+                <outlet property="ibTitleLabel" destination="evC-Cq-0rv" id="kB6-cZ-G2V"/>
+                <outlet property="ibcTextViewHeight" destination="OA4-XF-V8a" id="O2T-9A-4hr"/>
+            </connections>
+            <point key="canvasLocation" x="83.200000000000003" y="93.103448275862078"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -43,9 +43,6 @@ open class DatePickerInputFormItem<ValueType: Comparable>: InputFormItem<ValueTy
   
   open func datePickerValueChanged(_ datePicker: UIDatePicker) {
     date = datePicker.date
-    notify { [weak self] (observer) in
-      guard let sSelf = self else { return }
-      observer.onRefreshEvent(formItem: sSelf)
-    }
+    notifyRefreshChange()
   }
 }

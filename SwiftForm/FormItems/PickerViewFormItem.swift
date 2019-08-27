@@ -87,9 +87,6 @@ open class PickerViewInputFormItem<ValueType: Comparable>: InputFormItem<ValueTy
   public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     selectedRowIndex = row
     inputValue = titles[row]
-    notify { [weak self] (observer) in
-      guard let sSelf = self else { return }
-      observer.onRefreshEvent(formItem: sSelf)
-    }
+    notifyRefreshChange()
   }
 }

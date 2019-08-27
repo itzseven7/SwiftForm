@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A078BE32312C04E00026BE2 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A078BE22312C04E00026BE2 /* HeaderView.xib */; };
+		7A078BE52312C05900026BE2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A078BE42312C05900026BE2 /* HeaderView.swift */; };
 		7A159D9D230052F6006DC991 /* DateOfRegistrationValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A159D9C230052F6006DC991 /* DateOfRegistrationValidator.swift */; };
+		7A1FDF732315A3EC0076CEC6 /* TextFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */; };
+		7A1FDF752315A97E0076CEC6 /* TextViewFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */; };
+		7A1FDF782315ACC80076CEC6 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */; };
+		7A1FDF792315ACC80076CEC6 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */; };
 		7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */; };
 		7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793422C40C5700A8BAC1 /* ViewController.swift */; };
 		7A2A793822C40C5700A8BAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A793622C40C5700A8BAC1 /* Main.storyboard */; };
@@ -27,7 +33,7 @@
 		7A5154142310861400C1AE7B /* DefaultToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5154132310861400C1AE7B /* DefaultToolbar.swift */; };
 		7A515416231099C400C1AE7B /* FormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A515415231099C400C1AE7B /* FormItemContainer.swift */; };
 		7A515418231099FA00C1AE7B /* FormItemInputContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */; };
-		7A51541A23109A2800C1AE7B /* FormItemResponderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51541923109A2800C1AE7B /* FormItemResponderContainer.swift */; };
+		7A51541A23109A2800C1AE7B /* FormItemResponderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51541923109A2800C1AE7B /* FormItemResponderAdapter.swift */; };
 		7A51541D23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51541C23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift */; };
 		7A5B17C922B58A4300111A8A /* SwiftForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5B17BF22B58A4300111A8A /* SwiftForm.framework */; };
 		7A5B17D022B58A4300111A8A /* SwiftForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A5B17C222B58A4300111A8A /* SwiftForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,7 +44,7 @@
 		7A5B17E422B58B9200111A8A /* RegularExpressionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DE22B58B9100111A8A /* RegularExpressionValidator.swift */; };
 		7A5B17E522B58B9200111A8A /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DF22B58B9200111A8A /* Validator.swift */; };
 		7A6EFD58230DEA0F00634E2B /* TextFieldFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EFD57230DEA0F00634E2B /* TextFieldFormItemContainer.swift */; };
-		7A6F5C0A230D47F90010C19E /* TextFieldInputFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F5C09230D47F90010C19E /* TextFieldInputFormItem.swift */; };
+		7A6F5C0A230D47F90010C19E /* TextFieldFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F5C09230D47F90010C19E /* TextFieldFormItem.swift */; };
 		7A7AFCEF230E90DE00E89482 /* DatePickerFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AFCEE230E90DE00E89482 /* DatePickerFormItem.swift */; };
 		7A7AFCF2230E996200E89482 /* DatePickerFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AFCF0230E996200E89482 /* DatePickerFieldTableViewCell.xib */; };
 		7A7AFCF3230E996200E89482 /* DatePickerFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AFCF1230E996200E89482 /* DatePickerFieldTableViewCell.swift */; };
@@ -47,6 +53,11 @@
 		7A7F45F222FDE89000BE10BA /* LastNameFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45F122FDE89000BE10BA /* LastNameFormItem.swift */; };
 		7A7F45F622FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45F522FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift */; };
 		7A7F45F822FDE8E900BE10BA /* EmailAddressFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F45F722FDE8E900BE10BA /* EmailAddressFormItem.swift */; };
+		7A85A93A23146E59008715B3 /* SegmentedControlFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93923146E59008715B3 /* SegmentedControlFormItem.swift */; };
+		7A85A93C23146E7C008715B3 /* SliderFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93B23146E7C008715B3 /* SliderFormItem.swift */; };
+		7A85A93E23146E90008715B3 /* SwitchFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93D23146E90008715B3 /* SwitchFormItem.swift */; };
+		7A85A94023146ECF008715B3 /* StepperFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93F23146ECF008715B3 /* StepperFormItem.swift */; };
+		7A85A94223146EDD008715B3 /* TextViewFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A94123146EDD008715B3 /* TextViewFormItem.swift */; };
 		7A86D24522BE71E000C3F45A /* ValidatorListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24422BE71E000C3F45A /* ValidatorListTests.swift */; };
 		7A86D24722BE72E700C3F45A /* ValidatorMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24622BE72E700C3F45A /* ValidatorMocks.swift */; };
 		7A86D24922BE73E800C3F45A /* ValueValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24822BE73E800C3F45A /* ValueValidatorTests.swift */; };
@@ -67,7 +78,6 @@
 		7AF2F3442309A6CF000B6DE0 /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */; };
 		7AF2F3452309A6CF000B6DE0 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3402309A6CF000B6DE0 /* Form.swift */; };
 		7AF2F3472309AC66000B6DE0 /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */; };
-		7AF2F3492309DE73000B6DE0 /* Containable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3482309DE73000B6DE0 /* Containable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +98,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A078BE22312C04E00026BE2 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		7A078BE42312C05900026BE2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		7A159D9C230052F6006DC991 /* DateOfRegistrationValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfRegistrationValidator.swift; sourceTree = "<group>"; };
+		7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormItem.swift; sourceTree = "<group>"; };
+		7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFormItemContainer.swift; sourceTree = "<group>"; };
+		7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
 		7A2A793022C40C5700A8BAC1 /* SwiftFormTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFormTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A2A793422C40C5700A8BAC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +125,7 @@
 		7A5154132310861400C1AE7B /* DefaultToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultToolbar.swift; sourceTree = "<group>"; };
 		7A515415231099C400C1AE7B /* FormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemContainer.swift; sourceTree = "<group>"; };
 		7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemInputContainer.swift; sourceTree = "<group>"; };
-		7A51541923109A2800C1AE7B /* FormItemResponderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemResponderContainer.swift; sourceTree = "<group>"; };
+		7A51541923109A2800C1AE7B /* FormItemResponderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemResponderAdapter.swift; sourceTree = "<group>"; };
 		7A51541C23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatePickerFormItemContainer+UITextField.swift"; sourceTree = "<group>"; };
 		7A5B17BF22B58A4300111A8A /* SwiftForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5B17C222B58A4300111A8A /* SwiftForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftForm.h; sourceTree = "<group>"; };
@@ -123,7 +139,7 @@
 		7A5B17DE22B58B9100111A8A /* RegularExpressionValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressionValidator.swift; sourceTree = "<group>"; };
 		7A5B17DF22B58B9200111A8A /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		7A6EFD57230DEA0F00634E2B /* TextFieldFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormItemContainer.swift; sourceTree = "<group>"; };
-		7A6F5C09230D47F90010C19E /* TextFieldInputFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputFormItem.swift; sourceTree = "<group>"; };
+		7A6F5C09230D47F90010C19E /* TextFieldFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormItem.swift; sourceTree = "<group>"; };
 		7A7AFCEE230E90DE00E89482 /* DatePickerFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerFormItem.swift; sourceTree = "<group>"; };
 		7A7AFCF0230E996200E89482 /* DatePickerFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerFieldTableViewCell.xib; sourceTree = "<group>"; };
 		7A7AFCF1230E996200E89482 /* DatePickerFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +148,11 @@
 		7A7F45F122FDE89000BE10BA /* LastNameFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNameFormItem.swift; sourceTree = "<group>"; };
 		7A7F45F522FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOfBirthFormItem.swift; sourceTree = "<group>"; };
 		7A7F45F722FDE8E900BE10BA /* EmailAddressFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAddressFormItem.swift; sourceTree = "<group>"; };
+		7A85A93923146E59008715B3 /* SegmentedControlFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlFormItem.swift; sourceTree = "<group>"; };
+		7A85A93B23146E7C008715B3 /* SliderFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderFormItem.swift; sourceTree = "<group>"; };
+		7A85A93D23146E90008715B3 /* SwitchFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchFormItem.swift; sourceTree = "<group>"; };
+		7A85A93F23146ECF008715B3 /* StepperFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperFormItem.swift; sourceTree = "<group>"; };
+		7A85A94123146EDD008715B3 /* TextViewFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFormItem.swift; sourceTree = "<group>"; };
 		7A86D24422BE71E000C3F45A /* ValidatorListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorListTests.swift; sourceTree = "<group>"; };
 		7A86D24622BE72E700C3F45A /* ValidatorMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorMocks.swift; sourceTree = "<group>"; };
 		7A86D24822BE73E800C3F45A /* ValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueValidatorTests.swift; sourceTree = "<group>"; };
@@ -152,7 +173,6 @@
 		7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
 		7AF2F3402309A6CF000B6DE0 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
-		7AF2F3482309DE73000B6DE0 /* Containable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Containable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,10 +230,10 @@
 			children = (
 				7A515415231099C400C1AE7B /* FormItemContainer.swift */,
 				7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */,
-				7A51541923109A2800C1AE7B /* FormItemResponderContainer.swift */,
+				7A51541923109A2800C1AE7B /* FormItemResponderAdapter.swift */,
 				7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */,
-				7AF2F3482309DE73000B6DE0 /* Containable.swift */,
 				7A6EFD57230DEA0F00634E2B /* TextFieldFormItemContainer.swift */,
+				7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */,
 				7A51541B23109A9500C1AE7B /* DatePicker */,
 				7AA21F3F23117AAD00FC6DA6 /* Picker */,
 			);
@@ -223,9 +243,15 @@
 		7A4EB14623101E9F001538AD /* FormItems */ = {
 			isa = PBXGroup;
 			children = (
-				7A6F5C09230D47F90010C19E /* TextFieldInputFormItem.swift */,
+				7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */,
+				7A6F5C09230D47F90010C19E /* TextFieldFormItem.swift */,
+				7A85A94123146EDD008715B3 /* TextViewFormItem.swift */,
 				7A7AFCEE230E90DE00E89482 /* DatePickerFormItem.swift */,
 				7A32A17E230FE2CC00F5ACB3 /* PickerViewFormItem.swift */,
+				7A85A93923146E59008715B3 /* SegmentedControlFormItem.swift */,
+				7A85A93B23146E7C008715B3 /* SliderFormItem.swift */,
+				7A85A93D23146E90008715B3 /* SwitchFormItem.swift */,
+				7A85A93F23146ECF008715B3 /* StepperFormItem.swift */,
 			);
 			path = FormItems;
 			sourceTree = "<group>";
@@ -330,6 +356,8 @@
 				7A376B3D230C4ACF00F49936 /* UIView+Extension.swift */,
 				7A5154112310860A00C1AE7B /* DefaultToolbar.xib */,
 				7A5154132310861400C1AE7B /* DefaultToolbar.swift */,
+				7A078BE22312C04E00026BE2 /* HeaderView.xib */,
+				7A078BE42312C05900026BE2 /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,6 +365,8 @@
 		7AA21F47231182EA00FC6DA6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */,
+				7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */,
 				7AA21F412311806D00FC6DA6 /* PickerViewFieldTableViewCell.swift */,
 				7AA21F402311806D00FC6DA6 /* PickerViewFieldTableViewCell.xib */,
 				7A7AFCF1230E996200E89482 /* DatePickerFieldTableViewCell.swift */,
@@ -509,7 +539,9 @@
 				7AA21F422311806E00FC6DA6 /* PickerViewFieldTableViewCell.xib in Resources */,
 				7A2A793A22C40C5800A8BAC1 /* Assets.xcassets in Resources */,
 				7A2A793822C40C5700A8BAC1 /* Main.storyboard in Resources */,
+				7A1FDF792315ACC80076CEC6 /* TextViewTableViewCell.xib in Resources */,
 				7A376B36230C274C00F49936 /* TextFieldTableViewCell.xib in Resources */,
+				7A078BE32312C04E00026BE2 /* HeaderView.xib in Resources */,
 				7A376B39230C4A4200F49936 /* LeftTitleHeaderView.xib in Resources */,
 				7A5154122310860A00C1AE7B /* DefaultToolbar.xib in Resources */,
 			);
@@ -542,12 +574,14 @@
 				7A376B3A230C4A4200F49936 /* LeftTitleHeaderView.swift in Sources */,
 				7A376B32230C230D00F49936 /* TestViewController.swift in Sources */,
 				7A159D9D230052F6006DC991 /* DateOfRegistrationValidator.swift in Sources */,
+				7A078BE52312C05900026BE2 /* HeaderView.swift in Sources */,
 				7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */,
 				7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */,
 				7A7F45F022FDE88500BE10BA /* FirstNameFormItem.swift in Sources */,
 				7A5154142310861400C1AE7B /* DefaultToolbar.swift in Sources */,
 				7A7F45F222FDE89000BE10BA /* LastNameFormItem.swift in Sources */,
 				7A7F45F622FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift in Sources */,
+				7A1FDF782315ACC80076CEC6 /* TextViewTableViewCell.swift in Sources */,
 				7AF2F33923099DBC000B6DE0 /* DateOfBirthFormItem.swift in Sources */,
 				7A7F45F822FDE8E900BE10BA /* EmailAddressFormItem.swift in Sources */,
 				7A7AFCF3230E996200E89482 /* DatePickerFieldTableViewCell.swift in Sources */,
@@ -559,24 +593,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1FDF752315A97E0076CEC6 /* TextViewFormItemContainer.swift in Sources */,
 				7A515416231099C400C1AE7B /* FormItemContainer.swift in Sources */,
 				7AA21F3E23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift in Sources */,
 				7AF2F3472309AC66000B6DE0 /* FormTableViewController.swift in Sources */,
+				7A85A93A23146E59008715B3 /* SegmentedControlFormItem.swift in Sources */,
+				7A85A93E23146E90008715B3 /* SwitchFormItem.swift in Sources */,
 				7A7AFCEF230E90DE00E89482 /* DatePickerFormItem.swift in Sources */,
 				7A32A17F230FE2CC00F5ACB3 /* PickerViewFormItem.swift in Sources */,
 				7AF2F337230997E0000B6DE0 /* Validable.swift in Sources */,
-				7A6F5C0A230D47F90010C19E /* TextFieldInputFormItem.swift in Sources */,
-				7AF2F3492309DE73000B6DE0 /* Containable.swift in Sources */,
+				7A6F5C0A230D47F90010C19E /* TextFieldFormItem.swift in Sources */,
 				7A6EFD58230DEA0F00634E2B /* TextFieldFormItemContainer.swift in Sources */,
-				7A51541A23109A2800C1AE7B /* FormItemResponderContainer.swift in Sources */,
+				7A51541A23109A2800C1AE7B /* FormItemResponderAdapter.swift in Sources */,
 				7AF2F3422309A6CF000B6DE0 /* FormItem.swift in Sources */,
 				7AF2F3442309A6CF000B6DE0 /* FormSection.swift in Sources */,
+				7A85A94023146ECF008715B3 /* StepperFormItem.swift in Sources */,
 				7A5B17E122B58B9200111A8A /* BoundedValueValidator.swift in Sources */,
+				7A85A94223146EDD008715B3 /* TextViewFormItem.swift in Sources */,
 				7A5B17E322B58B9200111A8A /* TextValidator.swift in Sources */,
 				7A7AFCF5230E9ADE00E89482 /* DatePickerFormItemContainer.swift in Sources */,
 				7A5B17E222B58B9200111A8A /* ListValidator.swift in Sources */,
 				7A51541D23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift in Sources */,
+				7A1FDF732315A3EC0076CEC6 /* TextFormItem.swift in Sources */,
 				7AF2F3452309A6CF000B6DE0 /* Form.swift in Sources */,
+				7A85A93C23146E7C008715B3 /* SliderFormItem.swift in Sources */,
 				7A515418231099FA00C1AE7B /* FormItemInputContainer.swift in Sources */,
 				7A5B17E022B58B9200111A8A /* ValidatorList.swift in Sources */,
 				7AA21F45231180C700FC6DA6 /* PickerViewFormItemContainer+UITextField.swift in Sources */,

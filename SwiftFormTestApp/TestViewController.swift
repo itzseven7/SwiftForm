@@ -11,6 +11,7 @@ import SwiftForm
 enum CellType: TableViewFormItemCellType {
   
   case textField
+  case textView
   case datePickerInput
   case pickerInput
   
@@ -18,6 +19,8 @@ enum CellType: TableViewFormItemCellType {
     switch self {
     case .textField:
       return tableView.dequeueReusableCell(withIdentifier: String(describing: TextFieldTableViewCell.self), for: indexPath)
+    case .textView:
+      return tableView.dequeueReusableCell(withIdentifier: String(describing: TextViewTableViewCell.self), for: indexPath)
     case .datePickerInput:
       return tableView.dequeueReusableCell(withIdentifier: String(describing: DatePickerFieldTableViewCell.self), for: indexPath)
     case .pickerInput:
@@ -28,8 +31,15 @@ enum CellType: TableViewFormItemCellType {
 
 class TestForm: BaseTableViewForm {
   
+  var tableHeaderView: UIView?
+  
   override init() {
     super.init()
+    
+    let headerView: HeaderView = UIView.fromNib()
+    headerView.ibTitleLabel.text = "SignUp Form"
+    headerView.ibDescriptionLabel.text = "This form demonstrates the library power"
+    tableHeaderView = headerView
     
     let generalSection = BaseTableViewFormSection()
     
@@ -54,6 +64,7 @@ class TestForm: BaseTableViewForm {
   
   override func registerCells(for tableView: UITableView) {
     tableView.register(UINib(nibName: String(describing: TextFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TextFieldTableViewCell.self))
+    tableView.register(UINib(nibName: String(describing: TextViewTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TextFieldTableViewCell.self))
     tableView.register(UINib(nibName: String(describing: DatePickerFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: DatePickerFieldTableViewCell.self))
     tableView.register(UINib(nibName: String(describing: PickerViewFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: PickerViewFieldTableViewCell.self))
   }

@@ -54,7 +54,7 @@ open class BaseTableViewForm: BaseForm, TableViewForm {
     
     editingFormItem?.endEditingCallback?()
     
-    guard let currentIndexPath = editingFormItemIndexPath, let formItem = nextFormItem(after: currentIndexPath) else {
+    guard let currentIndexPath = editingFormItemIndexPath, let formItem = nextFormItem(after: currentIndexPath, focusMode: focusMode) else {
       return
     }
     

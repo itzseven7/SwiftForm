@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension PickerViewFormItemContainer where Self: TextFieldResponderFormItemContainer {
+extension PickerViewFormItemContainer where Self: TextFieldFormItemResponderAdapter {
   
   public var pickerViewFormItemWithTextField: TextFieldFormItemAdapter? {
     return formItem as? TextFieldFormItemAdapter

@@ -18,3 +18,11 @@ public protocol FormItemInputContainer: FormItemContainer {
   
   var errorLabel: UILabel? { get }
 }
+
+extension FormItemInputContainer {
+  var titleLabel: UILabel? { return nil }
+  
+  var descriptionLabel: UILabel? { return nil }
+  
+  var errorLabel: UILabel? { return nil }
+}

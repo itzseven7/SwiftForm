@@ -137,8 +137,7 @@ open class InputFormItem<ValueType: Comparable, InputValueType>: FormItem, Equat
   public init(value: ValueType? = nil) {
     base = self.validator(value)
     base.subscribe { [weak self] _ in
-      guard let sSelf = self else { return }
-      sSelf.notify { $0.onValidationEvent(formItem: sSelf)}
+      self?.notifyValidationChange()
     }
   }
   
@@ -163,13 +162,6 @@ open class InputFormItem<ValueType: Comparable, InputValueType>: FormItem, Equat
     observers.sorted(by: { $0.priority < $1.priority }).forEach { action($0) }
   }
   
-  open func refresh() {
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onRefreshEvent(formItem: sSelf)
-    }
-  }
-  
   // Conversion methods
   
   open func value(from inputValue: InputValueType?) -> ValueType? {
@@ -181,23 +173,39 @@ open class InputFormItem<ValueType: Comparable, InputValueType>: FormItem, Equat
   }
 }
 
-open class TextFormItemInput<ValueType: Comparable>: InputFormItem<ValueType, String> {
-  open var text: String? {
-    let inputValue = self.inputValue(from: base.value)
-    return formatted(inputValue) ?? inputValue
+extension InputFormItem {
+  public func notifyValidationChange() {
+    notify { [weak self] observer in
+      guard let sSelf = self else { return }
+      observer.onValidationEvent(formItem: sSelf)
+    }
   }
   
-  open var maximumCharacters: Int = -1
-  
-  // Conversion methods
-  
-  open func formatted(_ value: String?) -> String? {
-    // Needs implementation in subclass
-    return nil
+  public func notifyActivationChange() {
+    notify { [weak self] observer in
+      guard let sSelf = self else { return }
+      observer.onActivationEvent(formItem: sSelf)
+    }
   }
   
-  open func unformatted(_ value: String?) -> String? {
-    // Needs implementation in subclass
-    return nil
+  public func notifyEditingChange() {
+    notify { [weak self] observer in
+      guard let sSelf = self else { return }
+      observer.onEditingEvent(formItem: sSelf)
+    }
+  }
+  
+  public func notifyVisibilityChange() {
+    notify { [weak self] observer in
+      guard let sSelf = self else { return }
+      observer.onVisibilityEvent(formItem: sSelf)
+    }
+  }
+  
+  public func notifyRefreshChange() {
+    notify { [weak self] observer in
+      guard let sSelf = self else { return }
+      observer.onRefreshEvent(formItem: sSelf)
+    }
   }
 }

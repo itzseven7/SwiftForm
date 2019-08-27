@@ -122,23 +122,31 @@ open class BaseForm: Form {
     
     editingFormItem?.endEditingCallback?()
     
-    guard let currentIndexPath = editingFormItemIndexPath, let formItem = nextFormItem(after: currentIndexPath) else {
+    guard let currentIndexPath = editingFormItemIndexPath, let formItem = nextFormItem(after: currentIndexPath, focusMode: focusMode) else {
       return
     }
     
     formItem.beginEditingCallback?()
   }
   
-  internal func nextFormItem(after indexPath: IndexPath) -> FormItem? {
+  internal func nextFormItem(after indexPath: IndexPath, focusMode: FocusMode) -> FormItem? {
     switch focusMode {
     case .none:
       return nil
-    case .mandatory:
-      return nextFocusableFormItem(after: indexPath, predicate: { $0.validator.isMandatory })
     case .any:
       return nextFocusableFormItem(after: indexPath)
+    case .mandatory:
+      guard let formItem = nextFocusableFormItem(after: indexPath, predicate: { $0.validator.isMandatory }) else {
+        return nextFormItem(after: indexPath, focusMode: .any)
+      }
+      
+      return formItem
     case .error:
-      return nextFocusableFormItem(after: indexPath, predicate: { !($0.validator.isValid ?? true) })
+      guard let formItem = nextFocusableFormItem(after: indexPath, predicate: { !($0.validator.isValid ?? true) }) else {
+        return nextFormItem(after: indexPath, focusMode: .any)
+      }
+      
+      return formItem
     }
   }
   
@@ -213,6 +221,6 @@ extension BaseForm {
   /// - any: on next item if exists
   /// - error: on first error
   public enum FocusMode {
-    case none, mandatory, any, error
+    case none, any, mandatory, error
   }
 }
