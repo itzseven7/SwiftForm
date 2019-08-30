@@ -64,7 +64,7 @@ class TestForm: BaseTableViewForm {
   
   override func registerCells(for tableView: UITableView) {
     tableView.register(UINib(nibName: String(describing: TextFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TextFieldTableViewCell.self))
-    tableView.register(UINib(nibName: String(describing: TextViewTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TextFieldTableViewCell.self))
+    tableView.register(UINib(nibName: String(describing: TextViewTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TextViewTableViewCell.self))
     tableView.register(UINib(nibName: String(describing: DatePickerFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: DatePickerFieldTableViewCell.self))
     tableView.register(UINib(nibName: String(describing: PickerViewFieldTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: PickerViewFieldTableViewCell.self))
   }

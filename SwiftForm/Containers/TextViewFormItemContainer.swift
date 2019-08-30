@@ -19,17 +19,15 @@ extension TextViewFormItemContainer {
 
 extension TextViewFormItemContainer {
   public func setUp() {
-    guard let formItem = formItem else { return } // at this stage whe should have a form item
-    
-    formItem.beginEditingCallback = { [weak self] in
+    formItem?.beginEditingCallback = { [weak self] in
       self?.input.becomeFirstResponder()
     }
     
-    formItem.endEditingCallback = { [weak self] in
+    formItem?.endEditingCallback = { [weak self] in
       self?.input.resignFirstResponder()
     }
     
-    formItem.addObserver(self)
+    formItem?.addObserver(self)
     
     bind()
     finishSetUp()

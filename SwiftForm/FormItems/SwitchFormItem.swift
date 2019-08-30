@@ -7,6 +7,18 @@
 
 import UIKit
 
-class SwitchFormItem<ValueType: Comparable>: InputFormItem<ValueType, Bool> {
+public protocol SwitchFormItem: FormItem {
+  var isOn: Bool { get }
   
+  func switchDidChangeValue(_ switch: UISwitch)
+}
+
+open class SwitchInputFormItem<ValueType: Comparable>: InputFormItem<ValueType, Bool>, SwitchFormItem {
+  public var isOn: Bool = false
+  
+  public func switchDidChangeValue(_ switch: UISwitch) {
+    inputValue = `switch`.isOn
+    validate()
+    notifyRefreshChange()
+  }
 }

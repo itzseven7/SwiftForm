@@ -109,10 +109,6 @@ open class InputFormItem<ValueType: Comparable, InputValueType>: FormItem, Equat
   
   public final var base: ValueValidator<ValueType>!
   
-  var value: ValueType? {
-    return base.value
-  }
-  
   /// The input value reflects the current value of the input
   public var inputValue: InputValueType?
   

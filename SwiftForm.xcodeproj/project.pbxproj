@@ -14,6 +14,7 @@
 		7A1FDF752315A97E0076CEC6 /* TextViewFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */; };
 		7A1FDF782315ACC80076CEC6 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */; };
 		7A1FDF792315ACC80076CEC6 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */; };
+		7A1FDF7B2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */; };
 		7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */; };
 		7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793422C40C5700A8BAC1 /* ViewController.swift */; };
 		7A2A793822C40C5700A8BAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A793622C40C5700A8BAC1 /* Main.storyboard */; };
@@ -65,6 +66,10 @@
 		7A93AF1122CD366B00DB9F8A /* TextValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93AF1022CD366B00DB9F8A /* TextValidatorTests.swift */; };
 		7A93AF1322CD393000DB9F8A /* ValidatorErrorProviderMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93AF1222CD393000DB9F8A /* ValidatorErrorProviderMocks.swift */; };
 		7A9440C322FCCAB6007C721C /* RegularExpressionValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9440C222FCCAB6007C721C /* RegularExpressionValidatorTests.swift */; };
+		7A9BF53B2319B765005319AF /* SegmentedControlFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF53A2319B765005319AF /* SegmentedControlFormItemContainer.swift */; };
+		7A9BF53D2319B891005319AF /* SliderFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF53C2319B891005319AF /* SliderFormItemContainer.swift */; };
+		7A9BF53F2319B98C005319AF /* SwitchFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */; };
+		7A9BF5412319B9EA005319AF /* StepperFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */; };
 		7AA21F3E23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA21F3D23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift */; };
 		7AA21F422311806E00FC6DA6 /* PickerViewFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA21F402311806D00FC6DA6 /* PickerViewFieldTableViewCell.xib */; };
 		7AA21F432311806E00FC6DA6 /* PickerViewFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA21F412311806D00FC6DA6 /* PickerViewFieldTableViewCell.swift */; };
@@ -105,6 +110,7 @@
 		7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFormItemContainer.swift; sourceTree = "<group>"; };
 		7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
+		7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldFormItem+Adapter.swift"; sourceTree = "<group>"; };
 		7A2A793022C40C5700A8BAC1 /* SwiftFormTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFormTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A2A793422C40C5700A8BAC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +166,10 @@
 		7A93AF1022CD366B00DB9F8A /* TextValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidatorTests.swift; sourceTree = "<group>"; };
 		7A93AF1222CD393000DB9F8A /* ValidatorErrorProviderMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorErrorProviderMocks.swift; sourceTree = "<group>"; };
 		7A9440C222FCCAB6007C721C /* RegularExpressionValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionValidatorTests.swift; sourceTree = "<group>"; };
+		7A9BF53A2319B765005319AF /* SegmentedControlFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlFormItemContainer.swift; sourceTree = "<group>"; };
+		7A9BF53C2319B891005319AF /* SliderFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderFormItemContainer.swift; sourceTree = "<group>"; };
+		7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchFormItemContainer.swift; sourceTree = "<group>"; };
+		7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperFormItemContainer.swift; sourceTree = "<group>"; };
 		7AA21F3D23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewFormItemContainer.swift; sourceTree = "<group>"; };
 		7AA21F402311806D00FC6DA6 /* PickerViewFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewFieldTableViewCell.xib; sourceTree = "<group>"; };
 		7AA21F412311806D00FC6DA6 /* PickerViewFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,6 +246,10 @@
 				7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */,
 				7A51541B23109A9500C1AE7B /* DatePicker */,
 				7AA21F3F23117AAD00FC6DA6 /* Picker */,
+				7A9BF53A2319B765005319AF /* SegmentedControlFormItemContainer.swift */,
+				7A9BF53C2319B891005319AF /* SliderFormItemContainer.swift */,
+				7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */,
+				7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -245,6 +259,7 @@
 			children = (
 				7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */,
 				7A6F5C09230D47F90010C19E /* TextFieldFormItem.swift */,
+				7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */,
 				7A85A94123146EDD008715B3 /* TextViewFormItem.swift */,
 				7A7AFCEE230E90DE00E89482 /* DatePickerFormItem.swift */,
 				7A32A17E230FE2CC00F5ACB3 /* PickerViewFormItem.swift */,
@@ -598,19 +613,23 @@
 				7AA21F3E23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift in Sources */,
 				7AF2F3472309AC66000B6DE0 /* FormTableViewController.swift in Sources */,
 				7A85A93A23146E59008715B3 /* SegmentedControlFormItem.swift in Sources */,
+				7A9BF53D2319B891005319AF /* SliderFormItemContainer.swift in Sources */,
 				7A85A93E23146E90008715B3 /* SwitchFormItem.swift in Sources */,
 				7A7AFCEF230E90DE00E89482 /* DatePickerFormItem.swift in Sources */,
 				7A32A17F230FE2CC00F5ACB3 /* PickerViewFormItem.swift in Sources */,
 				7AF2F337230997E0000B6DE0 /* Validable.swift in Sources */,
+				7A9BF5412319B9EA005319AF /* StepperFormItemContainer.swift in Sources */,
 				7A6F5C0A230D47F90010C19E /* TextFieldFormItem.swift in Sources */,
 				7A6EFD58230DEA0F00634E2B /* TextFieldFormItemContainer.swift in Sources */,
 				7A51541A23109A2800C1AE7B /* FormItemResponderAdapter.swift in Sources */,
+				7A9BF53B2319B765005319AF /* SegmentedControlFormItemContainer.swift in Sources */,
 				7AF2F3422309A6CF000B6DE0 /* FormItem.swift in Sources */,
 				7AF2F3442309A6CF000B6DE0 /* FormSection.swift in Sources */,
 				7A85A94023146ECF008715B3 /* StepperFormItem.swift in Sources */,
 				7A5B17E122B58B9200111A8A /* BoundedValueValidator.swift in Sources */,
 				7A85A94223146EDD008715B3 /* TextViewFormItem.swift in Sources */,
 				7A5B17E322B58B9200111A8A /* TextValidator.swift in Sources */,
+				7A1FDF7B2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift in Sources */,
 				7A7AFCF5230E9ADE00E89482 /* DatePickerFormItemContainer.swift in Sources */,
 				7A5B17E222B58B9200111A8A /* ListValidator.swift in Sources */,
 				7A51541D23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift in Sources */,
@@ -620,6 +639,7 @@
 				7A515418231099FA00C1AE7B /* FormItemInputContainer.swift in Sources */,
 				7A5B17E022B58B9200111A8A /* ValidatorList.swift in Sources */,
 				7AA21F45231180C700FC6DA6 /* PickerViewFormItemContainer+UITextField.swift in Sources */,
+				7A9BF53F2319B98C005319AF /* SwitchFormItemContainer.swift in Sources */,
 				7A5B17E522B58B9200111A8A /* Validator.swift in Sources */,
 				7A86D24B22BE7B4700C3F45A /* ValueValidator.swift in Sources */,
 				7A5B17E422B58B9200111A8A /* RegularExpressionValidator.swift in Sources */,
