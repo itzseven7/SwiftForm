@@ -13,7 +13,6 @@ public protocol ValidatorList: Validable {
 }
 
 extension ValidatorList {
-  
   var isValid: Bool? {
     return items.filter {
       if $0.isMandatory {

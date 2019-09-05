@@ -16,11 +16,7 @@ public protocol ValueValidatorErrorProvider {
 open class ValueValidator<ValueType: Equatable>: Validator {
   
   /// The current value of the validator
-  public var value: ValueType? {
-    didSet {
-      checkValidity()
-    }
-  }
+  public var value: ValueType?
   
   /// The value set at validator initialization
   internal var initialValue: ValueType?
@@ -41,7 +37,7 @@ open class ValueValidator<ValueType: Equatable>: Validator {
     }
   }
   
-  private var subscribersHandler: [((ValueType?) -> Void)] = []
+  private var subscriptions: [((ValueType?) -> Void)] = []
   
   /// Initializes a new validator
   ///
@@ -73,12 +69,12 @@ open class ValueValidator<ValueType: Equatable>: Validator {
   }
   
   public func subscribe(_ handler: @escaping ((ValueType?) -> Void)) {
-    subscribersHandler.append(handler)
+    subscriptions.append(handler)
   }
   
   /// Notifies all observers
   internal func notify() {
-    subscribersHandler.forEach { $0(value) }
+    subscriptions.forEach { $0(value) }
   }
   
   /// Resets the validator
