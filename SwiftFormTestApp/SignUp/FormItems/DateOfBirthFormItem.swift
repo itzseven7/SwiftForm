@@ -48,7 +48,7 @@ final class DateOfBirthFormItem: DatePickerInputFormItem<Date> {
   }()
   
   private var dateOfBirthValidator: DateOfBirthValidator {
-    return base as! DateOfBirthValidator
+    return valueValidator as! DateOfBirthValidator
   }
   
   override init(value: Date? = nil) {
@@ -64,19 +64,15 @@ final class DateOfBirthFormItem: DatePickerInputFormItem<Date> {
   override func validator(_ value: Date?) -> DateOfBirthValidator {
     return DateOfBirthValidator(value: value)
   }
-  
-  override func value(from inputValue: Date?) -> Date? {
-    return inputValue
-  }
 }
 
 extension DateOfBirthFormItem: TableViewFormItem {
   var cellType: TableViewFormItemCellType {
-    return CellType.datePickerInput
+    return SignUpCellType.datePickerInput
   }
 }
 
-extension DateOfBirthFormItem: TextFieldFormItemAdapter {
+extension DateOfBirthFormItem: TextFieldResponderAdapter {
   var text: String? {
     guard let value = date else { return nil }
     return dateFormatter.string(from: value)
@@ -84,29 +80,5 @@ extension DateOfBirthFormItem: TextFieldFormItemAdapter {
   
   var placeholder: String? {
     return "Tap here"
-  }
-  
-  var leftViewMode: UITextField.ViewMode {
-    return .never
-  }
-  
-  var leftView: UIView? {
-    return nil
-  }
-  
-  var rightViewMode: UITextField.ViewMode {
-    return .never
-  }
-  
-  var rightView: UIView? {
-    return nil
-  }
-  
-  func textFieldDidBeginEditing(_ textField: UITextField) {
-    isEditing = true
-  }
-  
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    isEditing = false
   }
 }

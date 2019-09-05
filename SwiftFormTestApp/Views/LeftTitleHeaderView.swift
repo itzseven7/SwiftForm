@@ -12,18 +12,14 @@ final class LeftTitleHeaderView: UIView {
   // MARK: - Outlets
   @IBOutlet weak var ibHeaderLabel: UILabel!
   
-  // MARK: - Initializers
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    self.commonInit()
-  }
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  override func awakeFromNib() {
+    super.awakeFromNib()
     self.commonInit()
   }
   
   private func commonInit() {
-    backgroundColor = UIColor.lightGray
+    backgroundColor = UIColor(red: 237/255, green: 236/255, blue: 243/255, alpha: 1)
+    ibHeaderLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+    ibHeaderLabel.textColor = .gray
   }
 }

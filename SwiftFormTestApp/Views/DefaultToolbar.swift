@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DefaultToolbar: UIView {
+final class DefaultToolbar: UIView {
   @IBOutlet weak var ibLeftButton: UIButton!
   @IBOutlet weak var ibRightButton: UIButton!
   @IBOutlet weak var ibTitleLabel: UILabel!

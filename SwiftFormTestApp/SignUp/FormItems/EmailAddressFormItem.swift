@@ -35,6 +35,7 @@ final class EmailAddressFormItem: TextFieldInputFormItem<String> {
     super.init(value: value)
     
     title = "Email address"
+    placeholder = "Tap here"
     autocapitalizationType = .none
     autocorrectionType = .no
     keyboardType = .emailAddress
@@ -46,18 +47,10 @@ final class EmailAddressFormItem: TextFieldInputFormItem<String> {
   override func validator(_ value: String?) -> ValueValidator<String> {
     return EmailAddressValidator(value: value)
   }
-  
-  override func value(from inputValue: String?) -> String? {
-    return inputValue
-  }
-  
-  override func inputValue(from value: String?) -> String? {
-    return value
-  }
 }
 
 extension EmailAddressFormItem: TableViewFormItem {
   var cellType: TableViewFormItemCellType {
-    return CellType.textField
+    return SignUpCellType.textField
   }
 }

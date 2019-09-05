@@ -13,7 +13,6 @@ final class PickerViewFieldTableViewCell: UITableViewCell, PickerViewFormItemCon
   // MARK: - Outlets
   @IBOutlet private weak var ibStackView: UIStackView!
   @IBOutlet weak var ibTitleLabel: UILabel!
-  @IBOutlet weak var ibDescriptionLabel: UILabel!
   @IBOutlet weak var ibTextField: UITextField!
   @IBOutlet weak var ibErrorLabel: UILabel!
   
@@ -25,17 +24,11 @@ final class PickerViewFieldTableViewCell: UITableViewCell, PickerViewFormItemCon
     super.awakeFromNib()
     
     ibTextField.delegate = self
-    ibTextField.borderStyle = .line
-    ibTextField.layer.borderWidth = 0.5
-    ibTextField.layer.borderColor = UIColor.gray.cgColor
-    ibTextField.layer.cornerRadius = 9
-    ibTextField.layer.masksToBounds = true
-    ibTitleLabel.textColor = UIColor.blue
-    ibDescriptionLabel.textColor = UIColor.lightGray
+    ibTextField.borderStyle = .none
+    ibTitleLabel.textColor = UIColor.black
     ibErrorLabel.textColor = UIColor.red
     
     ibTitleLabel.preferredMaxLayoutWidth = ibTitleLabel.frame.width
-    ibDescriptionLabel.preferredMaxLayoutWidth = ibDescriptionLabel.frame.width
     ibErrorLabel.preferredMaxLayoutWidth = ibErrorLabel.frame.width
     
     picker.backgroundColor = .white
@@ -60,11 +53,7 @@ final class PickerViewFieldTableViewCell: UITableViewCell, PickerViewFormItemCon
   
   private func configureView() {
     ibTitleLabel.isHidden = ibTitleLabel.text == nil
-    ibDescriptionLabel.isHidden = ibDescriptionLabel.text == nil
     ibErrorLabel.isHidden = ibErrorLabel.text == nil
-    
-    let descriptionSpacing = CGFloat(ibDescriptionLabel.isHidden ? 12 : 6)
-    ibStackView.setCustomSpacing(descriptionSpacing, after: ibTitleLabel)
     
     let bottomSpacing = CGFloat(ibErrorLabel.isHidden ? 0 : 12)
     ibStackView.setCustomSpacing(bottomSpacing, after: ibTextField)
@@ -91,7 +80,7 @@ extension PickerViewFieldTableViewCell: UIPickerViewDelegate {
   }
 }
 
-extension PickerViewFieldTableViewCell: TextFieldFormItemResponderAdapter {
+extension PickerViewFieldTableViewCell: TextFieldFormItemContainerResponderAdapter {
   var responder: UITextField {
     return ibTextField
   }
@@ -118,7 +107,7 @@ extension PickerViewFieldTableViewCell {
   }
   
   var descriptionLabel: UILabel? {
-    return ibDescriptionLabel
+    return nil
   }
   
   var errorLabel: UILabel? {
