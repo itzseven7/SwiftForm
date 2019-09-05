@@ -131,6 +131,6 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
 extension TextFieldInputFormItem {
   public enum ValidationMode {
     case always // always validates the value when text field resigns first responder (textFieldDidEndEditing and textFieldShouldReturn)
-    case onUserAction // only validates the value on textFieldShouldReturn
+    case returnKey // only validates the value on textFieldShouldReturn
   }
 }

@@ -21,6 +21,16 @@ public protocol TableViewFormSection: FormSection {
   var footerView: UIView? { get }
 }
 
+extension TableViewFormSection {
+  public var headerView: UIView? {
+    return UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
+  }
+  
+  public var footerView: UIView? {
+    return UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
+  }
+}
+
 public protocol TableViewFormDelegate: FormDelegate {
   func scrollToNextFormItem(at indexPath: IndexPath)
 }
@@ -33,17 +43,10 @@ public protocol TableViewFormItemCellType {
   func dequeueCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
 }
 
-extension TableViewForm {
-  public var tableHeaderView: UIView? {
-    return UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
-  }
-  
-  public var tableFooterView: UIView? {
-    return UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
-  }
-}
-
 open class BaseTableViewForm: BaseForm, TableViewForm {
+  
+  public var tableHeaderView: UIView?
+  public var tableFooterView: UIView?
   
   private var tableViewFormDelegate: TableViewFormDelegate? {
     return delegate as? TableViewFormDelegate
@@ -69,7 +72,6 @@ open class BaseTableViewForm: BaseForm, TableViewForm {
 }
 
 open class BaseTableViewFormSection: BaseFormSection, TableViewFormSection {
-  
-  open var headerView: UIView?
-  open var footerView: UIView?
+  open var headerView: UIView? = UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
+  open var footerView: UIView? = UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
 }

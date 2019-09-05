@@ -155,8 +155,8 @@ open class InputFormItem<ValueType: Equatable, InputValueType>: FormItem, Equata
     observers.append(observer)
   }
   
-  open func notify(_ action: ((FormItemObserver) -> Void)) {
-    observers.sorted(by: { $0.priority < $1.priority }).forEach { action($0) }
+  open func notify(_ handler: ((FormItemObserver) -> Void)) {
+    observers.sorted(by: { $0.priority < $1.priority }).forEach { handler($0) }
   }
   
   // Conversion methods
@@ -195,6 +195,8 @@ open class InputFormItem<ValueType: Equatable, InputValueType>: FormItem, Equata
 }
 
 extension InputFormItem {
+  
+  /// Convenience method to notify all observers that a validation occured
   public func notifyValidationChange() {
     notify { [weak self] observer in
       guard let sSelf = self else { return }
@@ -202,6 +204,7 @@ extension InputFormItem {
     }
   }
   
+  /// Convenience method to notify all observers that the form item has been enabled/disabled
   public func notifyActivationChange() {
     notify { [weak self] observer in
       guard let sSelf = self else { return }
@@ -209,6 +212,8 @@ extension InputFormItem {
     }
   }
   
+  
+  /// Convenience method to notify all observers that the editing state has changed
   public func notifyEditingChange() {
     notify { [weak self] observer in
       guard let sSelf = self else { return }
@@ -216,6 +221,7 @@ extension InputFormItem {
     }
   }
   
+  /// Convenience method to notify all observers that the form item did become visible/hidden
   public func notifyVisibilityChange() {
     notify { [weak self] observer in
       guard let sSelf = self else { return }
@@ -223,6 +229,7 @@ extension InputFormItem {
     }
   }
   
+  /// Convenience method to notify all observers that a change must be refreshed
   public func notifyRefreshChange() {
     notify { [weak self] observer in
       guard let sSelf = self else { return }

@@ -12,8 +12,6 @@
 		7A159D9D230052F6006DC991 /* DateOfRegistrationValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A159D9C230052F6006DC991 /* DateOfRegistrationValidator.swift */; };
 		7A1FDF732315A3EC0076CEC6 /* TextFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */; };
 		7A1FDF752315A97E0076CEC6 /* TextViewFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */; };
-		7A1FDF782315ACC80076CEC6 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */; };
-		7A1FDF792315ACC80076CEC6 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */; };
 		7A1FDF7B2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */; };
 		7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */; };
 		7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793422C40C5700A8BAC1 /* ViewController.swift */; };
@@ -36,6 +34,11 @@
 		7A515418231099FA00C1AE7B /* FormItemInputContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */; };
 		7A51541A23109A2800C1AE7B /* FormItemContainerResponderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51541923109A2800C1AE7B /* FormItemContainerResponderAdapter.swift */; };
 		7A51541D23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51541C23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift */; };
+		7A560B0D231D42DB00340B5B /* LeftTitleFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A560B0C231D42DB00340B5B /* LeftTitleFooterView.xib */; };
+		7A560B11231D43C400340B5B /* LeftTitleFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A560B10231D43C400340B5B /* LeftTitleFooterView.swift */; };
+		7A560B13231D8B4500340B5B /* SignUpFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A560B12231D8B4500340B5B /* SignUpFooterView.xib */; };
+		7A560B15231D8B5600340B5B /* SignUpFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A560B14231D8B5600340B5B /* SignUpFooterView.swift */; };
+		7A560B17231D8C8D00340B5B /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A560B16231D8C8D00340B5B /* UITableView+Extension.swift */; };
 		7A5B17C922B58A4300111A8A /* SwiftForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5B17BF22B58A4300111A8A /* SwiftForm.framework */; };
 		7A5B17D022B58A4300111A8A /* SwiftForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A5B17C222B58A4300111A8A /* SwiftForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A5B17E022B58B9200111A8A /* ValidatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17D922B58B9100111A8A /* ValidatorList.swift */; };
@@ -65,6 +68,15 @@
 		7A86D24B22BE7B4700C3F45A /* ValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24A22BE7B4700C3F45A /* ValueValidator.swift */; };
 		7A8ADEA3231BD1C900612819 /* ReminderSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA2231BD1C900612819 /* ReminderSwitchTableViewCell.xib */; };
 		7A8ADEA5231BD1D200612819 /* ReminderSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA4231BD1D200612819 /* ReminderSwitchTableViewCell.swift */; };
+		7A8ADEA7231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA6231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib */; };
+		7A8ADEA9231BD30700612819 /* ReminderDatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA8231BD30700612819 /* ReminderDatePickerTableViewCell.swift */; };
+		7A8ADEAB231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEAA231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib */; };
+		7A8ADEAD231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEAC231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift */; };
+		7A8ADEAF231BD44900612819 /* ReminderTextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEAE231BD44900612819 /* ReminderTextViewTableViewCell.xib */; };
+		7A8ADEB1231BD45400612819 /* ReminderTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB0231BD45400612819 /* ReminderTextViewTableViewCell.swift */; };
+		7A8ADEB3231BD77D00612819 /* ReminderNameFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB2231BD77D00612819 /* ReminderNameFormItem.swift */; };
+		7A8ADEB7231BDBB200612819 /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB6231BDBB200612819 /* ReminderForm.swift */; };
+		7A8ADEB9231BDE3500612819 /* ReminderOnLocationFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB8231BDE3500612819 /* ReminderOnLocationFormItem.swift */; };
 		7A93AF1122CD366B00DB9F8A /* TextValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93AF1022CD366B00DB9F8A /* TextValidatorTests.swift */; };
 		7A93AF1322CD393000DB9F8A /* ValidatorErrorProviderMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93AF1222CD393000DB9F8A /* ValidatorErrorProviderMocks.swift */; };
 		7A9440C322FCCAB6007C721C /* RegularExpressionValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9440C222FCCAB6007C721C /* RegularExpressionValidatorTests.swift */; };
@@ -76,11 +88,10 @@
 		7A9BF53F2319B98C005319AF /* SwitchFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */; };
 		7A9BF5412319B9EA005319AF /* StepperFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */; };
 		7A9BF5442319BB6E005319AF /* ReminderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5432319BB6E005319AF /* ReminderFormViewController.swift */; };
-		7A9BF5472319BD64005319AF /* ReminderTextFieldFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5462319BD64005319AF /* ReminderTextFieldFormItem.swift */; };
-		7A9BF5492319BD73005319AF /* ReminderTextViewFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5482319BD73005319AF /* ReminderTextViewFormItem.swift */; };
-		7A9BF54B2319BD7E005319AF /* ReminderDatePickerFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF54A2319BD7E005319AF /* ReminderDatePickerFormItem.swift */; };
-		7A9BF54F2319BD94005319AF /* ReminderSegmentedControlFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF54E2319BD93005319AF /* ReminderSegmentedControlFormItem.swift */; };
-		7A9BF5532319BE01005319AF /* ReminderSwitchFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5522319BE01005319AF /* ReminderSwitchFormItem.swift */; };
+		7A9BF5492319BD73005319AF /* ReminderNotesFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5482319BD73005319AF /* ReminderNotesFormItem.swift */; };
+		7A9BF54B2319BD7E005319AF /* ReminderDateFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF54A2319BD7E005319AF /* ReminderDateFormItem.swift */; };
+		7A9BF54F2319BD94005319AF /* ReminderPriorityFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF54E2319BD93005319AF /* ReminderPriorityFormItem.swift */; };
+		7A9BF5532319BE01005319AF /* ReminderOnDayFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5522319BE01005319AF /* ReminderOnDayFormItem.swift */; };
 		7A9BF5572319BE97005319AF /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5562319BE97005319AF /* SignUpForm.swift */; };
 		7AA21F3E23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA21F3D23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift */; };
 		7AA21F422311806E00FC6DA6 /* PickerViewFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA21F402311806D00FC6DA6 /* PickerViewFieldTableViewCell.xib */; };
@@ -120,8 +131,6 @@
 		7A159D9C230052F6006DC991 /* DateOfRegistrationValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfRegistrationValidator.swift; sourceTree = "<group>"; };
 		7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormItem.swift; sourceTree = "<group>"; };
 		7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFormItemContainer.swift; sourceTree = "<group>"; };
-		7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
-		7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
 		7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldFormItem+Adapter.swift"; sourceTree = "<group>"; };
 		7A2A793022C40C5700A8BAC1 /* SwiftFormTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFormTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +154,11 @@
 		7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemInputContainer.swift; sourceTree = "<group>"; };
 		7A51541923109A2800C1AE7B /* FormItemContainerResponderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemContainerResponderAdapter.swift; sourceTree = "<group>"; };
 		7A51541C23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatePickerFormItemContainer+UITextField.swift"; sourceTree = "<group>"; };
+		7A560B0C231D42DB00340B5B /* LeftTitleFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftTitleFooterView.xib; sourceTree = "<group>"; };
+		7A560B10231D43C400340B5B /* LeftTitleFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftTitleFooterView.swift; sourceTree = "<group>"; };
+		7A560B12231D8B4500340B5B /* SignUpFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpFooterView.xib; sourceTree = "<group>"; };
+		7A560B14231D8B5600340B5B /* SignUpFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFooterView.swift; sourceTree = "<group>"; };
+		7A560B16231D8C8D00340B5B /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7A5B17BF22B58A4300111A8A /* SwiftForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5B17C222B58A4300111A8A /* SwiftForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftForm.h; sourceTree = "<group>"; };
 		7A5B17C322B58A4300111A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -177,6 +191,15 @@
 		7A86D24A22BE7B4700C3F45A /* ValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueValidator.swift; sourceTree = "<group>"; };
 		7A8ADEA2231BD1C900612819 /* ReminderSwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		7A8ADEA4231BD1D200612819 /* ReminderSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEA6231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderDatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		7A8ADEA8231BD30700612819 /* ReminderDatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEAA231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderSegmentedControlTableViewCell.xib; sourceTree = "<group>"; };
+		7A8ADEAC231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSegmentedControlTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEAE231BD44900612819 /* ReminderTextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTextViewTableViewCell.xib; sourceTree = "<group>"; };
+		7A8ADEB0231BD45400612819 /* ReminderTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEB2231BD77D00612819 /* ReminderNameFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNameFormItem.swift; sourceTree = "<group>"; };
+		7A8ADEB6231BDBB200612819 /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
+		7A8ADEB8231BDE3500612819 /* ReminderOnLocationFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOnLocationFormItem.swift; sourceTree = "<group>"; };
 		7A93AF1022CD366B00DB9F8A /* TextValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidatorTests.swift; sourceTree = "<group>"; };
 		7A93AF1222CD393000DB9F8A /* ValidatorErrorProviderMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorErrorProviderMocks.swift; sourceTree = "<group>"; };
 		7A9440C222FCCAB6007C721C /* RegularExpressionValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionValidatorTests.swift; sourceTree = "<group>"; };
@@ -188,11 +211,10 @@
 		7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchFormItemContainer.swift; sourceTree = "<group>"; };
 		7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperFormItemContainer.swift; sourceTree = "<group>"; };
 		7A9BF5432319BB6E005319AF /* ReminderFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormViewController.swift; sourceTree = "<group>"; };
-		7A9BF5462319BD64005319AF /* ReminderTextFieldFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTextFieldFormItem.swift; sourceTree = "<group>"; };
-		7A9BF5482319BD73005319AF /* ReminderTextViewFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTextViewFormItem.swift; sourceTree = "<group>"; };
-		7A9BF54A2319BD7E005319AF /* ReminderDatePickerFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDatePickerFormItem.swift; sourceTree = "<group>"; };
-		7A9BF54E2319BD93005319AF /* ReminderSegmentedControlFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSegmentedControlFormItem.swift; sourceTree = "<group>"; };
-		7A9BF5522319BE01005319AF /* ReminderSwitchFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSwitchFormItem.swift; sourceTree = "<group>"; };
+		7A9BF5482319BD73005319AF /* ReminderNotesFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotesFormItem.swift; sourceTree = "<group>"; };
+		7A9BF54A2319BD7E005319AF /* ReminderDateFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDateFormItem.swift; sourceTree = "<group>"; };
+		7A9BF54E2319BD93005319AF /* ReminderPriorityFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPriorityFormItem.swift; sourceTree = "<group>"; };
+		7A9BF5522319BE01005319AF /* ReminderOnDayFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOnDayFormItem.swift; sourceTree = "<group>"; };
 		7A9BF5562319BE97005319AF /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		7AA21F3D23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewFormItemContainer.swift; sourceTree = "<group>"; };
 		7AA21F402311806D00FC6DA6 /* PickerViewFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewFieldTableViewCell.xib; sourceTree = "<group>"; };
@@ -239,9 +261,8 @@
 		7A2A793122C40C5700A8BAC1 /* SwiftFormTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				7A5154112310860A00C1AE7B /* DefaultToolbar.xib */,
-				7A5154132310861400C1AE7B /* DefaultToolbar.swift */,
 				7A9BF5452319BB75005319AF /* Reminder */,
+				7A9BF5422319BAC3005319AF /* SignUp */,
 				7AA21F46231182DC00FC6DA6 /* Views */,
 				7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */,
 				7A2A793422C40C5700A8BAC1 /* ViewController.swift */,
@@ -249,7 +270,7 @@
 				7A2A793922C40C5800A8BAC1 /* Assets.xcassets */,
 				7A2A793B22C40C5800A8BAC1 /* LaunchScreen.storyboard */,
 				7A2A793E22C40C5800A8BAC1 /* Info.plist */,
-				7A9BF5422319BAC3005319AF /* SignUpForm */,
+				7A560B16231D8C8D00340B5B /* UITableView+Extension.swift */,
 			);
 			path = SwiftFormTestApp;
 			sourceTree = "<group>";
@@ -374,6 +395,31 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
+		7A8ADEB4231BDB7700612819 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A8ADEB5231BDB9000612819 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A8ADEB5231BDB9000612819 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7A98A0E9231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib */,
+				7A98A0EB231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift */,
+				7A8ADEA2231BD1C900612819 /* ReminderSwitchTableViewCell.xib */,
+				7A8ADEA4231BD1D200612819 /* ReminderSwitchTableViewCell.swift */,
+				7A8ADEA6231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib */,
+				7A8ADEA8231BD30700612819 /* ReminderDatePickerTableViewCell.swift */,
+				7A8ADEAA231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib */,
+				7A8ADEAC231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift */,
+				7A8ADEAE231BD44900612819 /* ReminderTextViewTableViewCell.xib */,
+				7A8ADEB0231BD45400612819 /* ReminderTextViewTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		7A98A0ED231A8CD400B3EB5C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,7 +433,7 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		7A9BF5422319BAC3005319AF /* SignUpForm */ = {
+		7A9BF5422319BAC3005319AF /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				7A9BF5562319BE97005319AF /* SignUpForm.swift */,
@@ -395,18 +441,16 @@
 				7AA21F47231182EA00FC6DA6 /* Cells */,
 				7AA21F482311835B00FC6DA6 /* FormItems */,
 			);
-			path = SignUpForm;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		7A9BF5452319BB75005319AF /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
 				7A9BF5432319BB6E005319AF /* ReminderFormViewController.swift */,
+				7A8ADEB6231BDBB200612819 /* ReminderForm.swift */,
 				7A9BF5582319C3E0005319AF /* FormItems */,
-				7A98A0E9231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib */,
-				7A98A0EB231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift */,
-				7A8ADEA2231BD1C900612819 /* ReminderSwitchTableViewCell.xib */,
-				7A8ADEA4231BD1D200612819 /* ReminderSwitchTableViewCell.swift */,
+				7A8ADEB4231BDB7700612819 /* Views */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -414,11 +458,12 @@
 		7A9BF5582319C3E0005319AF /* FormItems */ = {
 			isa = PBXGroup;
 			children = (
-				7A9BF5462319BD64005319AF /* ReminderTextFieldFormItem.swift */,
-				7A9BF5482319BD73005319AF /* ReminderTextViewFormItem.swift */,
-				7A9BF54A2319BD7E005319AF /* ReminderDatePickerFormItem.swift */,
-				7A9BF54E2319BD93005319AF /* ReminderSegmentedControlFormItem.swift */,
-				7A9BF5522319BE01005319AF /* ReminderSwitchFormItem.swift */,
+				7A8ADEB2231BD77D00612819 /* ReminderNameFormItem.swift */,
+				7A9BF5522319BE01005319AF /* ReminderOnDayFormItem.swift */,
+				7A9BF54A2319BD7E005319AF /* ReminderDateFormItem.swift */,
+				7A8ADEB8231BDE3500612819 /* ReminderOnLocationFormItem.swift */,
+				7A9BF54E2319BD93005319AF /* ReminderPriorityFormItem.swift */,
+				7A9BF5482319BD73005319AF /* ReminderNotesFormItem.swift */,
 			);
 			path = FormItems;
 			sourceTree = "<group>";
@@ -435,11 +480,17 @@
 		7AA21F46231182DC00FC6DA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7A376B38230C4A4200F49936 /* LeftTitleHeaderView.swift */,
+				7A5154112310860A00C1AE7B /* DefaultToolbar.xib */,
+				7A5154132310861400C1AE7B /* DefaultToolbar.swift */,
 				7A376B37230C4A4200F49936 /* LeftTitleHeaderView.xib */,
+				7A376B38230C4A4200F49936 /* LeftTitleHeaderView.swift */,
+				7A560B0C231D42DB00340B5B /* LeftTitleFooterView.xib */,
+				7A560B10231D43C400340B5B /* LeftTitleFooterView.swift */,
 				7A376B3D230C4ACF00F49936 /* UIView+Extension.swift */,
 				7A078BE22312C04E00026BE2 /* HeaderView.xib */,
 				7A078BE42312C05900026BE2 /* HeaderView.swift */,
+				7A560B12231D8B4500340B5B /* SignUpFooterView.xib */,
+				7A560B14231D8B5600340B5B /* SignUpFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,8 +498,6 @@
 		7AA21F47231182EA00FC6DA6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7A1FDF762315ACC80076CEC6 /* TextViewTableViewCell.swift */,
-				7A1FDF772315ACC80076CEC6 /* TextViewTableViewCell.xib */,
 				7AA21F412311806D00FC6DA6 /* PickerViewFieldTableViewCell.swift */,
 				7AA21F402311806D00FC6DA6 /* PickerViewFieldTableViewCell.xib */,
 				7A7AFCF1230E996200E89482 /* DatePickerFieldTableViewCell.swift */,
@@ -609,18 +658,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8ADEAB231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib in Resources */,
 				7A7AFCF2230E996200E89482 /* DatePickerFieldTableViewCell.xib in Resources */,
 				7A2A793D22C40C5800A8BAC1 /* LaunchScreen.storyboard in Resources */,
 				7A98A0EA231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib in Resources */,
 				7A8ADEA3231BD1C900612819 /* ReminderSwitchTableViewCell.xib in Resources */,
+				7A560B13231D8B4500340B5B /* SignUpFooterView.xib in Resources */,
 				7AA21F422311806E00FC6DA6 /* PickerViewFieldTableViewCell.xib in Resources */,
 				7A2A793A22C40C5800A8BAC1 /* Assets.xcassets in Resources */,
 				7A2A793822C40C5700A8BAC1 /* Main.storyboard in Resources */,
-				7A1FDF792315ACC80076CEC6 /* TextViewTableViewCell.xib in Resources */,
 				7A376B36230C274C00F49936 /* TextFieldTableViewCell.xib in Resources */,
 				7A078BE32312C04E00026BE2 /* HeaderView.xib in Resources */,
+				7A8ADEAF231BD44900612819 /* ReminderTextViewTableViewCell.xib in Resources */,
 				7A376B39230C4A4200F49936 /* LeftTitleHeaderView.xib in Resources */,
 				7A5154122310860A00C1AE7B /* DefaultToolbar.xib in Resources */,
+				7A8ADEA7231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib in Resources */,
+				7A560B0D231D42DB00340B5B /* LeftTitleFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,32 +700,39 @@
 			files = (
 				7A376B35230C274C00F49936 /* TextFieldTableViewCell.swift in Sources */,
 				7AA21F432311806E00FC6DA6 /* PickerViewFieldTableViewCell.swift in Sources */,
+				7A560B17231D8C8D00340B5B /* UITableView+Extension.swift in Sources */,
 				7A376B3E230C4ACF00F49936 /* UIView+Extension.swift in Sources */,
 				7A376B3A230C4A4200F49936 /* LeftTitleHeaderView.swift in Sources */,
+				7A8ADEB1231BD45400612819 /* ReminderTextViewTableViewCell.swift in Sources */,
 				7A376B32230C230D00F49936 /* SignUpViewController.swift in Sources */,
+				7A8ADEA9231BD30700612819 /* ReminderDatePickerTableViewCell.swift in Sources */,
 				7A159D9D230052F6006DC991 /* DateOfRegistrationValidator.swift in Sources */,
 				7A078BE52312C05900026BE2 /* HeaderView.swift in Sources */,
 				7A98A0EF231A8F3C00B3EB5C /* PasswordFormItem+Error.swift in Sources */,
-				7A9BF54F2319BD94005319AF /* ReminderSegmentedControlFormItem.swift in Sources */,
+				7A9BF54F2319BD94005319AF /* ReminderPriorityFormItem.swift in Sources */,
 				7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */,
 				7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */,
-				7A9BF5492319BD73005319AF /* ReminderTextViewFormItem.swift in Sources */,
+				7A9BF5492319BD73005319AF /* ReminderNotesFormItem.swift in Sources */,
 				7A7F45F022FDE88500BE10BA /* FirstNameFormItem.swift in Sources */,
+				7A8ADEB3231BD77D00612819 /* ReminderNameFormItem.swift in Sources */,
 				7A9BF5572319BE97005319AF /* SignUpForm.swift in Sources */,
 				7A98A0EC231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift in Sources */,
-				7A9BF5532319BE01005319AF /* ReminderSwitchFormItem.swift in Sources */,
+				7A8ADEB9231BDE3500612819 /* ReminderOnLocationFormItem.swift in Sources */,
+				7A9BF5532319BE01005319AF /* ReminderOnDayFormItem.swift in Sources */,
 				7A5154142310861400C1AE7B /* DefaultToolbar.swift in Sources */,
 				7A8ADEA5231BD1D200612819 /* ReminderSwitchTableViewCell.swift in Sources */,
+				7A560B11231D43C400340B5B /* LeftTitleFooterView.swift in Sources */,
 				7A7F45F222FDE89000BE10BA /* LastNameFormItem.swift in Sources */,
 				7A7F45F622FDE8CF00BE10BA /* PlaceOfBirthFormItem.swift in Sources */,
-				7A1FDF782315ACC80076CEC6 /* TextViewTableViewCell.swift in Sources */,
-				7A9BF54B2319BD7E005319AF /* ReminderDatePickerFormItem.swift in Sources */,
+				7A8ADEB7231BDBB200612819 /* ReminderForm.swift in Sources */,
+				7A8ADEAD231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift in Sources */,
+				7A9BF54B2319BD7E005319AF /* ReminderDateFormItem.swift in Sources */,
 				7AF2F33923099DBC000B6DE0 /* DateOfBirthFormItem.swift in Sources */,
 				7A7F45F822FDE8E900BE10BA /* EmailAddressFormItem.swift in Sources */,
 				7A7AFCF3230E996200E89482 /* DatePickerFieldTableViewCell.swift in Sources */,
-				7A9BF5472319BD64005319AF /* ReminderTextFieldFormItem.swift in Sources */,
 				7A45420A22DB3A8100CE8737 /* PasswordFormItem.swift in Sources */,
 				7A9BF5442319BB6E005319AF /* ReminderFormViewController.swift in Sources */,
+				7A560B15231D8B5600340B5B /* SignUpFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

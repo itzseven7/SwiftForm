@@ -34,8 +34,10 @@ extension SegmentedControlFormItemContainer {
     
     input.isEnabled = segmentedControlFormItem.isEnabled
     
+    input.removeAllSegments()
+    
     for i in 0..<segmentedControlFormItem.titles.count {
-      input.setTitle(segmentedControlFormItem.titles[i], forSegmentAt: i)
+      input.insertSegment(withTitle: segmentedControlFormItem.titles[i], at: i, animated: false)
       input.setEnabled(segmentedControlFormItem.segmentIsEnabled(at: i), forSegmentAt: i)
     }
     

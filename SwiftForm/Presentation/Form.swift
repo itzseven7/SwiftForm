@@ -113,7 +113,7 @@ open class BaseForm: Form {
   
   public var delegate: FormDelegate?
   
-  var focusMode: FocusMode = .mandatory
+  public var focusMode: ItemFocusMode = .mandatory
   
   public init() {}
   
@@ -129,7 +129,7 @@ open class BaseForm: Form {
     formItem.beginEditingCallback?()
   }
   
-  internal func nextFormItem(after indexPath: IndexPath, focusMode: FocusMode) -> FormItem? {
+  internal func nextFormItem(after indexPath: IndexPath, focusMode: ItemFocusMode) -> FormItem? {
     switch focusMode {
     case .none:
       return nil
@@ -220,7 +220,7 @@ extension BaseForm {
   /// - mandatory: on next mandatory if exists
   /// - any: on next item if exists
   /// - error: on first error
-  public enum FocusMode {
+  public enum ItemFocusMode {
     case none, any, mandatory, error
   }
 }
