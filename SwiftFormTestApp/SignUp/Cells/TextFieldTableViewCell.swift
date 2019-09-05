@@ -12,6 +12,7 @@ final class TextFieldTableViewCell: UITableViewCell, TextFieldFormItemContainer 
   
   // MARK: - Outlets
   @IBOutlet private weak var ibStackView: UIStackView!
+  @IBOutlet weak var ibUpperTopStackView: UIStackView!
   @IBOutlet weak var ibTitleLabel: UILabel!
   @IBOutlet weak var ibTextField: UITextField!
   @IBOutlet weak var ibErrorLabel: UILabel!
@@ -35,7 +36,10 @@ final class TextFieldTableViewCell: UITableViewCell, TextFieldFormItemContainer 
     ibErrorLabel.isHidden = ibErrorLabel.text == nil
     
     let inputBottomSpacing = CGFloat(ibErrorLabel.isHidden ? 0 : 6)
-    ibStackView.setCustomSpacing(inputBottomSpacing, after: ibTextField)
+    ibStackView.setCustomSpacing(inputBottomSpacing, after: ibUpperTopStackView)
+    
+    ibUpperTopStackView.layoutIfNeeded()
+    ibStackView.layoutIfNeeded()
     
     configureStyles()
     

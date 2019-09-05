@@ -30,8 +30,7 @@ final class SignUpViewController: FormTableViewController  {
     
     tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
     
-    tableView.beginUpdates()
-    tableView.endUpdates()
+    tableView.reloadData()
     
     title = "Sign up"
     tableView.keyboardDismissMode = .onDrag
@@ -40,7 +39,7 @@ final class SignUpViewController: FormTableViewController  {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    form?.beginEditing()
+    //form?.beginEditing()
   }
   
   override func viewDidLayoutSubviews() {

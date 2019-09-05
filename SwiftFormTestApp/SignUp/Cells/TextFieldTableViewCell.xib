@@ -19,20 +19,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="150.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-0T-87t">
+                    <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-0T-87t" userLabel="Main Stack View">
                         <rect key="frame" x="16" y="6" width="343" height="138.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rG5-3I-rbF">
-                                <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rG5-3I-rbF" userLabel="Top Stack View">
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="95"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVU-0X-FF5">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="45"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVU-0X-FF5" userLabel="Title Label">
+                                        <rect key="frame" x="0.0" y="37.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g5g-oR-2i6">
-                                        <rect key="frame" x="54" y="0.0" width="289" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g5g-oR-2i6" userLabel="Text Field">
+                                        <rect key="frame" x="54" y="25" width="289" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Nc0-Vu-mel"/>
                                         </constraints>
@@ -42,8 +42,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXa-Wt-211">
-                                <rect key="frame" x="0.0" y="51" width="343" height="87.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXa-Wt-211" userLabel="Error Label">
+                                <rect key="frame" x="0.0" y="95" width="343" height="43.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -64,6 +64,7 @@
                 <outlet property="ibStackView" destination="Ser-0T-87t" id="nY0-9z-srH"/>
                 <outlet property="ibTextField" destination="g5g-oR-2i6" id="EPn-eU-8rW"/>
                 <outlet property="ibTitleLabel" destination="YVU-0X-FF5" id="ZMq-ZI-jC1"/>
+                <outlet property="ibUpperTopStackView" destination="rG5-3I-rbF" id="oH2-6Y-JN0"/>
             </connections>
             <point key="canvasLocation" x="298.39999999999998" y="106.59670164917542"/>
         </tableViewCell>
