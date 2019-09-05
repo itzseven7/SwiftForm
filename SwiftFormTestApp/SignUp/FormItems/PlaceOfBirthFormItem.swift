@@ -27,48 +27,20 @@ final class PlaceOfBirthFormItem: PickerViewInputFormItem<String> {
   override func validator(_ value: String?) -> ValueValidator<String> {
     return PlaceOfBirthValidator(countryCode: value)
   }
-  
-  override func value(from inputValue: String?) -> String? {
-    return inputValue
-  }
 }
 
 extension PlaceOfBirthFormItem: TableViewFormItem {
   var cellType: TableViewFormItemCellType {
-    return CellType.pickerInput
+    return SignUpCellType.pickerInput
   }
 }
 
-extension PlaceOfBirthFormItem: TextFieldFormItemAdapter {
+extension PlaceOfBirthFormItem: TextFieldResponderAdapter {
   var text: String? {
     return inputValue
   }
   
   var placeholder: String? {
     return "Tap here"
-  }
-  
-  var leftViewMode: UITextField.ViewMode {
-    return .never
-  }
-  
-  var leftView: UIView? {
-    return nil
-  }
-  
-  var rightViewMode: UITextField.ViewMode {
-    return .never
-  }
-  
-  var rightView: UIView? {
-    return nil
-  }
-  
-  func textFieldDidBeginEditing(_ textField: UITextField) {
-    isEditing = true
-  }
-  
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    isEditing = false
   }
 }

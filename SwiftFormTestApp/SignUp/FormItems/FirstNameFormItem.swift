@@ -1,5 +1,5 @@
 //
-//  LastNameValidator.swift
+//  FirstNameValidator.swift
 //  SwiftFormTestApp
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,32 +8,33 @@
 import Foundation
 import SwiftForm
 
-final class LastNameValidator: RegularExpressionValidator {
+final class FirstNameValidator: RegularExpressionValidator {
   init(value: String?) {
     super.init(value: value, patterns: ["^[\\p{L}\\s'‘’'-]*$"])
     errorProvider = self
   }
 }
 
-extension LastNameValidator: RegularExpressionValidatorErrorProvider {
+extension FirstNameValidator: RegularExpressionValidatorErrorProvider {
   func unmatchedPatternsError(for patterns: [String]) -> String? {
-    return "Your last name can only contain letters, spaces, hyphens and apostrophes."
+    return "Your first name can only contain letters, spaces, hyphens and apostrophes."
   }
   
   var emptyError: String? {
-    return "Your last name can't be empty."
+    return "Your first name can't be empty."
   }
   
   var noValueError: String? {
-    return "You must specify a last name."
+    return "You must specify a first name."
   }
 }
 
-final class LastNameFormItem: TextFieldInputFormItem<String> {
+final class FirstNameFormItem: TextFieldInputFormItem<String> {
   override init(value: String? = nil) {
     super.init(value: value)
     
-    title = "Last name"
+    title = "First name"
+    placeholder = "Tap here"
     autocapitalizationType = .words
     autocorrectionType = .no
     returnKeyType = .next
@@ -42,20 +43,12 @@ final class LastNameFormItem: TextFieldInputFormItem<String> {
   }
   
   override func validator(_ value: String?) -> ValueValidator<String> {
-    return LastNameValidator(value: value)
-  }
-  
-  override func value(from inputValue: String?) -> String? {
-    return inputValue
-  }
-  
-  override func inputValue(from value: String?) -> String? {
-    return value
+    return FirstNameValidator(value: value)
   }
 }
 
-extension LastNameFormItem: TableViewFormItem {
+extension FirstNameFormItem: TableViewFormItem {
   var cellType: TableViewFormItemCellType {
-    return CellType.textField
+    return SignUpCellType.textField
   }
 }

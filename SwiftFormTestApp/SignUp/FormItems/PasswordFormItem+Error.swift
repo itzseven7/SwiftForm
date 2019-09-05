@@ -1,5 +1,5 @@
 //
-//  PasswordValidator.swift
+//  PasswordFormItem+Error.swift
 //  SwiftFormTestApp
 //
 //  Copyright © 2019 itzseven. All rights reserved.
@@ -8,28 +8,7 @@
 import Foundation
 import SwiftForm
 
-final class PasswordValidator: RegularExpressionValidator {
-  
-  static let minimumCharacters = 8
-  static let maximumCharacters = 128
-  
-  fileprivate static var numberOfCharactersRegex = "^.{\(minimumCharacters),\(maximumCharacters)}$"
-  fileprivate static var lowercaseLetterRegex = ".*[a-z]+.*"
-  fileprivate static var uppercaseLetterRegex = ".*[A-Z]+.*"
-  fileprivate static var digitRegex = ".*[0-9]+.*"
-  fileprivate static var specialCharactersRegex = "^[a-zA-Z0-9!~\\\\ @#$%^&*()_+\\-=\\[\\]{};'‘’':\"\\|,.<>\\/?]*$"
-  
-  init(value: String? = nil) {
-    super.init(value: value,
-               patterns: [PasswordValidator.numberOfCharactersRegex,
-                          PasswordValidator.lowercaseLetterRegex,
-                          PasswordValidator.uppercaseLetterRegex,
-                          PasswordValidator.digitRegex,
-                          PasswordValidator.specialCharactersRegex])
-  }
-}
-
-extension PasswordValidator: RegularExpressionValidatorErrorProvider {
+struct PasswordValidatorErrorProvider: RegularExpressionValidatorErrorProvider {
   func unmatchedPatternsError(for patterns: [String]) -> String? {
     guard !patterns.contains(PasswordValidator.numberOfCharactersRegex) else {
       return PatternError.numberOfCharacters.error
@@ -114,36 +93,5 @@ extension PasswordValidator: RegularExpressionValidatorErrorProvider {
         return "Your password contains invalid special characters."
       }
     }
-  }
-}
-
-final class PasswordFormItem: TextFieldInputFormItem<String> {
-  
-  override init(value: String? = nil) {
-    super.init(value: value)
-    
-    title = "Password"
-    description = "At least eight characters including one uppercase letter, one lowercase letter and one digit."
-    autocorrectionType = .no
-    isSecureTextEntry = true
-    returnKeyType = .next
-    maximumCharacters = 128
-  }
-  override func validator(_ value: String?) -> ValueValidator<String> {
-    return PasswordValidator(value: value)
-  }
-  
-  override func value(from inputValue: String?) -> String? {
-    return inputValue
-  }
-  
-  override func inputValue(from value: String?) -> String? {
-    return value
-  }
-}
-
-extension PasswordFormItem: TableViewFormItem {
-  var cellType: TableViewFormItemCellType {
-    return CellType.textField
   }
 }

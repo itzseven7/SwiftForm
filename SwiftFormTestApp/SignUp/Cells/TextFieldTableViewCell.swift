@@ -13,7 +13,6 @@ final class TextFieldTableViewCell: UITableViewCell, TextFieldFormItemContainer 
   // MARK: - Outlets
   @IBOutlet private weak var ibStackView: UIStackView!
   @IBOutlet weak var ibTitleLabel: UILabel!
-  @IBOutlet weak var ibDescriptionLabel: UILabel!
   @IBOutlet weak var ibTextField: UITextField!
   @IBOutlet weak var ibErrorLabel: UILabel!
   
@@ -23,30 +22,17 @@ final class TextFieldTableViewCell: UITableViewCell, TextFieldFormItemContainer 
     super.awakeFromNib()
     
     ibTextField.delegate = self
-    ibTextField.borderStyle = .line
-    ibTextField.layer.borderWidth = 0.5
-    ibTextField.layer.borderColor = UIColor.gray.cgColor
-    ibTextField.layer.cornerRadius = 9
-    ibTextField.layer.masksToBounds = true
-    ibTitleLabel.textColor = UIColor.blue
-    ibDescriptionLabel.textColor = UIColor.lightGray
+    ibTextField.borderStyle = .none
+    ibTitleLabel.textColor = UIColor.black
     ibErrorLabel.textColor = UIColor.red
     
     ibTitleLabel.preferredMaxLayoutWidth = ibTitleLabel.frame.width
-    ibDescriptionLabel.preferredMaxLayoutWidth = ibDescriptionLabel.frame.width
     ibErrorLabel.preferredMaxLayoutWidth = ibErrorLabel.frame.width
   }
   
   private func configureView() {
     ibTitleLabel.isHidden = ibTitleLabel.text == nil
-    ibDescriptionLabel.isHidden = ibDescriptionLabel.text == nil
     ibErrorLabel.isHidden = ibErrorLabel.text == nil
-    
-    let titleBottomSpacing = CGFloat(ibDescriptionLabel.isHidden ? 12 : 6)
-    ibStackView.setCustomSpacing(titleBottomSpacing, after: ibTitleLabel)
-    
-    let descriptionBottomSpacing = CGFloat(ibDescriptionLabel.isHidden ? 0 : 6)
-    ibStackView.setCustomSpacing(descriptionBottomSpacing, after: ibDescriptionLabel)
     
     let inputBottomSpacing = CGFloat(ibErrorLabel.isHidden ? 0 : 6)
     ibStackView.setCustomSpacing(inputBottomSpacing, after: ibTextField)
@@ -65,21 +51,13 @@ final class TextFieldTableViewCell: UITableViewCell, TextFieldFormItemContainer 
     case .disabled:
       ibTitleLabel.textColor = UIColor.lightGray
     case .normal:
-      ibTitleLabel.textColor = UIColor.blue
+      ibTitleLabel.textColor = UIColor.black
     case .editing:
-      ibTitleLabel.textColor = UIColor.green
+      ibTitleLabel.textColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
     case .error:
       ibTitleLabel.textColor = UIColor.red
     }
   }
-  
-//  @objc func cancelAction() {
-//    textFieldFormItemViewModel?.textFieldDidCancelEditing(ibTextField)
-//  }
-//
-//  @objc func doneAction() {
-//    textFieldFormItemViewModel?.textFieldDidValidateEditing(ibTextField)
-//  }
 }
 
 extension TextFieldTableViewCell {
@@ -92,7 +70,7 @@ extension TextFieldTableViewCell {
   }
   
   var descriptionLabel: UILabel? {
-    return ibDescriptionLabel
+    return nil
   }
   
   var errorLabel: UILabel? {

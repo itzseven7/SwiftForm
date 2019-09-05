@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReminderSegmentedControlTableViewCell" id="zak-BP-b8f" customClass="ReminderSegmentedControlTableViewCell" customModule="SwiftFormTestApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zak-BP-b8f" id="WVh-Zc-p4a">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oor-7a-9lB">
+                        <rect key="frame" x="238" y="9" width="121" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="ifK-nz-UYP"/>
+                        </constraints>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                        </segments>
+                    </segmentedControl>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsJ-fA-etB">
+                        <rect key="frame" x="16" y="9" width="204" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WsJ-fA-etB" firstAttribute="top" secondItem="WVh-Zc-p4a" secondAttribute="top" constant="9" id="3jN-Sx-ds9"/>
+                    <constraint firstItem="oor-7a-9lB" firstAttribute="trailing" secondItem="WVh-Zc-p4a" secondAttribute="trailingMargin" id="SZI-Si-wpo"/>
+                    <constraint firstAttribute="bottom" secondItem="WsJ-fA-etB" secondAttribute="bottom" constant="9" id="VtR-wj-IRE"/>
+                    <constraint firstAttribute="bottom" secondItem="oor-7a-9lB" secondAttribute="bottom" constant="9" id="bRL-CG-oDI"/>
+                    <constraint firstItem="oor-7a-9lB" firstAttribute="top" secondItem="WVh-Zc-p4a" secondAttribute="top" constant="9" id="dhF-Nt-fFA"/>
+                    <constraint firstItem="WsJ-fA-etB" firstAttribute="leading" secondItem="WVh-Zc-p4a" secondAttribute="leadingMargin" id="gEz-pw-UPx"/>
+                    <constraint firstItem="oor-7a-9lB" firstAttribute="leading" secondItem="WsJ-fA-etB" secondAttribute="trailing" constant="18" id="h5m-AZ-xl7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ibSegmentedControl" destination="oor-7a-9lB" id="fRF-oh-K7g"/>
+                <outlet property="ibTitleLabel" destination="WsJ-fA-etB" id="gdy-Jq-IuD"/>
+            </connections>
+            <point key="canvasLocation" x="86" y="28"/>
+        </tableViewCell>
+    </objects>
+</document>
