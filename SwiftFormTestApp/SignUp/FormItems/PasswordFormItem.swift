@@ -40,7 +40,7 @@ final class PasswordFormItem: TextFieldInputFormItem<String> {
     description = "At least eight characters including one uppercase letter, one lowercase letter and one digit."
     autocorrectionType = .no
     isSecureTextEntry = true
-    returnKeyType = .next
+    returnKeyType = .done
     maximumCharacters = 128
   }
   

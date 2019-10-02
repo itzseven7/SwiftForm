@@ -61,17 +61,17 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   
   public var clearButtonMode: UITextField.ViewMode = .never
   
-  public var leftView: UIView? { return nil }
+  public var leftView: UIView?
   
-  public var leftViewMode: UITextField.ViewMode { return .never }
+  public var leftViewMode: UITextField.ViewMode = .never
   
-  public var rightView: UIView? { return nil }
+  public var rightView: UIView?
   
-  public var rightViewMode: UITextField.ViewMode { return .never }
+  public var rightViewMode: UITextField.ViewMode = .never
   
-  public var inputAccessoryView: UIView? { return nil }
+  public var inputAccessoryView: UIView?
   
-  var validationMode: ValidationMode = .always
+  public var validationMode: ValidationMode = .returnKey
   
   open func textFieldDidBeginEditing(_ textField: UITextField) {
     isEditing = true
@@ -79,6 +79,12 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   }
   
   open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    guard validationMode == .always else {
+      return true
+    }
+    
+    inputValue = unformatted(textField.text) ?? textField.text
+    validate()
     return validator.isValid ?? true
   }
   
@@ -121,10 +127,9 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   
   open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     inputValue = unformatted(textField.text) ?? textField.text
-    
     validate()
     
-    return true
+    return validator.isValid ?? true
   }
 }
 

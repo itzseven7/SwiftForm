@@ -38,7 +38,7 @@ open class TextViewInputFormItem: TextFormItemInput<String>, TextViewFormItem {
   }
   
   public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-    guard let currentText = textView.text, let textRange = Range(range, in: text) else { return false }
+    guard let currentText = textView.text, let textRange = Range(range, in: currentText) else { return false }
     
     let updatedText = currentText.replacingCharacters(in: textRange, with: text)
     

@@ -53,25 +53,33 @@ open class BaseTableViewForm: BaseForm, TableViewForm {
   }
   
   override func focusOnNextItem() {
-    let editingFormItemIndexPath = editingFormItem?.indexPath
+    guard let editingFormItem = editingFormItem else {
+      return
+    }
     
-    editingFormItem?.endEditingCallback?()
+    let currentIndexPath = editingFormItem.indexPath
     
-    guard let currentIndexPath = editingFormItemIndexPath, let formItem = nextFormItem(after: currentIndexPath, focusMode: focusMode) else {
+    editingFormItem.endEditing()
+    
+    guard let formItem = nextFormItem(after: currentIndexPath, typeMask: focusableItems) else {
       return
     }
     
     tableViewFormDelegate?.scrollToNextFormItem(at: formItem.indexPath)
     
-    formItem.beginEditingCallback?()
+    formItem.beginEditing()
   }
   
+  /// Register the form items cell
+  ///
+  /// You must provide a custom implementation otherwise the library will throw a failure.
+  /// - Parameter tableView: the table view
   open func registerCells(for tableView: UITableView) {
     preconditionFailure("You must implement this method in subclass")
   }
 }
 
 open class BaseTableViewFormSection: BaseFormSection, TableViewFormSection {
-  open var headerView: UIView? = UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
-  open var footerView: UIView? = UIView(frame: CGRect(origin: .zero, size: CGSize(width: CGFloat.leastNonzeroMagnitude, height: CGFloat.leastNonzeroMagnitude)))
+  open var headerView: UIView?
+  open var footerView: UIView?
 }

@@ -36,14 +36,17 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     
     view.addSubview(tableView)
     
+    view.leftAnchor.constraint(equalTo: tableView.leftAnchor).isActive = true
+    view.rightAnchor.constraint(equalTo: tableView.rightAnchor).isActive = true
+    view.topAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
+    view.bottomAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+    
     form?.delegate = self
     
     form?.registerCells(for: tableView)
     
-    tableView.isDirectionalLockEnabled = true
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
+    //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+    //NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
   }
   
   public func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,38 +106,32 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     return height ?? UITableView.automaticDimension
   }
   
-  public func formSectionsDidBecomeVisible(_ formSections: [FormSection]) {
+  open func formSectionsDidBecomeVisible(_ formSections: [FormSection]) {
     tableView.beginUpdates()
     tableView.insertSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
     tableView.endUpdates()
   }
   
-  public func formSectionsDidHide(_ formSections: [FormSection]) {
+  open func formSectionsDidHide(_ formSections: [FormSection]) {
     tableView.beginUpdates()
     tableView.deleteSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
     tableView.endUpdates()
   }
   
-  // TODO: With the table view we should have the following behavior
-  // On any form item event that supposedly only updates the UI, we should NOT reload the table view but still update cells (beginUpdates/endUpdates)
-  // On any form item event that change the datasource, we should reload (didn't found a case where it happens though)
-  // cellForRow => called only once, dequeue the correct cell from the form item
-  // willDisplay => called only once, assign the form item to the cell (container)
-  //
-  public func formItemsDidUpdate(_ formItems: [FormItem]) {
+  open func formItemsDidUpdate(_ formItems: [FormItem]) {
     UIView.setAnimationsEnabled(false)
     tableView.beginUpdates()
     tableView.endUpdates()
     UIView.setAnimationsEnabled(true)
   }
   
-  public func formItemsDidBecomeVisible(_ formItems: [FormItem]) {
+  open func formItemsDidBecomeVisible(_ formItems: [FormItem]) {
     tableView.beginUpdates()
     tableView.insertRows(at: formItems.map { $0.indexPath }, with: .automatic)
     tableView.endUpdates()
   }
   
-  public func formItemsDidHide(_ formItems: [FormItem]) {
+  open func formItemsDidHide(_ formItems: [FormItem]) {
     tableView.beginUpdates()
     tableView.deleteRows(at: formItems.map { $0.indexPath }, with: .automatic)
     tableView.endUpdates()

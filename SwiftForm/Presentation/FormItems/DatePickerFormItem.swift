@@ -27,7 +27,9 @@ public protocol DatePickerFormItem: FormItem {
 }
 
 open class DatePickerInputFormItem<ValueType: Equatable>: InputFormItem<ValueType, Date>, DatePickerFormItem {
-  public var date: Date?
+  public var date: Date? {
+    return inputValue
+  }
   
   public var minimumDate: Date?
   
@@ -42,7 +44,7 @@ open class DatePickerInputFormItem<ValueType: Equatable>: InputFormItem<ValueTyp
   public var timeZone: TimeZone?
   
   open func datePickerValueChanged(_ datePicker: UIDatePicker) {
-    date = datePicker.date
+    inputValue = datePicker.date
     notifyRefreshChange()
   }
 }

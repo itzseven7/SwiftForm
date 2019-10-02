@@ -40,7 +40,7 @@ extension DateOfBirthValidator: BoundedValueValidatorErrorProvider {
 
 final class DateOfBirthFormItem: DatePickerInputFormItem<Date> {
   
-  private let dateFormatter: DateFormatter = {
+  static let dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale.current
     dateFormatter.dateFormat = "MM / dd / yyyy"
@@ -55,7 +55,6 @@ final class DateOfBirthFormItem: DatePickerInputFormItem<Date> {
     super.init(value: value)
     
     title = "Date of birth"
-    date = dateOfBirthValidator.value
     minimumDate = dateOfBirthValidator.minimumValue
     maximumDate = dateOfBirthValidator.maximumValue
     datePickerMode = .date
@@ -75,7 +74,7 @@ extension DateOfBirthFormItem: TableViewFormItem {
 extension DateOfBirthFormItem: TextFieldResponderAdapter {
   var text: String? {
     guard let value = date else { return nil }
-    return dateFormatter.string(from: value)
+    return DateOfBirthFormItem.dateFormatter.string(from: value)
   }
   
   var placeholder: String? {

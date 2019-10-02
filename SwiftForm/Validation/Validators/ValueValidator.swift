@@ -72,8 +72,8 @@ open class ValueValidator<ValueType: Equatable>: Validator {
     subscriptions.append(handler)
   }
   
-  /// Notifies all observers
-  internal func notify() {
+  /// Notifies all observers with the current value
+  public func notify() {
     subscriptions.forEach { $0(value) }
   }
   
