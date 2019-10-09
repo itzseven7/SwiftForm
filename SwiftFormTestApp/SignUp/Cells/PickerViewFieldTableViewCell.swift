@@ -58,6 +58,21 @@ final class PickerViewFieldTableViewCell: UITableViewCell, PickerViewFormItemCon
     let bottomSpacing = CGFloat(ibErrorLabel.isHidden ? 0 : 12)
     ibStackView.setCustomSpacing(bottomSpacing, after: ibTextField)
   }
+  
+  private func configureStyles() {
+    guard let item = formItem else { return }
+    
+    switch item.state {
+    case .disabled:
+      ibTitleLabel.textColor = UIColor.lightGray
+    case .normal:
+      ibTitleLabel.textColor = UIColor.black
+    case .editing:
+      ibTitleLabel.textColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
+    case .error:
+      ibTitleLabel.textColor = UIColor.red
+    }
+  }
 }
 
 extension PickerViewFieldTableViewCell: UIPickerViewDataSource {
@@ -120,5 +135,9 @@ extension PickerViewFieldTableViewCell {
   
   func finishSetUp() {
     configureView()
+  }
+  
+  func onEditingEvent(formItem: FormItem) {
+    configureStyles()
   }
 }

@@ -18,6 +18,21 @@ final class ReminderTextViewTableViewCell: UITableViewCell, TextViewFormItemCont
     super.awakeFromNib()
     
     ibTextView.delegate = self
+    
+    let toolBar: DefaultToolbar = UIView.fromNib()
+    ibTextView.inputAccessoryView = toolBar
+    
+    toolBar.setTitle(nil)
+    
+    toolBar.ibLeftButton.setTitle("Cancel", for: .normal)
+    toolBar.leftButtonActionCallback = { [weak self] in
+      self?.formItem?.endEditing()
+    }
+    
+    toolBar.ibRightButton.setTitle("Done", for: .normal)
+    toolBar.rightButtonActionCallback = { [weak self] in
+      self?.formItem?.validate()
+    }
   }
 }
 

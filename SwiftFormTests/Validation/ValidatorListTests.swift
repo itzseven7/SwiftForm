@@ -41,7 +41,7 @@ final class ValidatorListTests: XCTestCase {
     secondValidator.isMandatory = false
     secondValidator.shouldBeValid = true
     
-    secondValidator.isMandatory = false
+    thirdValidator.isMandatory = false
     
     // Then
     let expected = true
@@ -58,7 +58,7 @@ final class ValidatorListTests: XCTestCase {
     secondValidator.isMandatory = false
     secondValidator.shouldBeValid = true
     
-    secondValidator.isMandatory = false
+    thirdValidator.isMandatory = false
     
     // Then
     XCTAssertEqual(sut.isValid, false, "Validator list should not be valid")
@@ -72,7 +72,7 @@ final class ValidatorListTests: XCTestCase {
     secondValidator.isMandatory = false
     secondValidator.shouldBeValid = true
     
-    secondValidator.isMandatory = false
+    thirdValidator.isMandatory = false
     
     // Then
     XCTAssertEqual(sut.isValid, false, "Validator list should not be valid")
@@ -87,7 +87,7 @@ final class ValidatorListTests: XCTestCase {
     secondValidator.isMandatory = false
     secondValidator.shouldBeValid = false
     
-    secondValidator.isMandatory = false
+    thirdValidator.isMandatory = false
     
     // Then
     XCTAssertEqual(sut.isValid, false, "Validator list should not be valid")

@@ -58,6 +58,21 @@ final class DatePickerFieldTableViewCell: UITableViewCell, DatePickerFormItemCon
     ibStackView.setCustomSpacing(bottomSpacing, after: ibTextField)
   }
   
+  private func configureStyles() {
+    guard let item = formItem else { return }
+    
+    switch item.state {
+    case .disabled:
+      ibTitleLabel.textColor = UIColor.lightGray
+    case .normal:
+      ibTitleLabel.textColor = UIColor.black
+    case .editing:
+      ibTitleLabel.textColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
+    case .error:
+      ibTitleLabel.textColor = UIColor.red
+    }
+  }
+  
   @objc
   private func dateChanged(_ sender: UIDatePicker) {
     datePickerFormItem?.datePickerValueChanged(datePicker)
@@ -104,5 +119,9 @@ extension DatePickerFieldTableViewCell {
   
   func finishSetUp() {
     configureView()
+  }
+  
+  func onEditingEvent(formItem: FormItem) {
+    configureStyles()
   }
 }

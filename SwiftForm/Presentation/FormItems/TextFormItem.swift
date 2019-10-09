@@ -24,7 +24,7 @@ open class TextFormItemInput<ValueType: Equatable>: InputFormItem<ValueType, Str
     return formatted(inputValue) ?? inputValue
   }
   
-  open var maximumCharacters: Int = -1
+  public var maximumCharacters: Int = -1
   
   open override func validate() {
     let text = (inputValue == nil) || (inputValue?.isEmpty ?? true) ? nil : inputValue

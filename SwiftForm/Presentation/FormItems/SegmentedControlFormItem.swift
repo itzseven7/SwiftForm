@@ -20,7 +20,7 @@ public protocol SegmentedControlFormItem: FormItem {
 open class SegmentedControlInputFormItem<ValueType: Equatable>: InputFormItem<ValueType, String>, SegmentedControlFormItem {
   public var titles: [String]
   
-  public var selectedSegmentIndex: Int = 0
+  public var selectedSegmentIndex: Int = UISegmentedControl.noSegment
   
   public var values: [ValueType]
   

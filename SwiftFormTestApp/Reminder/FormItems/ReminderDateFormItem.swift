@@ -18,6 +18,11 @@ final class ReminderDateFormItem: DatePickerInputFormItem<Date> {
   override func validator(_ value: Date?) -> ValueValidator<Date> {
     return BoundedValueValidator(value: value)
   }
+  
+  override func datePickerValueChanged(_ datePicker: UIDatePicker) {
+    super.datePickerValueChanged(datePicker)
+    validate()
+  }
 }
 
 extension ReminderDateFormItem: TableViewFormItem {

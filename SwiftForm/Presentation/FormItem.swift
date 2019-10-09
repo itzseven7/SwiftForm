@@ -21,6 +21,10 @@ public protocol FormItem: class {
   
   var isHidden: Bool { get set }
   
+  /// A boolean value that indicates whether the item is in editing mode/focused
+  ///
+  /// This property is relevant when the item handles an input that waits for user action like text fields. For example, changing this property for a segmented control or a switch is not necessary
+  /// Note that this property is used by the parent form to determine the current editing form item and find the next to focus
   var isEditing: Bool { get set }
   
   var beginEditingCallback: (() -> Void)? { get set }
@@ -42,14 +46,6 @@ extension FormItem {
   public var error: String? {
     return validator.error
   }
-  
-  public func beginEditing() {
-    beginEditingCallback?()
-  }
-  
-  public func endEditing() {
-    endEditingCallback?()
-  }
 }
 
 extension FormItem where Self: Equatable {
@@ -59,7 +55,17 @@ extension FormItem where Self: Equatable {
 }
 
 public enum FormItemState {
-  case disabled, normal, editing, error
+  /// The item is disabled, interaction is impossible
+  case disabled
+  
+  /// The item is valid or has no value
+  case normal
+  
+  /// the item is focused
+  case editing
+  
+  /// the item has an error
+  case error
 }
 
 extension FormItem {
@@ -84,7 +90,7 @@ public protocol FormItemObserver {
    
    This property tells the form item to choose a proper order to notify its observers. You can decide in which order a type of observer will be notified compared to other types.
    
-   The higher the value is, the lesser prioritary the observer is
+   The higher the value is, the greater prioritary the observer is
    
    By default, containers are notified first (priority equal to 1) followed by the form (priority of 2)
    */
@@ -99,141 +105,4 @@ public protocol FormItemObserver {
   ///
   /// - Parameter formItem: the form item
   func onRefreshEvent(formItem: FormItem) // called when a change needs to be reported on observers
-}
-
-/// This class defines a form item that handles a simple input
-open class InputFormItem<ValueType: Equatable, InputValueType>: FormItem, Equatable {
-  public var validator: Validator {
-    return valueValidator
-  }
-  
-  public final var valueValidator: ValueValidator<ValueType>!
-  
-  /// The input value reflects the current value of the input
-  public var inputValue: InputValueType?
-  
-  public var indexPath: IndexPath = IndexPath(item: 0, section: 0)
-  
-  public var title: String?
-  
-  public var description: String?
-  
-  public var isEnabled: Bool = true
-  
-  public var isHidden: Bool = false
-  
-  public var isEditing: Bool = false
-  
-  public var beginEditingCallback: (() -> Void)?
-  
-  public var endEditingCallback: (() -> Void)?
-  
-  internal var observers: [FormItemObserver] = []
-  
-  public init(value: ValueType? = nil) {
-    valueValidator = self.validator(value)
-    valueValidator.subscribe { [weak self] _ in
-      self?.notifyValidationChange()
-    }
-  }
-  
-  // You should override this method to provide your own validator
-  open func validator(_ value: ValueType?) -> ValueValidator<ValueType> {
-    preconditionFailure("You must provide a validator")
-  }
-  
-  open func validate() {
-    guard isEnabled && !isHidden else { return }
-    valueValidator.validate(self.value(from: inputValue))
-  }
-  
-  open func subscribe<T: Equatable, U>(to formItem: InputFormItem<T, U>,_ handler: @escaping ((T?) -> Void)) {
-    formItem.valueValidator.subscribe { (value) in handler(value) }
-  }
-  
-  open func addObserver(_ observer: FormItemObserver) {
-    observers.append(observer)
-  }
-  
-  open func notify(_ handler: ((FormItemObserver) -> Void)) {
-    observers.sorted(by: { $0.priority < $1.priority }).forEach { handler($0) }
-  }
-  
-  // Conversion methods
-  
-  /// Converts the input value to value's type
-  ///
-  /// The default implementation of this method returns the input value if it has the same type than the value or nil if input value is empty.
-  /// Override this method if the input value and value types are different.
-  /// - Parameter inputValue: the input value
-  /// - Returns: the input value with value's type
-  open func value(from inputValue: InputValueType?) -> ValueType? {
-    guard let unwrappedValue = inputValue else { return nil }
-    
-    guard let value = unwrappedValue as? ValueType else {
-      preconditionFailure("You must provide a conversion for input value to value's type")
-    }
-    
-    return value
-  }
-  
-  /// Converts the value to input value's type
-  ///
-  /// The default implementation of this method returns the value if it has the same type than the input value or nil if value is empty.
-  /// Override this method if the value and input value types are different.
-  /// - Parameter value: the value
-  /// - Returns: the value with input value's type
-  open func inputValue(from value: ValueType?) -> InputValueType? {
-    guard let unwrappedValue = value else { return nil }
-    
-    guard let inputValue = unwrappedValue as? InputValueType else {
-      preconditionFailure("You must provide a conversion for value to input value's type")
-    }
-    
-    return inputValue
-  }
-}
-
-extension InputFormItem {
-  
-  /// Convenience method to notify all observers that a validation occured
-  public func notifyValidationChange() {
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onValidationEvent(formItem: sSelf)
-    }
-  }
-  
-  /// Convenience method to notify all observers that the form item has been enabled/disabled
-  public func notifyActivationChange() {
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onActivationEvent(formItem: sSelf)
-    }
-  }
-  
-  
-  /// Convenience method to notify all observers that the editing state has changed
-  public func notifyEditingChange() {
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onEditingEvent(formItem: sSelf)
-    }
-  }
-  
-  /// Convenience method to notify all observers that the form item did become visible/hidden
-  public func notifyVisibilityChange() {
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onVisibilityEvent(formItem: sSelf)
-    }
-  }
-  
-  /// Convenience method to notify all observers that a change must be refreshed
-  public func notifyRefreshChange() {
-    notify { [weak self] observer in
-      guard let sSelf = self else { return }
-      observer.onRefreshEvent(formItem: sSelf)
-    }
-  }
 }

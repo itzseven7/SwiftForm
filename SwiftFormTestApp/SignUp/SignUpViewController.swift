@@ -8,19 +8,10 @@
 import UIKit
 import SwiftForm
 
-protocol SignUpViewModel {
-  var firstName: String? { get }
-  var lastName: String? { get }
-  var dateOfBirth: Date? { get }
-  var placeOfBirth: String? { get }
-  var emailAddress: String? { get }
-  var password: String? { get }
-}
-
-final class SignUpViewController: FormTableViewController  {
+final class SignUpViewController: FormTableViewController {
   
-  var signUpViewModel: SignUpViewModel? {
-    return form as? SignUpViewModel
+  var signUpForm: SignUpForm? {
+    return form as? SignUpForm
   }
   
   override func viewDidLoad() {
@@ -28,18 +19,16 @@ final class SignUpViewController: FormTableViewController  {
     
     super.viewDidLoad()
     
-    tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+    title = "Sign up"
     
     tableView.reloadData()
     
-    title = "Sign up"
+    tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
     tableView.keyboardDismissMode = .onDrag
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
     
-    //form?.beginEditing()
+    signUpForm?.actionButtonCallback = { [weak self] in
+      self?.doneAction()
+    }
   }
   
   override func viewDidLayoutSubviews() {
@@ -48,5 +37,25 @@ final class SignUpViewController: FormTableViewController  {
     tableView.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
     tableView.layoutTableHeaderView()
     tableView.layoutTableFooterView()
+  }
+  
+  func doneAction() {
+    // force validation here
+    guard let values = signUpForm?.getValues() else { return }
+    
+    var message = ""
+    
+    message += "First name: \(values.firstName)\n"
+    message += "Last name: \(values.lastName)\n"
+    message += "Date of birth: \(values.dateOfBirth)\n"
+    message += "Place of birth: \(values.placeOfBirth)\n"
+    message += "Email address: \(values.emailAddress)\n"
+    message += "Password: \(values.password)\n"
+    
+    let alertViewController = UIAlertController(title: "Values", message: message, preferredStyle: .alert)
+    
+    alertViewController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+    
+    present(alertViewController, animated: true, completion: nil)
   }
 }

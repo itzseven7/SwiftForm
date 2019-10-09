@@ -18,7 +18,7 @@ public protocol FormItemContainer: class, FormItemObserver {
 
 extension FormItemContainer {
   public var priority: Int {
-    return 1
+    return 1000
   }
   
   public func onValidationEvent(formItem: FormItem) {}
