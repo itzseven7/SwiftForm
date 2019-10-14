@@ -1,0 +1,1204 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A078BE32312C04E00026BE2 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A078BE22312C04E00026BE2 /* HeaderView.xib */; };
+		7A078BE52312C05900026BE2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A078BE42312C05900026BE2 /* HeaderView.swift */; };
+		7A0D56AB232BF5F300A0831A /* FormItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D56AA232BF5F300A0831A /* FormItemTests.swift */; };
+		7A0D56AD232BF9EF00A0831A /* InputFormItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D56AC232BF9EF00A0831A /* InputFormItemTests.swift */; };
+		7A15625623226309008F214B /* FormSectionMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A15625523226309008F214B /* FormSectionMocks.swift */; };
+		7A1FDF732315A3EC0076CEC6 /* TextFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */; };
+		7A1FDF752315A97E0076CEC6 /* TextViewFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */; };
+		7A1FDF7B2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */; };
+		7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */; };
+		7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A793422C40C5700A8BAC1 /* ViewController.swift */; };
+		7A2A793822C40C5700A8BAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A793622C40C5700A8BAC1 /* Main.storyboard */; };
+		7A2A793A22C40C5800A8BAC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A793922C40C5800A8BAC1 /* Assets.xcassets */; };
+		7A2A793D22C40C5800A8BAC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A793B22C40C5800A8BAC1 /* LaunchScreen.storyboard */; };
+		7A32A17F230FE2CC00F5ACB3 /* PickerViewFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32A17E230FE2CC00F5ACB3 /* PickerViewFormItem.swift */; };
+		7A376B32230C230D00F49936 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A376B31230C230D00F49936 /* SignUpViewController.swift */; };
+		7A376B39230C4A4200F49936 /* LeftTitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A376B37230C4A4200F49936 /* LeftTitleHeaderView.xib */; };
+		7A376B3A230C4A4200F49936 /* LeftTitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A376B38230C4A4200F49936 /* LeftTitleHeaderView.swift */; };
+		7A376B3E230C4ACF00F49936 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A376B3D230C4ACF00F49936 /* UIView+Extension.swift */; };
+		7A43075E22C40D4C004292EC /* SwiftForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5B17BF22B58A4300111A8A /* SwiftForm.framework */; };
+		7A45420C22DB44FD00CE8737 /* BoundedValueValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A45420B22DB44FD00CE8737 /* BoundedValueValidatorTests.swift */; };
+		7A4A97E82321B57700EFE587 /* BaseForm+Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A97E72321B57700EFE587 /* BaseForm+Focus.swift */; };
+		7A4A97EA2321B72900EFE587 /* BaseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A97E92321B72900EFE587 /* BaseForm.swift */; };
+		7A4A97EC2321B7EC00EFE587 /* InputFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A97EB2321B7EC00EFE587 /* InputFormItem.swift */; };
+		7A4A97EF2321B9DF00EFE587 /* FormMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A97EE2321B9DF00EFE587 /* FormMocks.swift */; };
+		7A4A97F52321BBC100EFE587 /* BaseFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A97F42321BBC100EFE587 /* BaseFormTests.swift */; };
+		7A4A97F72321BBCE00EFE587 /* BaseFormFocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A97F62321BBCE00EFE587 /* BaseFormFocusTests.swift */; };
+		7A4A97F92321BFB900EFE587 /* FormItemMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A97F82321BFB900EFE587 /* FormItemMocks.swift */; };
+		7A5154122310860A00C1AE7B /* DefaultToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A5154112310860A00C1AE7B /* DefaultToolbar.xib */; };
+		7A5154142310861400C1AE7B /* DefaultToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5154132310861400C1AE7B /* DefaultToolbar.swift */; };
+		7A515416231099C400C1AE7B /* FormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A515415231099C400C1AE7B /* FormItemContainer.swift */; };
+		7A515418231099FA00C1AE7B /* FormItemInputContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */; };
+		7A51541A23109A2800C1AE7B /* FormItemContainerResponderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51541923109A2800C1AE7B /* FormItemContainerResponderAdapter.swift */; };
+		7A51541D23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A51541C23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift */; };
+		7A560B0D231D42DB00340B5B /* LeftTitleFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A560B0C231D42DB00340B5B /* LeftTitleFooterView.xib */; };
+		7A560B11231D43C400340B5B /* LeftTitleFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A560B10231D43C400340B5B /* LeftTitleFooterView.swift */; };
+		7A560B13231D8B4500340B5B /* SignUpFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A560B12231D8B4500340B5B /* SignUpFooterView.xib */; };
+		7A560B15231D8B5600340B5B /* SignUpFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A560B14231D8B5600340B5B /* SignUpFooterView.swift */; };
+		7A560B17231D8C8D00340B5B /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A560B16231D8C8D00340B5B /* UITableView+Extension.swift */; };
+		7A5B17C922B58A4300111A8A /* SwiftForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5B17BF22B58A4300111A8A /* SwiftForm.framework */; };
+		7A5B17D022B58A4300111A8A /* SwiftForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A5B17C222B58A4300111A8A /* SwiftForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A5B17E022B58B9200111A8A /* ValidatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17D922B58B9100111A8A /* ValidatorList.swift */; };
+		7A5B17E122B58B9200111A8A /* BoundedValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DB22B58B9100111A8A /* BoundedValueValidator.swift */; };
+		7A5B17E222B58B9200111A8A /* ListValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DC22B58B9100111A8A /* ListValidator.swift */; };
+		7A5B17E322B58B9200111A8A /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DD22B58B9100111A8A /* TextValidator.swift */; };
+		7A5B17E422B58B9200111A8A /* RegularExpressionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DE22B58B9100111A8A /* RegularExpressionValidator.swift */; };
+		7A5B17E522B58B9200111A8A /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5B17DF22B58B9200111A8A /* Validator.swift */; };
+		7A6EFD58230DEA0F00634E2B /* TextFieldFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EFD57230DEA0F00634E2B /* TextFieldFormItemContainer.swift */; };
+		7A6F5C0A230D47F90010C19E /* TextFieldFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F5C09230D47F90010C19E /* TextFieldFormItem.swift */; };
+		7A7AFCEF230E90DE00E89482 /* DatePickerFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AFCEE230E90DE00E89482 /* DatePickerFormItem.swift */; };
+		7A7AFCF5230E9ADE00E89482 /* DatePickerFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AFCF4230E9ADE00E89482 /* DatePickerFormItemContainer.swift */; };
+		7A85A93A23146E59008715B3 /* SegmentedControlFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93923146E59008715B3 /* SegmentedControlFormItem.swift */; };
+		7A85A93C23146E7C008715B3 /* SliderFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93B23146E7C008715B3 /* SliderFormItem.swift */; };
+		7A85A93E23146E90008715B3 /* SwitchFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93D23146E90008715B3 /* SwitchFormItem.swift */; };
+		7A85A94023146ECF008715B3 /* StepperFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A93F23146ECF008715B3 /* StepperFormItem.swift */; };
+		7A85A94223146EDD008715B3 /* TextViewFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A94123146EDD008715B3 /* TextViewFormItem.swift */; };
+		7A86D24522BE71E000C3F45A /* ValidatorListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24422BE71E000C3F45A /* ValidatorListTests.swift */; };
+		7A86D24722BE72E700C3F45A /* ValidatorMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24622BE72E700C3F45A /* ValidatorMocks.swift */; };
+		7A86D24922BE73E800C3F45A /* ValueValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24822BE73E800C3F45A /* ValueValidatorTests.swift */; };
+		7A86D24B22BE7B4700C3F45A /* ValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A86D24A22BE7B4700C3F45A /* ValueValidator.swift */; };
+		7A8ADEA3231BD1C900612819 /* ReminderSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA2231BD1C900612819 /* ReminderSwitchTableViewCell.xib */; };
+		7A8ADEA5231BD1D200612819 /* ReminderSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA4231BD1D200612819 /* ReminderSwitchTableViewCell.swift */; };
+		7A8ADEA7231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA6231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib */; };
+		7A8ADEA9231BD30700612819 /* ReminderDatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEA8231BD30700612819 /* ReminderDatePickerTableViewCell.swift */; };
+		7A8ADEAB231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEAA231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib */; };
+		7A8ADEAD231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEAC231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift */; };
+		7A8ADEAF231BD44900612819 /* ReminderTextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ADEAE231BD44900612819 /* ReminderTextViewTableViewCell.xib */; };
+		7A8ADEB1231BD45400612819 /* ReminderTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB0231BD45400612819 /* ReminderTextViewTableViewCell.swift */; };
+		7A8ADEB3231BD77D00612819 /* ReminderNameFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB2231BD77D00612819 /* ReminderNameFormItem.swift */; };
+		7A8ADEB7231BDBB200612819 /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB6231BDBB200612819 /* ReminderForm.swift */; };
+		7A8ADEB9231BDE3500612819 /* ReminderOnLocationFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ADEB8231BDE3500612819 /* ReminderOnLocationFormItem.swift */; };
+		7A93AF1122CD366B00DB9F8A /* TextValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93AF1022CD366B00DB9F8A /* TextValidatorTests.swift */; };
+		7A93AF1322CD393000DB9F8A /* ValidatorErrorProviderMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93AF1222CD393000DB9F8A /* ValidatorErrorProviderMocks.swift */; };
+		7A9440C322FCCAB6007C721C /* RegularExpressionValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9440C222FCCAB6007C721C /* RegularExpressionValidatorTests.swift */; };
+		7A988BE62334F0C900AE36F3 /* TextFieldInputFormItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A988BE52334F0C900AE36F3 /* TextFieldInputFormItemTests.swift */; };
+		7A98A0EA231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A98A0E9231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib */; };
+		7A98A0EC231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A98A0EB231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift */; };
+		7A9BF53B2319B765005319AF /* SegmentedControlFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF53A2319B765005319AF /* SegmentedControlFormItemContainer.swift */; };
+		7A9BF53D2319B891005319AF /* SliderFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF53C2319B891005319AF /* SliderFormItemContainer.swift */; };
+		7A9BF53F2319B98C005319AF /* SwitchFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */; };
+		7A9BF5412319B9EA005319AF /* StepperFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */; };
+		7A9BF5442319BB6E005319AF /* ReminderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5432319BB6E005319AF /* ReminderFormViewController.swift */; };
+		7A9BF5492319BD73005319AF /* ReminderNotesFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5482319BD73005319AF /* ReminderNotesFormItem.swift */; };
+		7A9BF54B2319BD7E005319AF /* ReminderDateFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF54A2319BD7E005319AF /* ReminderDateFormItem.swift */; };
+		7A9BF54F2319BD94005319AF /* ReminderPriorityFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF54E2319BD93005319AF /* ReminderPriorityFormItem.swift */; };
+		7A9BF5532319BE01005319AF /* ReminderOnDayFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5522319BE01005319AF /* ReminderOnDayFormItem.swift */; };
+		7A9BF5572319BE97005319AF /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BF5562319BE97005319AF /* SignUpForm.swift */; };
+		7AA21F3E23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA21F3D23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift */; };
+		7AA21F45231180C700FC6DA6 /* PickerViewFormItemContainer+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA21F44231180C700FC6DA6 /* PickerViewFormItemContainer+UITextField.swift */; };
+		7AC1B6E123215E9600D3E6D8 /* PickerViewFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC1B6D223215E9600D3E6D8 /* PickerViewFieldTableViewCell.xib */; };
+		7AC1B6E223215E9600D3E6D8 /* DatePickerFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC1B6D323215E9600D3E6D8 /* DatePickerFieldTableViewCell.xib */; };
+		7AC1B6E323215E9600D3E6D8 /* PickerViewFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6D423215E9600D3E6D8 /* PickerViewFieldTableViewCell.swift */; };
+		7AC1B6E423215E9600D3E6D8 /* DatePickerFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6D523215E9600D3E6D8 /* DatePickerFieldTableViewCell.swift */; };
+		7AC1B6E523215E9600D3E6D8 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC1B6D623215E9600D3E6D8 /* TextFieldTableViewCell.xib */; };
+		7AC1B6E623215E9600D3E6D8 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6D723215E9600D3E6D8 /* TextFieldTableViewCell.swift */; };
+		7AC1B6E723215E9600D3E6D8 /* LastNameFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6D923215E9600D3E6D8 /* LastNameFormItem.swift */; };
+		7AC1B6E823215E9600D3E6D8 /* FirstNameFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6DA23215E9600D3E6D8 /* FirstNameFormItem.swift */; };
+		7AC1B6E923215E9600D3E6D8 /* PasswordFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6DB23215E9600D3E6D8 /* PasswordFormItem.swift */; };
+		7AC1B6EA23215E9600D3E6D8 /* PasswordFormItem+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6DC23215E9600D3E6D8 /* PasswordFormItem+Error.swift */; };
+		7AC1B6EB23215E9600D3E6D8 /* DateOfRegistrationValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6DD23215E9600D3E6D8 /* DateOfRegistrationValidator.swift */; };
+		7AC1B6EC23215E9600D3E6D8 /* DateOfBirthFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6DE23215E9600D3E6D8 /* DateOfBirthFormItem.swift */; };
+		7AC1B6ED23215E9600D3E6D8 /* PlaceOfBirthFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6DF23215E9600D3E6D8 /* PlaceOfBirthFormItem.swift */; };
+		7AC1B6EE23215E9600D3E6D8 /* EmailAddressFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B6E023215E9600D3E6D8 /* EmailAddressFormItem.swift */; };
+		7AC5F91E233690A500B2E0A5 /* TextFieldFormItemContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5F91D233690A500B2E0A5 /* TextFieldFormItemContainerTests.swift */; };
+		7ACC1D2C2332AFA50090C4A0 /* TableViewFormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACC1D2B2332AFA50090C4A0 /* TableViewFormContainer.swift */; };
+		7AEBC0E222FB2ADD00BA9251 /* ListValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEBC0E122FB2ADD00BA9251 /* ListValidatorTests.swift */; };
+		7AEBC0E422FB2AF100BA9251 /* MultiValueListValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEBC0E322FB2AF100BA9251 /* MultiValueListValidatorTests.swift */; };
+		7AF2F337230997E0000B6DE0 /* Validable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F336230997E0000B6DE0 /* Validable.swift */; };
+		7AF2F3422309A6CF000B6DE0 /* FormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F33D2309A6CF000B6DE0 /* FormItem.swift */; };
+		7AF2F3432309A6CF000B6DE0 /* TableViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F33E2309A6CF000B6DE0 /* TableViewForm.swift */; };
+		7AF2F3442309A6CF000B6DE0 /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */; };
+		7AF2F3452309A6CF000B6DE0 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3402309A6CF000B6DE0 /* Form.swift */; };
+		7AF2F3472309AC66000B6DE0 /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A43075B22C40D45004292EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5B17B622B58A4300111A8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A5B17BE22B58A4300111A8A;
+			remoteInfo = SwiftForm;
+		};
+		7A5B17CA22B58A4300111A8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5B17B622B58A4300111A8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A5B17BE22B58A4300111A8A;
+			remoteInfo = SwiftForm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A078BE22312C04E00026BE2 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		7A078BE42312C05900026BE2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		7A0D56AA232BF5F300A0831A /* FormItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemTests.swift; sourceTree = "<group>"; };
+		7A0D56AC232BF9EF00A0831A /* InputFormItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormItemTests.swift; sourceTree = "<group>"; };
+		7A15625523226309008F214B /* FormSectionMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSectionMocks.swift; sourceTree = "<group>"; };
+		7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormItem.swift; sourceTree = "<group>"; };
+		7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFormItemContainer.swift; sourceTree = "<group>"; };
+		7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldFormItem+Adapter.swift"; sourceTree = "<group>"; };
+		7A2A793022C40C5700A8BAC1 /* SwiftFormTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFormTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A2A793422C40C5700A8BAC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A2A793722C40C5700A8BAC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A2A793922C40C5800A8BAC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A2A793C22C40C5800A8BAC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A2A793E22C40C5800A8BAC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A32A17E230FE2CC00F5ACB3 /* PickerViewFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewFormItem.swift; sourceTree = "<group>"; };
+		7A376B31230C230D00F49936 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7A376B37230C4A4200F49936 /* LeftTitleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftTitleHeaderView.xib; sourceTree = "<group>"; };
+		7A376B38230C4A4200F49936 /* LeftTitleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftTitleHeaderView.swift; sourceTree = "<group>"; };
+		7A376B3D230C4ACF00F49936 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		7A45420B22DB44FD00CE8737 /* BoundedValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundedValueValidatorTests.swift; sourceTree = "<group>"; };
+		7A4A97E72321B57700EFE587 /* BaseForm+Focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseForm+Focus.swift"; sourceTree = "<group>"; };
+		7A4A97E92321B72900EFE587 /* BaseForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseForm.swift; sourceTree = "<group>"; };
+		7A4A97EB2321B7EC00EFE587 /* InputFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormItem.swift; sourceTree = "<group>"; };
+		7A4A97EE2321B9DF00EFE587 /* FormMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormMocks.swift; sourceTree = "<group>"; };
+		7A4A97F42321BBC100EFE587 /* BaseFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFormTests.swift; sourceTree = "<group>"; };
+		7A4A97F62321BBCE00EFE587 /* BaseFormFocusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFormFocusTests.swift; sourceTree = "<group>"; };
+		7A4A97F82321BFB900EFE587 /* FormItemMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemMocks.swift; sourceTree = "<group>"; };
+		7A5154112310860A00C1AE7B /* DefaultToolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultToolbar.xib; sourceTree = "<group>"; };
+		7A5154132310861400C1AE7B /* DefaultToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultToolbar.swift; sourceTree = "<group>"; };
+		7A515415231099C400C1AE7B /* FormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemContainer.swift; sourceTree = "<group>"; };
+		7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemInputContainer.swift; sourceTree = "<group>"; };
+		7A51541923109A2800C1AE7B /* FormItemContainerResponderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemContainerResponderAdapter.swift; sourceTree = "<group>"; };
+		7A51541C23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatePickerFormItemContainer+UITextField.swift"; sourceTree = "<group>"; };
+		7A560B0C231D42DB00340B5B /* LeftTitleFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftTitleFooterView.xib; sourceTree = "<group>"; };
+		7A560B10231D43C400340B5B /* LeftTitleFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftTitleFooterView.swift; sourceTree = "<group>"; };
+		7A560B12231D8B4500340B5B /* SignUpFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpFooterView.xib; sourceTree = "<group>"; };
+		7A560B14231D8B5600340B5B /* SignUpFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFooterView.swift; sourceTree = "<group>"; };
+		7A560B16231D8C8D00340B5B /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		7A5B17BF22B58A4300111A8A /* SwiftForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B17C222B58A4300111A8A /* SwiftForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftForm.h; sourceTree = "<group>"; };
+		7A5B17C322B58A4300111A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A5B17C822B58A4300111A8A /* SwiftFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5B17CF22B58A4300111A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A5B17D922B58B9100111A8A /* ValidatorList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorList.swift; sourceTree = "<group>"; };
+		7A5B17DB22B58B9100111A8A /* BoundedValueValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundedValueValidator.swift; sourceTree = "<group>"; };
+		7A5B17DC22B58B9100111A8A /* ListValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListValidator.swift; sourceTree = "<group>"; };
+		7A5B17DD22B58B9100111A8A /* TextValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
+		7A5B17DE22B58B9100111A8A /* RegularExpressionValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpressionValidator.swift; sourceTree = "<group>"; };
+		7A5B17DF22B58B9200111A8A /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		7A6EFD57230DEA0F00634E2B /* TextFieldFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormItemContainer.swift; sourceTree = "<group>"; };
+		7A6F5C09230D47F90010C19E /* TextFieldFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormItem.swift; sourceTree = "<group>"; };
+		7A7AFCEE230E90DE00E89482 /* DatePickerFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerFormItem.swift; sourceTree = "<group>"; };
+		7A7AFCF4230E9ADE00E89482 /* DatePickerFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerFormItemContainer.swift; sourceTree = "<group>"; };
+		7A85A93923146E59008715B3 /* SegmentedControlFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlFormItem.swift; sourceTree = "<group>"; };
+		7A85A93B23146E7C008715B3 /* SliderFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderFormItem.swift; sourceTree = "<group>"; };
+		7A85A93D23146E90008715B3 /* SwitchFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchFormItem.swift; sourceTree = "<group>"; };
+		7A85A93F23146ECF008715B3 /* StepperFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperFormItem.swift; sourceTree = "<group>"; };
+		7A85A94123146EDD008715B3 /* TextViewFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewFormItem.swift; sourceTree = "<group>"; };
+		7A86D24422BE71E000C3F45A /* ValidatorListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorListTests.swift; sourceTree = "<group>"; };
+		7A86D24622BE72E700C3F45A /* ValidatorMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorMocks.swift; sourceTree = "<group>"; };
+		7A86D24822BE73E800C3F45A /* ValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueValidatorTests.swift; sourceTree = "<group>"; };
+		7A86D24A22BE7B4700C3F45A /* ValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueValidator.swift; sourceTree = "<group>"; };
+		7A8ADEA2231BD1C900612819 /* ReminderSwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		7A8ADEA4231BD1D200612819 /* ReminderSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEA6231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderDatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		7A8ADEA8231BD30700612819 /* ReminderDatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEAA231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderSegmentedControlTableViewCell.xib; sourceTree = "<group>"; };
+		7A8ADEAC231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSegmentedControlTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEAE231BD44900612819 /* ReminderTextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTextViewTableViewCell.xib; sourceTree = "<group>"; };
+		7A8ADEB0231BD45400612819 /* ReminderTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		7A8ADEB2231BD77D00612819 /* ReminderNameFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNameFormItem.swift; sourceTree = "<group>"; };
+		7A8ADEB6231BDBB200612819 /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
+		7A8ADEB8231BDE3500612819 /* ReminderOnLocationFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOnLocationFormItem.swift; sourceTree = "<group>"; };
+		7A93AF1022CD366B00DB9F8A /* TextValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidatorTests.swift; sourceTree = "<group>"; };
+		7A93AF1222CD393000DB9F8A /* ValidatorErrorProviderMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorErrorProviderMocks.swift; sourceTree = "<group>"; };
+		7A9440C222FCCAB6007C721C /* RegularExpressionValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionValidatorTests.swift; sourceTree = "<group>"; };
+		7A988BE52334F0C900AE36F3 /* TextFieldInputFormItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputFormItemTests.swift; sourceTree = "<group>"; };
+		7A98A0E9231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		7A98A0EB231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		7A9BF53A2319B765005319AF /* SegmentedControlFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlFormItemContainer.swift; sourceTree = "<group>"; };
+		7A9BF53C2319B891005319AF /* SliderFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderFormItemContainer.swift; sourceTree = "<group>"; };
+		7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchFormItemContainer.swift; sourceTree = "<group>"; };
+		7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperFormItemContainer.swift; sourceTree = "<group>"; };
+		7A9BF5432319BB6E005319AF /* ReminderFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormViewController.swift; sourceTree = "<group>"; };
+		7A9BF5482319BD73005319AF /* ReminderNotesFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotesFormItem.swift; sourceTree = "<group>"; };
+		7A9BF54A2319BD7E005319AF /* ReminderDateFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDateFormItem.swift; sourceTree = "<group>"; };
+		7A9BF54E2319BD93005319AF /* ReminderPriorityFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPriorityFormItem.swift; sourceTree = "<group>"; };
+		7A9BF5522319BE01005319AF /* ReminderOnDayFormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOnDayFormItem.swift; sourceTree = "<group>"; };
+		7A9BF5562319BE97005319AF /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
+		7AA21F3D23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewFormItemContainer.swift; sourceTree = "<group>"; };
+		7AA21F44231180C700FC6DA6 /* PickerViewFormItemContainer+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickerViewFormItemContainer+UITextField.swift"; sourceTree = "<group>"; };
+		7AC1B6D223215E9600D3E6D8 /* PickerViewFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewFieldTableViewCell.xib; sourceTree = "<group>"; };
+		7AC1B6D323215E9600D3E6D8 /* DatePickerFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerFieldTableViewCell.xib; sourceTree = "<group>"; };
+		7AC1B6D423215E9600D3E6D8 /* PickerViewFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewFieldTableViewCell.swift; sourceTree = "<group>"; };
+		7AC1B6D523215E9600D3E6D8 /* DatePickerFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerFieldTableViewCell.swift; sourceTree = "<group>"; };
+		7AC1B6D623215E9600D3E6D8 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		7AC1B6D723215E9600D3E6D8 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		7AC1B6D923215E9600D3E6D8 /* LastNameFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNameFormItem.swift; sourceTree = "<group>"; };
+		7AC1B6DA23215E9600D3E6D8 /* FirstNameFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstNameFormItem.swift; sourceTree = "<group>"; };
+		7AC1B6DB23215E9600D3E6D8 /* PasswordFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordFormItem.swift; sourceTree = "<group>"; };
+		7AC1B6DC23215E9600D3E6D8 /* PasswordFormItem+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PasswordFormItem+Error.swift"; sourceTree = "<group>"; };
+		7AC1B6DD23215E9600D3E6D8 /* DateOfRegistrationValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateOfRegistrationValidator.swift; sourceTree = "<group>"; };
+		7AC1B6DE23215E9600D3E6D8 /* DateOfBirthFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateOfBirthFormItem.swift; sourceTree = "<group>"; };
+		7AC1B6DF23215E9600D3E6D8 /* PlaceOfBirthFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceOfBirthFormItem.swift; sourceTree = "<group>"; };
+		7AC1B6E023215E9600D3E6D8 /* EmailAddressFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailAddressFormItem.swift; sourceTree = "<group>"; };
+		7AC5F91D233690A500B2E0A5 /* TextFieldFormItemContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormItemContainerTests.swift; sourceTree = "<group>"; };
+		7ACC1D2B2332AFA50090C4A0 /* TableViewFormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewFormContainer.swift; sourceTree = "<group>"; };
+		7AEBC0E122FB2ADD00BA9251 /* ListValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListValidatorTests.swift; sourceTree = "<group>"; };
+		7AEBC0E322FB2AF100BA9251 /* MultiValueListValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiValueListValidatorTests.swift; sourceTree = "<group>"; };
+		7AF2F336230997E0000B6DE0 /* Validable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validable.swift; sourceTree = "<group>"; };
+		7AF2F33D2309A6CF000B6DE0 /* FormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormItem.swift; sourceTree = "<group>"; };
+		7AF2F33E2309A6CF000B6DE0 /* TableViewForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewForm.swift; sourceTree = "<group>"; };
+		7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
+		7AF2F3402309A6CF000B6DE0 /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A2A792D22C40C5700A8BAC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A43075E22C40D4C004292EC /* SwiftForm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5B17BC22B58A4300111A8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5B17C522B58A4300111A8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A5B17C922B58A4300111A8A /* SwiftForm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A2A793122C40C5700A8BAC1 /* SwiftFormTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				7A9BF5452319BB75005319AF /* Reminder */,
+				7A9BF5422319BAC3005319AF /* SignUp */,
+				7AA21F46231182DC00FC6DA6 /* Views */,
+				7A2A793222C40C5700A8BAC1 /* AppDelegate.swift */,
+				7A2A793422C40C5700A8BAC1 /* ViewController.swift */,
+				7A2A793622C40C5700A8BAC1 /* Main.storyboard */,
+				7A2A793922C40C5800A8BAC1 /* Assets.xcassets */,
+				7A2A793B22C40C5800A8BAC1 /* LaunchScreen.storyboard */,
+				7A2A793E22C40C5800A8BAC1 /* Info.plist */,
+				7A560B16231D8C8D00340B5B /* UITableView+Extension.swift */,
+			);
+			path = SwiftFormTestApp;
+			sourceTree = "<group>";
+		};
+		7A43075D22C40D4C004292EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A4A97ED2321B9C600EFE587 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				7AF2F33A2309A2A6000B6DE0 /* Mocks */,
+				7A86D24422BE71E000C3F45A /* ValidatorListTests.swift */,
+				7A86D24822BE73E800C3F45A /* ValueValidatorTests.swift */,
+				7A93AF1022CD366B00DB9F8A /* TextValidatorTests.swift */,
+				7A45420B22DB44FD00CE8737 /* BoundedValueValidatorTests.swift */,
+				7AEBC0E122FB2ADD00BA9251 /* ListValidatorTests.swift */,
+				7AEBC0E322FB2AF100BA9251 /* MultiValueListValidatorTests.swift */,
+				7A9440C222FCCAB6007C721C /* RegularExpressionValidatorTests.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		7A4A97F02321B9E700EFE587 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7A4A97F12321B9F500EFE587 /* Mocks */,
+				7A4A97F42321BBC100EFE587 /* BaseFormTests.swift */,
+				7A4A97F62321BBCE00EFE587 /* BaseFormFocusTests.swift */,
+				7A0D56AA232BF5F300A0831A /* FormItemTests.swift */,
+				7A0D56AC232BF9EF00A0831A /* InputFormItemTests.swift */,
+				7A988BE52334F0C900AE36F3 /* TextFieldInputFormItemTests.swift */,
+				7AC5F91D233690A500B2E0A5 /* TextFieldFormItemContainerTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		7A4A97F12321B9F500EFE587 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7A4A97EE2321B9DF00EFE587 /* FormMocks.swift */,
+				7A15625523226309008F214B /* FormSectionMocks.swift */,
+				7A4A97F82321BFB900EFE587 /* FormItemMocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		7A4EB14523101E91001538AD /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				7A515415231099C400C1AE7B /* FormItemContainer.swift */,
+				7A515417231099FA00C1AE7B /* FormItemInputContainer.swift */,
+				7A51541923109A2800C1AE7B /* FormItemContainerResponderAdapter.swift */,
+				7AF2F3412309A6CF000B6DE0 /* FormTableViewController.swift */,
+				7A6EFD57230DEA0F00634E2B /* TextFieldFormItemContainer.swift */,
+				7A1FDF742315A97E0076CEC6 /* TextViewFormItemContainer.swift */,
+				7A9BF53A2319B765005319AF /* SegmentedControlFormItemContainer.swift */,
+				7A9BF53C2319B891005319AF /* SliderFormItemContainer.swift */,
+				7A9BF53E2319B98C005319AF /* SwitchFormItemContainer.swift */,
+				7A9BF5402319B9EA005319AF /* StepperFormItemContainer.swift */,
+				7A51541B23109A9500C1AE7B /* DatePicker */,
+				7AA21F3F23117AAD00FC6DA6 /* Picker */,
+				7ACC1D2B2332AFA50090C4A0 /* TableViewFormContainer.swift */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		7A4EB14623101E9F001538AD /* FormItems */ = {
+			isa = PBXGroup;
+			children = (
+				7A1FDF722315A3EC0076CEC6 /* TextFormItem.swift */,
+				7A6F5C09230D47F90010C19E /* TextFieldFormItem.swift */,
+				7A1FDF7A2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift */,
+				7A85A94123146EDD008715B3 /* TextViewFormItem.swift */,
+				7A7AFCEE230E90DE00E89482 /* DatePickerFormItem.swift */,
+				7A32A17E230FE2CC00F5ACB3 /* PickerViewFormItem.swift */,
+				7A85A93923146E59008715B3 /* SegmentedControlFormItem.swift */,
+				7A85A93B23146E7C008715B3 /* SliderFormItem.swift */,
+				7A85A93D23146E90008715B3 /* SwitchFormItem.swift */,
+				7A85A93F23146ECF008715B3 /* StepperFormItem.swift */,
+			);
+			path = FormItems;
+			sourceTree = "<group>";
+		};
+		7A4EB14723101EA9001538AD /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				7AF2F33E2309A6CF000B6DE0 /* TableViewForm.swift */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
+		7A51541B23109A9500C1AE7B /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				7A7AFCF4230E9ADE00E89482 /* DatePickerFormItemContainer.swift */,
+				7A51541C23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		7A5B17B522B58A4300111A8A = {
+			isa = PBXGroup;
+			children = (
+				7A5B17C122B58A4300111A8A /* SwiftForm */,
+				7A5B17CC22B58A4300111A8A /* SwiftFormTests */,
+				7A2A793122C40C5700A8BAC1 /* SwiftFormTestApp */,
+				7A5B17C022B58A4300111A8A /* Products */,
+				7A43075D22C40D4C004292EC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7A5B17C022B58A4300111A8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A5B17BF22B58A4300111A8A /* SwiftForm.framework */,
+				7A5B17C822B58A4300111A8A /* SwiftFormTests.xctest */,
+				7A2A793022C40C5700A8BAC1 /* SwiftFormTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A5B17C122B58A4300111A8A /* SwiftForm */ = {
+			isa = PBXGroup;
+			children = (
+				7AF2F33B2309A2B4000B6DE0 /* Validation */,
+				7A98A0ED231A8CD400B3EB5C /* Presentation */,
+				7A5B17C222B58A4300111A8A /* SwiftForm.h */,
+				7A5B17C322B58A4300111A8A /* Info.plist */,
+			);
+			path = SwiftForm;
+			sourceTree = "<group>";
+		};
+		7A5B17CC22B58A4300111A8A /* SwiftFormTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A5B17CF22B58A4300111A8A /* Info.plist */,
+				7A4A97ED2321B9C600EFE587 /* Validation */,
+				7A4A97F02321B9E700EFE587 /* Presentation */,
+			);
+			path = SwiftFormTests;
+			sourceTree = "<group>";
+		};
+		7A5B17DA22B58B9100111A8A /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				7A86D24A22BE7B4700C3F45A /* ValueValidator.swift */,
+				7A5B17DB22B58B9100111A8A /* BoundedValueValidator.swift */,
+				7A5B17DC22B58B9100111A8A /* ListValidator.swift */,
+				7A5B17DD22B58B9100111A8A /* TextValidator.swift */,
+				7A5B17DE22B58B9100111A8A /* RegularExpressionValidator.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		7A8ADEB4231BDB7700612819 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A8ADEB5231BDB9000612819 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A8ADEB5231BDB9000612819 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7A98A0E9231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib */,
+				7A98A0EB231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift */,
+				7A8ADEA2231BD1C900612819 /* ReminderSwitchTableViewCell.xib */,
+				7A8ADEA4231BD1D200612819 /* ReminderSwitchTableViewCell.swift */,
+				7A8ADEA6231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib */,
+				7A8ADEA8231BD30700612819 /* ReminderDatePickerTableViewCell.swift */,
+				7A8ADEAA231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib */,
+				7A8ADEAC231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift */,
+				7A8ADEAE231BD44900612819 /* ReminderTextViewTableViewCell.xib */,
+				7A8ADEB0231BD45400612819 /* ReminderTextViewTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7A98A0ED231A8CD400B3EB5C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7AF2F3402309A6CF000B6DE0 /* Form.swift */,
+				7A4A97E92321B72900EFE587 /* BaseForm.swift */,
+				7A4A97E72321B57700EFE587 /* BaseForm+Focus.swift */,
+				7AF2F33F2309A6CF000B6DE0 /* FormSection.swift */,
+				7AF2F33D2309A6CF000B6DE0 /* FormItem.swift */,
+				7A4A97EB2321B7EC00EFE587 /* InputFormItem.swift */,
+				7A4EB14723101EA9001538AD /* Forms */,
+				7A4EB14623101E9F001538AD /* FormItems */,
+				7A4EB14523101E91001538AD /* Containers */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		7A9BF5422319BAC3005319AF /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				7AC1B6D123215E9600D3E6D8 /* Cells */,
+				7AC1B6D823215E9600D3E6D8 /* FormItems */,
+				7A9BF5562319BE97005319AF /* SignUpForm.swift */,
+				7A376B31230C230D00F49936 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		7A9BF5452319BB75005319AF /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				7A9BF5432319BB6E005319AF /* ReminderFormViewController.swift */,
+				7A8ADEB6231BDBB200612819 /* ReminderForm.swift */,
+				7A9BF5582319C3E0005319AF /* FormItems */,
+				7A8ADEB4231BDB7700612819 /* Views */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
+		7A9BF5582319C3E0005319AF /* FormItems */ = {
+			isa = PBXGroup;
+			children = (
+				7A8ADEB2231BD77D00612819 /* ReminderNameFormItem.swift */,
+				7A9BF5522319BE01005319AF /* ReminderOnDayFormItem.swift */,
+				7A9BF54A2319BD7E005319AF /* ReminderDateFormItem.swift */,
+				7A8ADEB8231BDE3500612819 /* ReminderOnLocationFormItem.swift */,
+				7A9BF54E2319BD93005319AF /* ReminderPriorityFormItem.swift */,
+				7A9BF5482319BD73005319AF /* ReminderNotesFormItem.swift */,
+			);
+			path = FormItems;
+			sourceTree = "<group>";
+		};
+		7AA21F3F23117AAD00FC6DA6 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				7AA21F3D23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift */,
+				7AA21F44231180C700FC6DA6 /* PickerViewFormItemContainer+UITextField.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		7AA21F46231182DC00FC6DA6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A5154112310860A00C1AE7B /* DefaultToolbar.xib */,
+				7A5154132310861400C1AE7B /* DefaultToolbar.swift */,
+				7A376B37230C4A4200F49936 /* LeftTitleHeaderView.xib */,
+				7A376B38230C4A4200F49936 /* LeftTitleHeaderView.swift */,
+				7A560B0C231D42DB00340B5B /* LeftTitleFooterView.xib */,
+				7A560B10231D43C400340B5B /* LeftTitleFooterView.swift */,
+				7A376B3D230C4ACF00F49936 /* UIView+Extension.swift */,
+				7A078BE22312C04E00026BE2 /* HeaderView.xib */,
+				7A078BE42312C05900026BE2 /* HeaderView.swift */,
+				7A560B12231D8B4500340B5B /* SignUpFooterView.xib */,
+				7A560B14231D8B5600340B5B /* SignUpFooterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AC1B6D123215E9600D3E6D8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7AC1B6D223215E9600D3E6D8 /* PickerViewFieldTableViewCell.xib */,
+				7AC1B6D423215E9600D3E6D8 /* PickerViewFieldTableViewCell.swift */,
+				7AC1B6D323215E9600D3E6D8 /* DatePickerFieldTableViewCell.xib */,
+				7AC1B6D523215E9600D3E6D8 /* DatePickerFieldTableViewCell.swift */,
+				7AC1B6D623215E9600D3E6D8 /* TextFieldTableViewCell.xib */,
+				7AC1B6D723215E9600D3E6D8 /* TextFieldTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7AC1B6D823215E9600D3E6D8 /* FormItems */ = {
+			isa = PBXGroup;
+			children = (
+				7AC1B6D923215E9600D3E6D8 /* LastNameFormItem.swift */,
+				7AC1B6DA23215E9600D3E6D8 /* FirstNameFormItem.swift */,
+				7AC1B6DB23215E9600D3E6D8 /* PasswordFormItem.swift */,
+				7AC1B6DC23215E9600D3E6D8 /* PasswordFormItem+Error.swift */,
+				7AC1B6DD23215E9600D3E6D8 /* DateOfRegistrationValidator.swift */,
+				7AC1B6DE23215E9600D3E6D8 /* DateOfBirthFormItem.swift */,
+				7AC1B6DF23215E9600D3E6D8 /* PlaceOfBirthFormItem.swift */,
+				7AC1B6E023215E9600D3E6D8 /* EmailAddressFormItem.swift */,
+			);
+			path = FormItems;
+			sourceTree = "<group>";
+		};
+		7AF2F33A2309A2A6000B6DE0 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7A86D24622BE72E700C3F45A /* ValidatorMocks.swift */,
+				7A93AF1222CD393000DB9F8A /* ValidatorErrorProviderMocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		7AF2F33B2309A2B4000B6DE0 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				7AF2F336230997E0000B6DE0 /* Validable.swift */,
+				7A5B17D922B58B9100111A8A /* ValidatorList.swift */,
+				7A5B17DF22B58B9200111A8A /* Validator.swift */,
+				7A5B17DA22B58B9100111A8A /* Validators */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7A5B17BA22B58A4300111A8A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A5B17D022B58A4300111A8A /* SwiftForm.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7A2A792F22C40C5700A8BAC1 /* SwiftFormTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A2A794122C40C5900A8BAC1 /* Build configuration list for PBXNativeTarget "SwiftFormTestApp" */;
+			buildPhases = (
+				7A2A792C22C40C5700A8BAC1 /* Sources */,
+				7A2A792D22C40C5700A8BAC1 /* Frameworks */,
+				7A2A792E22C40C5700A8BAC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A43075C22C40D45004292EC /* PBXTargetDependency */,
+			);
+			name = SwiftFormTestApp;
+			productName = SwiftFormTestApp;
+			productReference = 7A2A793022C40C5700A8BAC1 /* SwiftFormTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A5B17BE22B58A4300111A8A /* SwiftForm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A5B17D322B58A4300111A8A /* Build configuration list for PBXNativeTarget "SwiftForm" */;
+			buildPhases = (
+				7A5B17BA22B58A4300111A8A /* Headers */,
+				7A5B17BB22B58A4300111A8A /* Sources */,
+				7A5B17BC22B58A4300111A8A /* Frameworks */,
+				7A5B17BD22B58A4300111A8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftForm;
+			productName = SwiftForm;
+			productReference = 7A5B17BF22B58A4300111A8A /* SwiftForm.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7A5B17C722B58A4300111A8A /* SwiftFormTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A5B17D622B58A4300111A8A /* Build configuration list for PBXNativeTarget "SwiftFormTests" */;
+			buildPhases = (
+				7A5B17C422B58A4300111A8A /* Sources */,
+				7A5B17C522B58A4300111A8A /* Frameworks */,
+				7A5B17C622B58A4300111A8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A5B17CB22B58A4300111A8A /* PBXTargetDependency */,
+			);
+			name = SwiftFormTests;
+			productName = SwiftFormTests;
+			productReference = 7A5B17C822B58A4300111A8A /* SwiftFormTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A5B17B622B58A4300111A8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = itzseven;
+				TargetAttributes = {
+					7A2A792F22C40C5700A8BAC1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					7A5B17BE22B58A4300111A8A = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					7A5B17C722B58A4300111A8A = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+				};
+			};
+			buildConfigurationList = 7A5B17B922B58A4300111A8A /* Build configuration list for PBXProject "SwiftForm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A5B17B522B58A4300111A8A;
+			productRefGroup = 7A5B17C022B58A4300111A8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A5B17BE22B58A4300111A8A /* SwiftForm */,
+				7A5B17C722B58A4300111A8A /* SwiftFormTests */,
+				7A2A792F22C40C5700A8BAC1 /* SwiftFormTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A2A792E22C40C5700A8BAC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A8ADEAB231BD3AF00612819 /* ReminderSegmentedControlTableViewCell.xib in Resources */,
+				7A2A793D22C40C5800A8BAC1 /* LaunchScreen.storyboard in Resources */,
+				7A98A0EA231A8A4300B3EB5C /* ReminderTextFieldTableViewCell.xib in Resources */,
+				7A8ADEA3231BD1C900612819 /* ReminderSwitchTableViewCell.xib in Resources */,
+				7A560B13231D8B4500340B5B /* SignUpFooterView.xib in Resources */,
+				7A2A793A22C40C5800A8BAC1 /* Assets.xcassets in Resources */,
+				7A2A793822C40C5700A8BAC1 /* Main.storyboard in Resources */,
+				7AC1B6E523215E9600D3E6D8 /* TextFieldTableViewCell.xib in Resources */,
+				7A078BE32312C04E00026BE2 /* HeaderView.xib in Resources */,
+				7A8ADEAF231BD44900612819 /* ReminderTextViewTableViewCell.xib in Resources */,
+				7A376B39230C4A4200F49936 /* LeftTitleHeaderView.xib in Resources */,
+				7A5154122310860A00C1AE7B /* DefaultToolbar.xib in Resources */,
+				7A8ADEA7231BD2FE00612819 /* ReminderDatePickerTableViewCell.xib in Resources */,
+				7AC1B6E123215E9600D3E6D8 /* PickerViewFieldTableViewCell.xib in Resources */,
+				7A560B0D231D42DB00340B5B /* LeftTitleFooterView.xib in Resources */,
+				7AC1B6E223215E9600D3E6D8 /* DatePickerFieldTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5B17BD22B58A4300111A8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5B17C622B58A4300111A8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A2A792C22C40C5700A8BAC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A560B17231D8C8D00340B5B /* UITableView+Extension.swift in Sources */,
+				7A376B3E230C4ACF00F49936 /* UIView+Extension.swift in Sources */,
+				7A376B3A230C4A4200F49936 /* LeftTitleHeaderView.swift in Sources */,
+				7A8ADEB1231BD45400612819 /* ReminderTextViewTableViewCell.swift in Sources */,
+				7AC1B6E423215E9600D3E6D8 /* DatePickerFieldTableViewCell.swift in Sources */,
+				7AC1B6E923215E9600D3E6D8 /* PasswordFormItem.swift in Sources */,
+				7A376B32230C230D00F49936 /* SignUpViewController.swift in Sources */,
+				7AC1B6EE23215E9600D3E6D8 /* EmailAddressFormItem.swift in Sources */,
+				7AC1B6ED23215E9600D3E6D8 /* PlaceOfBirthFormItem.swift in Sources */,
+				7AC1B6E623215E9600D3E6D8 /* TextFieldTableViewCell.swift in Sources */,
+				7A8ADEA9231BD30700612819 /* ReminderDatePickerTableViewCell.swift in Sources */,
+				7A078BE52312C05900026BE2 /* HeaderView.swift in Sources */,
+				7AC1B6EC23215E9600D3E6D8 /* DateOfBirthFormItem.swift in Sources */,
+				7A9BF54F2319BD94005319AF /* ReminderPriorityFormItem.swift in Sources */,
+				7A2A793522C40C5700A8BAC1 /* ViewController.swift in Sources */,
+				7A2A793322C40C5700A8BAC1 /* AppDelegate.swift in Sources */,
+				7A9BF5492319BD73005319AF /* ReminderNotesFormItem.swift in Sources */,
+				7AC1B6E323215E9600D3E6D8 /* PickerViewFieldTableViewCell.swift in Sources */,
+				7A8ADEB3231BD77D00612819 /* ReminderNameFormItem.swift in Sources */,
+				7AC1B6EB23215E9600D3E6D8 /* DateOfRegistrationValidator.swift in Sources */,
+				7A9BF5572319BE97005319AF /* SignUpForm.swift in Sources */,
+				7A98A0EC231A8A4D00B3EB5C /* ReminderTextFieldTableViewCell.swift in Sources */,
+				7A8ADEB9231BDE3500612819 /* ReminderOnLocationFormItem.swift in Sources */,
+				7A9BF5532319BE01005319AF /* ReminderOnDayFormItem.swift in Sources */,
+				7A5154142310861400C1AE7B /* DefaultToolbar.swift in Sources */,
+				7AC1B6E823215E9600D3E6D8 /* FirstNameFormItem.swift in Sources */,
+				7A8ADEA5231BD1D200612819 /* ReminderSwitchTableViewCell.swift in Sources */,
+				7A560B11231D43C400340B5B /* LeftTitleFooterView.swift in Sources */,
+				7AC1B6EA23215E9600D3E6D8 /* PasswordFormItem+Error.swift in Sources */,
+				7A8ADEB7231BDBB200612819 /* ReminderForm.swift in Sources */,
+				7A8ADEAD231BD3B600612819 /* ReminderSegmentedControlTableViewCell.swift in Sources */,
+				7A9BF54B2319BD7E005319AF /* ReminderDateFormItem.swift in Sources */,
+				7AC1B6E723215E9600D3E6D8 /* LastNameFormItem.swift in Sources */,
+				7A9BF5442319BB6E005319AF /* ReminderFormViewController.swift in Sources */,
+				7A560B15231D8B5600340B5B /* SignUpFooterView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5B17BB22B58A4300111A8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A1FDF752315A97E0076CEC6 /* TextViewFormItemContainer.swift in Sources */,
+				7A515416231099C400C1AE7B /* FormItemContainer.swift in Sources */,
+				7AA21F3E23117A2D00FC6DA6 /* PickerViewFormItemContainer.swift in Sources */,
+				7AF2F3472309AC66000B6DE0 /* FormTableViewController.swift in Sources */,
+				7A4A97EA2321B72900EFE587 /* BaseForm.swift in Sources */,
+				7A85A93A23146E59008715B3 /* SegmentedControlFormItem.swift in Sources */,
+				7A9BF53D2319B891005319AF /* SliderFormItemContainer.swift in Sources */,
+				7A85A93E23146E90008715B3 /* SwitchFormItem.swift in Sources */,
+				7A7AFCEF230E90DE00E89482 /* DatePickerFormItem.swift in Sources */,
+				7A32A17F230FE2CC00F5ACB3 /* PickerViewFormItem.swift in Sources */,
+				7AF2F337230997E0000B6DE0 /* Validable.swift in Sources */,
+				7A9BF5412319B9EA005319AF /* StepperFormItemContainer.swift in Sources */,
+				7A6F5C0A230D47F90010C19E /* TextFieldFormItem.swift in Sources */,
+				7A6EFD58230DEA0F00634E2B /* TextFieldFormItemContainer.swift in Sources */,
+				7A51541A23109A2800C1AE7B /* FormItemContainerResponderAdapter.swift in Sources */,
+				7A9BF53B2319B765005319AF /* SegmentedControlFormItemContainer.swift in Sources */,
+				7AF2F3422309A6CF000B6DE0 /* FormItem.swift in Sources */,
+				7AF2F3442309A6CF000B6DE0 /* FormSection.swift in Sources */,
+				7A85A94023146ECF008715B3 /* StepperFormItem.swift in Sources */,
+				7A5B17E122B58B9200111A8A /* BoundedValueValidator.swift in Sources */,
+				7A85A94223146EDD008715B3 /* TextViewFormItem.swift in Sources */,
+				7A5B17E322B58B9200111A8A /* TextValidator.swift in Sources */,
+				7A1FDF7B2315B22E0076CEC6 /* TextFieldFormItem+Adapter.swift in Sources */,
+				7A7AFCF5230E9ADE00E89482 /* DatePickerFormItemContainer.swift in Sources */,
+				7A4A97E82321B57700EFE587 /* BaseForm+Focus.swift in Sources */,
+				7A5B17E222B58B9200111A8A /* ListValidator.swift in Sources */,
+				7ACC1D2C2332AFA50090C4A0 /* TableViewFormContainer.swift in Sources */,
+				7A51541D23109B0900C1AE7B /* DatePickerFormItemContainer+UITextField.swift in Sources */,
+				7A1FDF732315A3EC0076CEC6 /* TextFormItem.swift in Sources */,
+				7AF2F3452309A6CF000B6DE0 /* Form.swift in Sources */,
+				7A85A93C23146E7C008715B3 /* SliderFormItem.swift in Sources */,
+				7A515418231099FA00C1AE7B /* FormItemInputContainer.swift in Sources */,
+				7A5B17E022B58B9200111A8A /* ValidatorList.swift in Sources */,
+				7AA21F45231180C700FC6DA6 /* PickerViewFormItemContainer+UITextField.swift in Sources */,
+				7A9BF53F2319B98C005319AF /* SwitchFormItemContainer.swift in Sources */,
+				7A5B17E522B58B9200111A8A /* Validator.swift in Sources */,
+				7A86D24B22BE7B4700C3F45A /* ValueValidator.swift in Sources */,
+				7A5B17E422B58B9200111A8A /* RegularExpressionValidator.swift in Sources */,
+				7AF2F3432309A6CF000B6DE0 /* TableViewForm.swift in Sources */,
+				7A4A97EC2321B7EC00EFE587 /* InputFormItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5B17C422B58A4300111A8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A86D24722BE72E700C3F45A /* ValidatorMocks.swift in Sources */,
+				7A4A97F72321BBCE00EFE587 /* BaseFormFocusTests.swift in Sources */,
+				7A93AF1122CD366B00DB9F8A /* TextValidatorTests.swift in Sources */,
+				7AEBC0E422FB2AF100BA9251 /* MultiValueListValidatorTests.swift in Sources */,
+				7A9440C322FCCAB6007C721C /* RegularExpressionValidatorTests.swift in Sources */,
+				7A86D24522BE71E000C3F45A /* ValidatorListTests.swift in Sources */,
+				7A4A97F52321BBC100EFE587 /* BaseFormTests.swift in Sources */,
+				7AEBC0E222FB2ADD00BA9251 /* ListValidatorTests.swift in Sources */,
+				7A0D56AB232BF5F300A0831A /* FormItemTests.swift in Sources */,
+				7A0D56AD232BF9EF00A0831A /* InputFormItemTests.swift in Sources */,
+				7A86D24922BE73E800C3F45A /* ValueValidatorTests.swift in Sources */,
+				7A4A97F92321BFB900EFE587 /* FormItemMocks.swift in Sources */,
+				7AC5F91E233690A500B2E0A5 /* TextFieldFormItemContainerTests.swift in Sources */,
+				7A988BE62334F0C900AE36F3 /* TextFieldInputFormItemTests.swift in Sources */,
+				7A4A97EF2321B9DF00EFE587 /* FormMocks.swift in Sources */,
+				7A15625623226309008F214B /* FormSectionMocks.swift in Sources */,
+				7A45420C22DB44FD00CE8737 /* BoundedValueValidatorTests.swift in Sources */,
+				7A93AF1322CD393000DB9F8A /* ValidatorErrorProviderMocks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A43075C22C40D45004292EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A5B17BE22B58A4300111A8A /* SwiftForm */;
+			targetProxy = 7A43075B22C40D45004292EC /* PBXContainerItemProxy */;
+		};
+		7A5B17CB22B58A4300111A8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A5B17BE22B58A4300111A8A /* SwiftForm */;
+			targetProxy = 7A5B17CA22B58A4300111A8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A2A793622C40C5700A8BAC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A2A793722C40C5700A8BAC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7A2A793B22C40C5800A8BAC1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A2A793C22C40C5800A8BAC1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A2A793F22C40C5800A8BAC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QQ64R4PS8Q;
+				INFOPLIST_FILE = SwiftFormTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = eu.itzseven.SwiftFormTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A2A794022C40C5800A8BAC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QQ64R4PS8Q;
+				INFOPLIST_FILE = SwiftFormTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = eu.itzseven.SwiftFormTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A5B17D122B58A4300111A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7A5B17D222B58A4300111A8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7A5B17D422B58A4300111A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QQ64R4PS8Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftForm/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = eu.itzseven.SwiftForm;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A5B17D522B58A4300111A8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QQ64R4PS8Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftForm/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = eu.itzseven.SwiftForm;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7A5B17D722B58A4300111A8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QQ64R4PS8Q;
+				INFOPLIST_FILE = SwiftFormTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = eu.itzseven.SwiftFormTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A5B17D822B58A4300111A8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QQ64R4PS8Q;
+				INFOPLIST_FILE = SwiftFormTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = eu.itzseven.SwiftFormTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A2A794122C40C5900A8BAC1 /* Build configuration list for PBXNativeTarget "SwiftFormTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A2A793F22C40C5800A8BAC1 /* Debug */,
+				7A2A794022C40C5800A8BAC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A5B17B922B58A4300111A8A /* Build configuration list for PBXProject "SwiftForm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A5B17D122B58A4300111A8A /* Debug */,
+				7A5B17D222B58A4300111A8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A5B17D322B58A4300111A8A /* Build configuration list for PBXNativeTarget "SwiftForm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A5B17D422B58A4300111A8A /* Debug */,
+				7A5B17D522B58A4300111A8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A5B17D622B58A4300111A8A /* Build configuration list for PBXNativeTarget "SwiftFormTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A5B17D722B58A4300111A8A /* Debug */,
+				7A5B17D822B58A4300111A8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A5B17B622B58A4300111A8A /* Project object */;
+}
