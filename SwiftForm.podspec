@@ -3,11 +3,6 @@ Pod::Spec.new do |s|
   s.name         = "SwiftForm"
   s.version      = "0.0.2"
   s.summary      = "SwiftForm is a library to create forms easily with Swift."
-
-  s.description  = <<-DESC
-                   Put a description here
-                   DESC
-
   s.homepage     = "https://github.com/itzseven/SwiftForm"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "itzseven7" => "itzseven7@outlook.fr" }
