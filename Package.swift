@@ -19,6 +19,7 @@ let package = Package(
             path: "SwiftForm"),
         .testTarget(
             name: "SwiftFormTests",
-            dependencies: ["SwiftForm"]),
+            dependencies: ["SwiftForm"],
+            path: "SwiftFormTests"),
     ]
 )
