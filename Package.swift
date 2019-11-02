@@ -21,5 +21,5 @@ let package = Package(
             dependencies: ["SwiftForm"],
             path: "SwiftFormTests"),
     ],
-    swiftLanguageVersions: [.v4_2]
+    swiftLanguageVersions: [.v4_2, .v5]
 )
