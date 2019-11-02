@@ -5,13 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftForm",
+    platforms: [.iOS(.v11)],
     products: [
         .library(
             name: "SwiftForm",
             targets: ["SwiftForm"]),
     ],
-    dependencies: []
-    ,
     targets: [
         .target(
             name: "SwiftForm",
