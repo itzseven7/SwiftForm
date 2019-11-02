@@ -44,9 +44,6 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     form?.delegate = self
     
     form?.registerCells(for: tableView)
-    
-    //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
-    //NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
   }
   
   public func numberOfSections(in tableView: UITableView) -> Int {
@@ -151,19 +148,5 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
     } else {
       tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
-  }
-  
-  // Needs refactoring
-  
-  @objc func keyboardWillShow(notification: NSNotification) {
-    if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
-      tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-    }
-  }
-  
-  @objc func keyboardDidHide(notification: NSNotification) {
-    UIView.animate(withDuration: 0.2, animations: {
-      self.tableView.contentInset = .zero
-    })
   }
 }
