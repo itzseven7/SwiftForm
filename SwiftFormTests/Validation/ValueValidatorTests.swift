@@ -55,9 +55,11 @@ final class ValueValidatorTests: XCTestCase {
   
   func testValidatorWithCustomValidationHandler() {
     // Given
+    let notEvenError = "The value is not an even number"
+    
     sut = ValueValidator<Int> { val in
-      guard let value = val else { return false }
-      return value % 2 == 0
+      guard let value = val else { return (false, "The value should not be nil") }
+      return (value % 2 == 0, notEvenError)
     }
     
     // When
@@ -66,6 +68,7 @@ final class ValueValidatorTests: XCTestCase {
     // Then
     let expected = false
     XCTAssertEqual(sut.isValid, expected, "Validator should not be valid")
+    XCTAssertEqual(sut.error, notEvenError, "Validator should have a custom error")
   }
   
   func testValidatorIsNotMandatoryAndValid() {
