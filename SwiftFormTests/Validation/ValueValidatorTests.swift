@@ -53,6 +53,21 @@ final class ValueValidatorTests: XCTestCase {
     XCTAssertEqual(sut.isValid, expected, "Validator should not be valid")
   }
   
+  func testValidatorWithCustomValidationHandler() {
+    // Given
+    sut = ValueValidator<Int> { val in
+      guard let value = val else { return false }
+      return value % 2 == 0
+    }
+    
+    // When
+    sut.validate(5)
+    
+    // Then
+    let expected = false
+    XCTAssertEqual(sut.isValid, expected, "Validator should not be valid")
+  }
+  
   func testValidatorIsNotMandatoryAndValid() {
     // Given
     sut.isMandatory = false

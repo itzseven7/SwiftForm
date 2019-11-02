@@ -37,14 +37,16 @@ open class ValueValidator<ValueType: Equatable>: Validator {
     }
   }
   
+  private var validationHandler: ((ValueType?) -> Bool)
   private var subscriptions: [((ValueType?) -> Void)] = []
   
-  /// Initializes a new validator
-  ///
+  /// Initializes a value validator
   /// - Parameter value: the initial value
-  public init(value: ValueType? = nil) {
+  /// - Parameter handler: the handler used to validate a value
+  public init(value: ValueType? = nil, _ handler: ((ValueType?) -> Bool)? = nil) {
     self.value = value
     self.initialValue = value
+    self.validationHandler = handler ?? { val in return val != nil }
     
     if value != nil {
       checkValidity()
@@ -64,7 +66,7 @@ open class ValueValidator<ValueType: Equatable>: Validator {
       return
     }
     
-    isValid = value != nil
+    isValid = validationHandler(value)
     error = !(isValid ?? true) ? errorProvider?.noValueError : nil
   }
   
