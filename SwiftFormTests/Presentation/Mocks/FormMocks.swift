@@ -13,7 +13,7 @@ class DefaultForm: Form {
   
   var sections: [FormSection] = []
   
-  var delegate: FormDelegate?
+  var formDelegate: FormDelegate?
   
   var isEnabled: Bool = true
   

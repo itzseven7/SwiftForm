@@ -49,7 +49,7 @@ open class BaseTableViewForm: BaseForm, TableViewForm {
   public var tableFooterView: UIView?
   
   private var tableViewFormDelegate: TableViewFormDelegate? {
-    return delegate as? TableViewFormDelegate
+    return formDelegate as? TableViewFormDelegate
   }
   
   override func focusOnNextItem() {

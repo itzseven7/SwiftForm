@@ -97,7 +97,7 @@ final class BaseFormTests: XCTestCase {
   func testItemValidationCallsDelegateAndFocus() {
     // Given
     let delegate = FormDelegateMock()
-    sut.delegate = delegate
+    sut.formDelegate = delegate
     
     // When
     sut.onValidationEvent(formItem: firstItem)
@@ -110,7 +110,7 @@ final class BaseFormTests: XCTestCase {
   func testItemVisibilityChangeCallsDelegate() {
     // Given
     let delegate = FormDelegateMock()
-    sut.delegate = delegate
+    sut.formDelegate = delegate
     
     // When
     firstItem.isHidden = true

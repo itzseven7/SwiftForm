@@ -61,7 +61,7 @@ open class BaseForm: Form {
     return sections.flatMap { $0.items }.filter{ !$0.isHidden }
   }
   
-  public var delegate: FormDelegate?
+  public var formDelegate: FormDelegate?
   
   public var focusableItems: FocusableItem = [.mandatory]
   
@@ -90,7 +90,7 @@ extension BaseForm: FormItemObserver {
   }
   
   public func onValidationEvent(formItem: FormItem) {
-    delegate?.formItemsDidUpdate([formItem])
+    formDelegate?.formItemsDidUpdate([formItem])
     focusOnNextItem()
   }
   
@@ -102,9 +102,9 @@ extension BaseForm: FormItemObserver {
   
   public func onVisibilityEvent(formItem: FormItem) {
     if formItem.isHidden {
-      delegate?.formItemsDidHide([formItem])
+      formDelegate?.formItemsDidHide([formItem])
     } else {
-      delegate?.formItemsDidBecomeVisible([formItem])
+      formDelegate?.formItemsDidBecomeVisible([formItem])
     }
   }
 }
