@@ -23,6 +23,8 @@ public protocol TextFieldFormItem: FormItem {
   
   var autocorrectionType: UITextAutocorrectionType { get }
   
+  var textContentType: UITextContentType? { get }
+  
   var clearButtonMode: UITextField.ViewMode { get }
   
   var leftView: UIView? { get }
@@ -58,6 +60,8 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   public var autocapitalizationType: UITextAutocapitalizationType = .sentences
   
   public var autocorrectionType: UITextAutocorrectionType = .default
+  
+  public var textContentType: UITextContentType?
   
   public var clearButtonMode: UITextField.ViewMode = .never
   

@@ -50,6 +50,7 @@ extension TextFieldFormItemContainer {
     input.returnKeyType = textFieldFormItem.returnKeyType
     input.autocapitalizationType = textFieldFormItem.autocapitalizationType
     input.autocorrectionType = textFieldFormItem.autocorrectionType
+    input.textContentType = textFieldFormItem.textContentType
     input.leftView = textFieldFormItem.leftView
     input.leftViewMode = textFieldFormItem.leftViewMode
     input.rightView = textFieldFormItem.rightView
