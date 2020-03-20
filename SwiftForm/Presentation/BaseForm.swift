@@ -15,7 +15,7 @@ private class FormValidatorList: ValidatorList {
   }
 }
 
-open class BaseForm: Form {
+open class BaseForm: Form, FormItemObserver {
   public var validator: ValidatorList {
     return base
   }
@@ -61,6 +61,10 @@ open class BaseForm: Form {
     return sections.flatMap { $0.items }.filter{ !$0.isHidden }
   }
   
+  open var priority: Int {
+    return 999
+  }
+  
   public var formDelegate: FormDelegate?
   
   public var focusableItems: FocusableItem = [.mandatory]
@@ -82,25 +86,22 @@ open class BaseForm: Form {
     nextFormItem.beginEditing()
     nextFormItem.isEditing = true
   }
-}
-
-extension BaseForm: FormItemObserver {
-  public var priority: Int {
-    return 999
-  }
   
-  public func onValidationEvent(formItem: FormItem) {
+  open func onValidationEvent(formItem: FormItem) {
     formDelegate?.formItemsDidUpdate([formItem])
-    focusOnNextItem()
+    
+    if formItem.validator.isValid ?? false {
+      focusOnNextItem()
+    }
   }
   
-  public func onActivationEvent(formItem: FormItem) {}
+  open func onActivationEvent(formItem: FormItem) {}
   
-  public func onEditingEvent(formItem: FormItem) {}
+  open func onEditingEvent(formItem: FormItem) {}
   
-  public func onRefreshEvent(formItem: FormItem) {}
+  open func onRefreshEvent(formItem: FormItem) {}
   
-  public func onVisibilityEvent(formItem: FormItem) {
+  open func onVisibilityEvent(formItem: FormItem) {
     if formItem.isHidden {
       formDelegate?.formItemsDidHide([formItem])
     } else {

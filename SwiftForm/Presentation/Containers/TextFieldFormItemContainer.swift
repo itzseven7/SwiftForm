@@ -20,11 +20,11 @@ extension TextFieldFormItemContainer {
 extension TextFieldFormItemContainer {
   public func setUp() {
     formItem?.beginEditingCallback = { [weak self] in
-      self?.input.becomeFirstResponder()
+      self?.input.perform(#selector(UIResponder.becomeFirstResponder), with: nil, afterDelay: 0.1)
     }
     
     formItem?.endEditingCallback = { [weak self] in
-      self?.input.resignFirstResponder()
+      self?.input.perform(#selector(UIResponder.resignFirstResponder), with: nil, afterDelay: 0.1)
     }
     
     formItem?.addObserver(self)
