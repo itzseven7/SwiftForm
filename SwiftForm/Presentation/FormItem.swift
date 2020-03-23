@@ -21,6 +21,8 @@ public protocol FormItem: class {
   
   var isHidden: Bool { get set }
   
+  var automaticallyFocusOnNextItem: Bool { get }
+  
   /// A boolean value that indicates whether the item is in editing mode/focused
   ///
   /// This property is relevant when the item handles an input that waits for user action like text fields. For example, changing this property for a segmented control or a switch is not necessary

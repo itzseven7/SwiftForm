@@ -60,6 +60,7 @@ open class BaseTableViewForm: BaseForm, TableViewForm {
     let currentIndexPath = editingFormItem.indexPath
     
     editingFormItem.endEditing()
+    editingFormItem.isEditing = false
     
     guard let formItem = nextFormItem(after: currentIndexPath, typeMask: focusableItems) else {
       return
@@ -68,6 +69,7 @@ open class BaseTableViewForm: BaseForm, TableViewForm {
     tableViewFormDelegate?.scrollToNextFormItem(at: formItem.indexPath)
     
     formItem.beginEditing()
+    formItem.isEditing = true
   }
   
   /// Register the form items cell

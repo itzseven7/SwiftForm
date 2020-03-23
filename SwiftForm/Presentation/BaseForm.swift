@@ -91,7 +91,12 @@ open class BaseForm: Form, FormItemObserver {
     formDelegate?.formItemsDidUpdate([formItem])
     
     if formItem.validator.isValid ?? false {
-      focusOnNextItem()
+      if formItem.automaticallyFocusOnNextItem {
+        focusOnNextItem()
+      } else {
+        formItem.endEditing()
+        formItem.isEditing = false
+      }
     }
   }
   

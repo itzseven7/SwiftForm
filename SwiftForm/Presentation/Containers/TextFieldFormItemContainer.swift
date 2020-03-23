@@ -43,7 +43,6 @@ extension TextFieldFormItemContainer {
     input.text = textFieldFormItem.text
     input.placeholder = textFieldFormItem.placeholder
     input.isEnabled = textFieldFormItem.isEnabled
-    //textField.attributedPlaceholder = textFieldFormItemViewModel.attributedPlaceholder
     
     input.isSecureTextEntry = textFieldFormItem.isSecureTextEntry
     input.keyboardType = textFieldFormItem.keyboardType
