@@ -46,7 +46,7 @@ final class BaseFormFocusTests: XCTestCase {
     firstItem.isEditing = true
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = true
@@ -62,7 +62,7 @@ final class BaseFormFocusTests: XCTestCase {
     firstItem.isEditing = true
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = false
@@ -80,7 +80,7 @@ final class BaseFormFocusTests: XCTestCase {
     thirdItem.validator.isMandatory = false
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = thirdItem.indexPath
@@ -96,7 +96,7 @@ final class BaseFormFocusTests: XCTestCase {
     thirdItem.validator.isMandatory = true
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = thirdItem.indexPath
@@ -111,7 +111,7 @@ final class BaseFormFocusTests: XCTestCase {
     thirdItem.validatorMock?.shouldBeValid = false
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = thirdItem.indexPath
@@ -128,7 +128,7 @@ final class BaseFormFocusTests: XCTestCase {
     thirdItem.validator.isMandatory = false
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = thirdItem.indexPath
@@ -144,7 +144,7 @@ final class BaseFormFocusTests: XCTestCase {
     thirdItem.validator.isMandatory = false
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = secondItem.indexPath
@@ -162,7 +162,7 @@ final class BaseFormFocusTests: XCTestCase {
     thirdItem.validatorMock?.shouldBeValid = false
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = thirdItem.indexPath
@@ -177,7 +177,7 @@ final class BaseFormFocusTests: XCTestCase {
     secondItem.validatorMock?.isMandatory = false
     
     // When
-    sut.focusOnNextItem()
+    sut.focusOnNextItem(after: firstItem)
     
     // Then
     let expected = thirdItem.indexPath

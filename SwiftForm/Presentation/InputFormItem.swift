@@ -32,11 +32,11 @@ open class InputFormItem<ValueType: Equatable, InputValueType>: FormItem, Equata
   
   public var isEditing: Bool = false
   
-  public var automaticallyFocusOnNextItem: Bool = true
-  
   public var beginEditingCallback: (() -> Void)?
   
   public var endEditingCallback: (() -> Void)?
+  
+  public var focusOnNextItemCallback: ((FormItem) -> Void)?
   
   internal var observers: [FormItemObserver] = []
   

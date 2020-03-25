@@ -9,7 +9,7 @@ import UIKit
 
 open class FormTableViewController: UIViewController, TableViewFormDelegate, UITableViewDataSource, UITableViewDelegate {
   
-  open var tableView: UITableView {
+  open var formTableView: UITableView {
     preconditionFailure("You must provide your own table view")
   }
   
@@ -25,14 +25,14 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
   override open func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.dataSource = self
-    tableView.delegate = self
+    formTableView.dataSource = self
+    formTableView.delegate = self
     
-    tableView.tableHeaderView = form?.tableHeaderView
-    tableView.tableFooterView = form?.tableFooterView
+    formTableView.tableHeaderView = form?.tableHeaderView
+    formTableView.tableFooterView = form?.tableFooterView
     
     form?.formDelegate = self
-    form?.registerCells(for: tableView)
+    form?.registerCells(for: formTableView)
   }
   
   public func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,49 +93,49 @@ open class FormTableViewController: UIViewController, TableViewFormDelegate, UIT
 //  }
   
   open func formSectionsDidBecomeVisible(_ formSections: [FormSection]) {
-    tableView.beginUpdates()
-    tableView.insertSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
-    tableView.endUpdates()
+    formTableView.beginUpdates()
+    formTableView.insertSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
+    formTableView.endUpdates()
   }
   
   open func formSectionsDidHide(_ formSections: [FormSection]) {
-    tableView.beginUpdates()
-    tableView.deleteSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
-    tableView.endUpdates()
+    formTableView.beginUpdates()
+    formTableView.deleteSections(IndexSet(formSections.compactMap { $0.items.first?.indexPath.section }), with: .automatic)
+    formTableView.endUpdates()
   }
   
   open func formItemsDidUpdate(_ formItems: [FormItem]) {
     UIView.setAnimationsEnabled(false)
-    tableView.beginUpdates()
-    tableView.endUpdates()
+    formTableView.beginUpdates()
+    formTableView.endUpdates()
     UIView.setAnimationsEnabled(true)
   }
   
   open func formItemsDidBecomeVisible(_ formItems: [FormItem]) {
-    tableView.beginUpdates()
-    tableView.insertRows(at: formItems.map { $0.indexPath }, with: .automatic)
-    tableView.endUpdates()
+    formTableView.beginUpdates()
+    formTableView.insertRows(at: formItems.map { $0.indexPath }, with: .automatic)
+    formTableView.endUpdates()
   }
   
   open func formItemsDidHide(_ formItems: [FormItem]) {
-    tableView.beginUpdates()
-    tableView.deleteRows(at: formItems.map { $0.indexPath }, with: .automatic)
-    tableView.endUpdates()
+    formTableView.beginUpdates()
+    formTableView.deleteRows(at: formItems.map { $0.indexPath }, with: .automatic)
+    formTableView.endUpdates()
   }
   
   open func scrollToNextFormItem(at indexPath: IndexPath) {
-    _ = tableView.visibleCells
+    _ = formTableView.visibleCells
     
-    if let visibleRows = tableView.indexPathsForVisibleRows, visibleRows.contains(indexPath) {
-      let cellRect = tableView.rectForRow(at: indexPath)
-      let completelyVisible = tableView.bounds.contains(cellRect)
+    if let visibleRows = formTableView.indexPathsForVisibleRows, visibleRows.contains(indexPath) {
+      let cellRect = formTableView.rectForRow(at: indexPath)
+      let completelyVisible = formTableView.bounds.contains(cellRect)
       if !completelyVisible {
-        tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+        formTableView.scrollToRow(at: indexPath, at: .none, animated: true)
       } else {
         return
       }
     } else {
-      tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+      formTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
   }
 }

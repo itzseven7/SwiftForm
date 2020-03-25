@@ -96,23 +96,23 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   
   open func textFieldDidEndEditing(_ textField: UITextField) {
     guard validationMode == .always, !userDidReturn else {
-      userDidReturn = false
+      
       isEditing = false
       notifyEditingChange()
+      
+      if userDidReturn {
+        userDidReturn = false
+        focusOnNextItemCallback?(self)
+      }
+      
       return
     }
-    
-    automaticallyFocusOnNextItem = false
     
     inputValue = textField.text
     validate()
     
-    automaticallyFocusOnNextItem = true
-    
-    if validator.isValid ?? false {
-      isEditing = false
-      notifyEditingChange()
-    }
+    isEditing = false
+    notifyEditingChange()
   }
   
   open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -154,9 +154,9 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
     validate()
     
     if validator.isValid ?? true {
+      endEditing()
       return true
     } else {
-      userDidReturn = false
       return false
     }
   }
@@ -166,24 +166,5 @@ extension TextFieldInputFormItem {
   public enum ValidationMode {
     case always // always validates the value when text field resigns first responder (textFieldDidEndEditing and textFieldShouldReturn)
     case returnKey // only validates the value on textFieldShouldReturn
-  }
-  
-  public enum UnfocusReason {
-    case returnKey // user click on next/done on keyboard
-    case system // text field resigns first responder because of system (table view reload data, drag to dismiss...)
-    case custom(shouldValidate: Bool)
-    
-    var shouldValidate: Bool {
-      switch self {
-      case .returnKey:
-        return false
-      case .system:
-        <#code#>
-      case .custom(let shouldValidate):
-        <#code#>
-      @unknown default:
-        <#code#>
-      }
-    }
   }
 }

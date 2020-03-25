@@ -52,24 +52,10 @@ open class BaseTableViewForm: BaseForm, TableViewForm {
     return formDelegate as? TableViewFormDelegate
   }
   
-  override func focusOnNextItem() {
-    guard let editingFormItem = editingFormItem else {
-      return
-    }
-    
-    let currentIndexPath = editingFormItem.indexPath
-    
-    editingFormItem.endEditing()
-    editingFormItem.isEditing = false
-    
-    guard let formItem = nextFormItem(after: currentIndexPath, typeMask: focusableItems) else {
-      return
-    }
+  override func focusOnNextItem(after formItem: FormItem) {
+    super.focusOnNextItem(after: formItem)
     
     tableViewFormDelegate?.scrollToNextFormItem(at: formItem.indexPath)
-    
-    formItem.beginEditing()
-    formItem.isEditing = true
   }
   
   /// Register the form items cell

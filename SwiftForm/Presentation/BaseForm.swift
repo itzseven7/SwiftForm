@@ -27,8 +27,13 @@ open class BaseForm: Form, FormItemObserver {
       // Generate a validator list based on form items
       self.base = FormValidatorList(items: sections.flatMap { $0.items }.map { $0.validator })
       
-      // Observes all form items
-      sections.flatMap { $0.items }.forEach { $0.addObserver(self) }
+      // Observes all form items + add a focus on next item callback
+      sections.flatMap { $0.items }.forEach {
+        $0.addObserver(self)
+        $0.focusOnNextItemCallback = { [weak self] current in
+          self?.focusOnNextItem(after: current)
+        }
+      }
       
       // Generates index paths
       for i in 0..<sections.count {
@@ -71,15 +76,11 @@ open class BaseForm: Form, FormItemObserver {
   
   public init() {}
   
-  internal func focusOnNextItem() {
-    guard let editingFormItem = editingFormItem else {
-      return
-    }
+  internal func focusOnNextItem(after formItem: FormItem) {
+    formItem.endEditing()
+    formItem.isEditing = false
     
-    editingFormItem.endEditing()
-    editingFormItem.isEditing = false
-    
-    guard let nextFormItem = self.nextFormItem(after: editingFormItem.indexPath, typeMask: focusableItems) else {
+    guard let nextFormItem = self.nextFormItem(after: formItem.indexPath, typeMask: focusableItems) else {
       return
     }
     
@@ -89,15 +90,6 @@ open class BaseForm: Form, FormItemObserver {
   
   open func onValidationEvent(formItem: FormItem) {
     formDelegate?.formItemsDidUpdate([formItem])
-    
-    if formItem.validator.isValid ?? false {
-      if formItem.automaticallyFocusOnNextItem {
-        focusOnNextItem()
-      } else {
-        formItem.endEditing()
-        formItem.isEditing = false
-      }
-    }
   }
   
   open func onActivationEvent(formItem: FormItem) {}

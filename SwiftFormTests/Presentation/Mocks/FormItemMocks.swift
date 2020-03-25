@@ -31,6 +31,8 @@ class FormItemMock: FormItem, Equatable {
   
   var endEditingCallback: (() -> Void)?
   
+  var focusOnNextItemCallback: ((FormItem) -> Void)?
+  
   var validateIsCalled = false
   
   var beginEditingIsCalled = false
