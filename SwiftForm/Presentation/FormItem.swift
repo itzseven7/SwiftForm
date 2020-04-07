@@ -31,6 +31,8 @@ public protocol FormItem: class {
   
   var endEditingCallback: (() -> Void)? { get set }
   
+  var focusOnNextItemCallback: ((FormItem) -> Void)? { get set }
+  
   /// You should use this method to begin editing instead of the callback
   func beginEditing()
   

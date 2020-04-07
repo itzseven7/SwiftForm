@@ -46,7 +46,7 @@ final class TextFieldFormItemContainerTests: XCTestCase {
     RunLoop.current.run(until: Date())
   }
   
-  func testCallbacksAreCorrectlySet() {
+  func testBeginEditingCallbackIsCorrectlySet() {
     // Given
     sut.setUp()
     
@@ -55,6 +55,11 @@ final class TextFieldFormItemContainerTests: XCTestCase {
     
     // Then
     XCTAssertTrue(sut.textField.isFirstResponder, "Textfield should be editing")
+  }
+  
+  func testEndEditingCallbackIsCorrectlySet() {
+    // Given
+    sut.setUp()
     
     // When
     formItem.endEditingCallback?()

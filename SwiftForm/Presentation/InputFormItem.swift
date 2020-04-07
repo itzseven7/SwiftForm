@@ -36,6 +36,8 @@ open class InputFormItem<ValueType: Equatable, InputValueType>: FormItem, Equata
   
   public var endEditingCallback: (() -> Void)?
   
+  public var focusOnNextItemCallback: ((FormItem) -> Void)?
+  
   internal var observers: [FormItemObserver] = []
   
   /// Create a new input form item with an initial value

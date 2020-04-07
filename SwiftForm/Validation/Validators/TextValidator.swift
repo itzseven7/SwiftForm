@@ -18,7 +18,7 @@ open class TextValidator: ValueValidator<String> {
     return errorProvider as? TextValidatorErrorProvider
   }
   
-  override public func checkValidity() {
+  override open func checkValidity() {
     super.checkValidity()
     
     guard let value = value, isValid ?? false else {

@@ -15,6 +15,8 @@ public protocol ValueValidatorErrorProvider {
 /// This class defines a validator with a generic value. You usually do not instantiate this class directly, but subclass it.
 open class ValueValidator<ValueType: Equatable>: Validator {
   
+  public typealias ValidationHandler = ((ValueType?) -> (isValid: Bool, error: String?))
+  
   /// The current value of the validator
   public var value: ValueType?
   
@@ -37,35 +39,43 @@ open class ValueValidator<ValueType: Equatable>: Validator {
     }
   }
   
+  private var validationHandler: ValidationHandler?
   private var subscriptions: [((ValueType?) -> Void)] = []
   
-  /// Initializes a new validator
-  ///
+  /// Initializes a value validator
   /// - Parameter value: the initial value
-  public init(value: ValueType? = nil) {
+  /// - Parameter handler: a custom handler to validate a value
+  public init(value: ValueType? = nil, _ handler: ValidationHandler? = nil) {
     self.value = value
     self.initialValue = value
+    self.validationHandler = handler
     
     if value != nil {
       checkValidity()
     }
   }
   
-  public func validate(_ value: ValueType?) {
+  open func validate(_ value: ValueType?) {
     self.value = value
     checkValidity()
     notify()
   }
   
-  public func checkValidity() {
+  open func checkValidity() {
     guard isMandatory else {
       isValid = true
       error = nil
       return
     }
     
-    isValid = value != nil
-    error = !(isValid ?? true) ? errorProvider?.noValueError : nil
+    if let handler = validationHandler {
+      let handlerResult = handler(value)
+      isValid = handlerResult.isValid
+      error = !(isValid ?? true) ? handlerResult.error : nil 
+    } else {
+      isValid = value != nil
+      error = !(isValid ?? true) ? errorProvider?.noValueError : nil
+    }
   }
   
   public func subscribe(_ handler: @escaping ((ValueType?) -> Void)) {

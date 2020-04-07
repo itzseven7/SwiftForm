@@ -15,7 +15,7 @@ private class FormValidatorList: ValidatorList {
   }
 }
 
-open class BaseForm: Form {
+open class BaseForm: Form, FormItemObserver {
   public var validator: ValidatorList {
     return base
   }
@@ -27,8 +27,13 @@ open class BaseForm: Form {
       // Generate a validator list based on form items
       self.base = FormValidatorList(items: sections.flatMap { $0.items }.map { $0.validator })
       
-      // Observes all form items
-      sections.flatMap { $0.items }.forEach { $0.addObserver(self) }
+      // Observes all form items + add a focus on next item callback
+      sections.flatMap { $0.items }.forEach {
+        $0.addObserver(self)
+        $0.focusOnNextItemCallback = { [weak self] current in
+          self?.focusOnNextItem(after: current)
+        }
+      }
       
       // Generates index paths
       for i in 0..<sections.count {
@@ -61,50 +66,43 @@ open class BaseForm: Form {
     return sections.flatMap { $0.items }.filter{ !$0.isHidden }
   }
   
-  public var delegate: FormDelegate?
+  open var priority: Int {
+    return 999
+  }
+  
+  public var formDelegate: FormDelegate?
   
   public var focusableItems: FocusableItem = [.mandatory]
   
   public init() {}
   
-  internal func focusOnNextItem() {
-    guard let editingFormItem = editingFormItem else {
-      return
-    }
+  internal func focusOnNextItem(after formItem: FormItem) {
+    formItem.endEditing()
+    formItem.isEditing = false
     
-    editingFormItem.endEditing()
-    editingFormItem.isEditing = false
-    
-    guard let nextFormItem = self.nextFormItem(after: editingFormItem.indexPath, typeMask: focusableItems) else {
+    guard let nextFormItem = self.nextFormItem(after: formItem.indexPath, typeMask: focusableItems) else {
       return
     }
     
     nextFormItem.beginEditing()
     nextFormItem.isEditing = true
   }
-}
-
-extension BaseForm: FormItemObserver {
-  public var priority: Int {
-    return 999
+  
+  open func onValidationEvent(formItem: FormItem) {
+    formDelegate?.formItemsDidUpdate([formItem])
   }
   
-  public func onValidationEvent(formItem: FormItem) {
-    delegate?.formItemsDidUpdate([formItem])
-    focusOnNextItem()
-  }
+  open func onActivationEvent(formItem: FormItem) {}
   
-  public func onActivationEvent(formItem: FormItem) {}
+  open func onEditingEvent(formItem: FormItem) {}
   
-  public func onEditingEvent(formItem: FormItem) {}
+  open func onRefreshEvent(formItem: FormItem) {}
   
-  public func onRefreshEvent(formItem: FormItem) {}
-  
-  public func onVisibilityEvent(formItem: FormItem) {
+  open func onVisibilityEvent(formItem: FormItem) {
     if formItem.isHidden {
-      delegate?.formItemsDidHide([formItem])
+      formDelegate?.formItemsDidHide([formItem])
     } else {
-      delegate?.formItemsDidBecomeVisible([formItem])
+      formDelegate?.formItemsDidBecomeVisible([formItem])
     }
   }
 }
