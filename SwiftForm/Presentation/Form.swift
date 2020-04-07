@@ -13,7 +13,7 @@ public protocol Form {
   
   var sections: [FormSection] { get }
   
-  var delegate: FormDelegate? { get set }
+  var formDelegate: FormDelegate? { get set }
   
   var isEnabled: Bool { get set } // allows to disable interaction (for example: during an API call)
   

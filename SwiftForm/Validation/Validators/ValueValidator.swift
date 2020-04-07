@@ -55,13 +55,13 @@ open class ValueValidator<ValueType: Equatable>: Validator {
     }
   }
   
-  public func validate(_ value: ValueType?) {
+  open func validate(_ value: ValueType?) {
     self.value = value
     checkValidity()
     notify()
   }
   
-  public func checkValidity() {
+  open func checkValidity() {
     guard isMandatory else {
       isValid = true
       error = nil

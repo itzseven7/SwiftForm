@@ -23,6 +23,8 @@ public protocol TextFieldFormItem: FormItem {
   
   var autocorrectionType: UITextAutocorrectionType { get }
   
+  var textContentType: UITextContentType? { get }
+  
   var clearButtonMode: UITextField.ViewMode { get }
   
   var leftView: UIView? { get }
@@ -49,7 +51,7 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   
   public var placeholder: String?
   
-  public var isSecureTextEntry: Bool = false
+  open var isSecureTextEntry: Bool = false
   
   public var keyboardType: UIKeyboardType = .default
   
@@ -58,6 +60,8 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   public var autocapitalizationType: UITextAutocapitalizationType = .sentences
   
   public var autocorrectionType: UITextAutocorrectionType = .default
+  
+  public var textContentType: UITextContentType?
   
   public var clearButtonMode: UITextField.ViewMode = .never
   
@@ -72,6 +76,8 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   public var inputAccessoryView: UIView?
   
   public var validationMode: ValidationMode = .returnKey
+  
+  var userDidReturn = false
   
   open func textFieldDidBeginEditing(_ textField: UITextField) {
     isEditing = true
@@ -89,6 +95,22 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   }
   
   open func textFieldDidEndEditing(_ textField: UITextField) {
+    guard validationMode == .always, !userDidReturn else {
+      
+      isEditing = false
+      notifyEditingChange()
+      
+      if userDidReturn {
+        userDidReturn = false
+        focusOnNextItemCallback?(self)
+      }
+      
+      return
+    }
+    
+    inputValue = textField.text
+    validate()
+    
     isEditing = false
     notifyEditingChange()
   }
@@ -126,10 +148,17 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   }
   
   open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    userDidReturn = true
+    
     inputValue = unformatted(textField.text) ?? textField.text
     validate()
     
-    return validator.isValid ?? true
+    if validator.isValid ?? true {
+      endEditing()
+      return true
+    } else {
+      return false
+    }
   }
 }
 

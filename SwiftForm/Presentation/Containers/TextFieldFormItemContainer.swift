@@ -20,11 +20,11 @@ extension TextFieldFormItemContainer {
 extension TextFieldFormItemContainer {
   public func setUp() {
     formItem?.beginEditingCallback = { [weak self] in
-      self?.input.becomeFirstResponder()
+      self?.input.perform(#selector(UIResponder.becomeFirstResponder), with: nil, afterDelay: 0.1)
     }
     
     formItem?.endEditingCallback = { [weak self] in
-      self?.input.resignFirstResponder()
+      self?.input.perform(#selector(UIResponder.resignFirstResponder), with: nil, afterDelay: 0.1)
     }
     
     formItem?.addObserver(self)
@@ -43,13 +43,13 @@ extension TextFieldFormItemContainer {
     input.text = textFieldFormItem.text
     input.placeholder = textFieldFormItem.placeholder
     input.isEnabled = textFieldFormItem.isEnabled
-    //textField.attributedPlaceholder = textFieldFormItemViewModel.attributedPlaceholder
     
     input.isSecureTextEntry = textFieldFormItem.isSecureTextEntry
     input.keyboardType = textFieldFormItem.keyboardType
     input.returnKeyType = textFieldFormItem.returnKeyType
     input.autocapitalizationType = textFieldFormItem.autocapitalizationType
     input.autocorrectionType = textFieldFormItem.autocorrectionType
+    input.textContentType = textFieldFormItem.textContentType
     input.leftView = textFieldFormItem.leftView
     input.leftViewMode = textFieldFormItem.leftViewMode
     input.rightView = textFieldFormItem.rightView

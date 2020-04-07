@@ -12,7 +12,7 @@ final class DateOfBirthValidator: BoundedValueValidator<Date> {
   private var minimumAge: Int = 18
   private var maximumAge: Int = 120
   
-  override init(value: Date?) {
+  init(value: Date?) {
     super.init(value: value)
     
     let date = Date()
