@@ -51,7 +51,7 @@ open class TextFieldInputFormItem<ValueType: Equatable>: TextFormItemInput<Value
   
   public var placeholder: String?
   
-  public var isSecureTextEntry: Bool = false
+  open var isSecureTextEntry: Bool = false
   
   public var keyboardType: UIKeyboardType = .default
   
